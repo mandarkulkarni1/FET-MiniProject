@@ -1,0 +1,73 @@
+
+
+input{
+    margin: 5px;
+}
+ 
+.card-img-top{
+    height: 75%;
+}
+
+.card-title{
+    margin: 10px;
+}
+
+.card{
+    width: 250px;
+    height: 180px;
+    margin: 20px;
+    text-align: center;
+}
+
+.card:hover{
+    box-shadow: 3px 3px 5px black;    
+    transform: scale(1.1);
+}
+
+.card-body{
+    text-align: center;
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.section-title{
+    margin-top: 20px;
+    margin-left:20px ;
+}
+
+#albums .card{
+    width: 150px;
+}
+
+#albums .card-title{
+   margin: 0px;;
+}
+
+#artists .card{
+    width: 130px;
+    border: white;
+    
+}
+
+#artists .card:hover{  
+    transform: scale(1.1);
+    box-shadow: 0px 0px 0px white;
+}
+
+#artists  img{
+    border-radius: 50%;
+
+}
+
+#recent .card{
+    width: 150px;
+}
+
+#recent .card-title{
+   margin: 0px;;
+}
