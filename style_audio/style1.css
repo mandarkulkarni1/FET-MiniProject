@@ -1,7 +1,7 @@
 html { box-sizing: border-box; }
 *, *::before, *::after { box-sizing: inherit; }
 
-body {
+ body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,8 +10,8 @@ body {
   font-size: 100%;
   font-weight: 300;
   font-family: 'Roboto Condensed', sans-serif;
-  background-color: #222;
-}
+  
+} 
 
 h1 {
   margin-bottom: 0.5em;
@@ -19,6 +19,8 @@ h1 {
 }
 
 h2 { font-size: 87.5%; }
+
+
 
 .player {
   position: relative;
@@ -45,8 +47,8 @@ h2 { font-size: 87.5%; }
   background-color: #111;
   border: 1px solid #111;
   border-radius: 50%;
-  background-image: url("./images/art2.jpg");
-  /* box-shadow:
+  /* background-image: url("./images/art2.jpg"); */
+  box-shadow:
     0 0.0625em 0.1875em rgba(0,0,0,0.5),
     0 0 0.125em 0.3125em #ddd,
     0 0.0625em 0 0.375em #bbb,
@@ -105,7 +107,7 @@ h2 { font-size: 87.5%; }
     inset 0 0 0 3.3125em rgba(255,255,255,0.2),
     inset 0 0 0 3.375em rgba(255,255,255,0.1),
     inset 0 0 0 3.4375em rgba(0,0,0,0.5),
-    inset 0 0 0 3.5em rgba(255,255,255,0.3); */
+    inset 0 0 0 3.5em rgba(255,255,255,0.3);
 }
 
 .album::after {
@@ -153,13 +155,14 @@ h2 { font-size: 87.5%; }
   z-index: 1;
   top: 50%;
   left: 50%;
-  width: 6em;
-  height: 6em;
+  width: 16em;
+  height: 16em;
   overflow: hidden;
   transform-origin: 0 0;
   transform: rotate(0) translate(-50%,-50%);
   border-radius: 50%;
   animation: spin 4s linear infinite paused;
+  
 }
 
 .ffing .cover {
