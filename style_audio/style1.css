@@ -20,7 +20,18 @@ h1 {
 
 h2 { font-size: 87.5%; }
 
-
+.ss{
+  width: 100%;
+  height: auto;
+  background-image: url(./../images/bg.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+ 
+}
 
 .player {
   position: relative;

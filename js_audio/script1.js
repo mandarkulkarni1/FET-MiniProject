@@ -20,7 +20,9 @@ $(document).ready(function () {
         // });
         $(".cover").append(products);
         $('audio').append(`<source src="${data.title}" type="audio/ogg" />`);
+        console.log(data.title)
         // $(".audio1").append(s);
+        $('#download').attr('href',`${data.title}`)
        
       },
       error: function () {
@@ -30,6 +32,9 @@ $(document).ready(function () {
   });
   $("body").trigger("load");
   
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
   var player = $('.player'),
   audio = player.find('audio'),
   duration = $('.duration'),
