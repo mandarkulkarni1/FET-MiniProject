@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="./sass/main.css">
     <title>Planet M </title>
     <link rel="icon" href="./image/title.png">
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script defer src="./js/mandarjs.js"></script>
 </head>
@@ -34,51 +39,55 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- <li class="nav-item">
+                            <a class="btn" aria-current="page" href="#">Home</a>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-success rounded-2 " aria-current="page" href="#">Home</a>
+                            <button id="musicLibAnchor" class="btn btn-outline-secondary" disabled="disabled"
+                                onclick="window.location='./library-ui/music_library.html'">Music Library</button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  btn-outline-success rounded-2 " href="#">Music Library</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn-outline-success rounded-2 " href="#">Now Playing</a>
+                            <button id="nowPlayingAnchor" class="btn btn-outline-secondary " disabled="disabled"
+                                onclick="window.location='./ui_audio/audio.html'">Now
+                                Playing</button>
                         </li>
 
                     </ul>
                     <div class="d-flex">
-                        <button type="button" id="loginbutton" class="btn btn-outline-success my-2 my-sm-0 " data-bs-toggle="modal"
-                            data-bs-target="#login">Login</button>
-                        <button type="button" id="userbutton" hidden class="btn btn-outline-success my-2 my-sm-0 ">User Settings</button>
-                        <button type="button" id="logoutbutton" hidden class="btn btn-outline-danger my-2 my-sm-0 " style="margin: 3px;">Logout</button>
+                        <button type="button" id="loginbutton" class="btn btn-outline-success my-2 my-sm-0 "
+                            data-bs-toggle="modal" data-bs-target="#login">Login</button>
+                        <button type="button" id="userbutton" hidden class="btn btn-outline-success my-2 my-sm-0 ">User
+                            Settings</button>
+                        <button type="button" id="logoutbutton" hidden class="btn btn-outline-danger my-2 my-sm-0 "
+                            style="margin: 3px;">Logout</button>
                         <div class="modal fade " id="login" tabindex="-1" aria-labelledby="exampleModalCenterTitle">
                             <div class="modal-dialog modal-dialog-centered container">
                                 <div class="modal-content">
                                     <div class="modal-header  bg-success text-light">
                                         <h5 class="modal-title"> Login</h5>
-                                        <button type="button" class="btn-close" id="closes"
-                                                            aria-label="Close">
+                                        <button type="button" class="btn-close" id="closes" aria-label="Close">
                                     </div>
                                     <div class="modal-body ">
-                                        <form>
+                                        <form id="form1">
                                             <div class="mb-2">
                                                 <label class="form-label required">Email</label>
-                                                <input id="email" type="email" class="form-control">
+                                                <input id="email" type="email" class="form-control" required />
                                             </div>
                                             <div class="mb-2">
                                                 <label class="form-label required">Password</label>
-                                                <input id="passwd" type="password" class="form-control">
+                                                <input id="passwd" type="password" class="form-control" required />
                                             </div>
-
                                         </form>
                                     </div>
                                     <div class="modal-footer">
                                         <fieldset class="w-100">
-                                            <button type="submit"
-                                                class="btn btn-outline-primary my-2 my-sm-0 float-end" id="loginuser">Login</button>
+                                            <button type="submit" class="btn btn-outline-primary my-2 my-sm-0 float-end"
+                                                id="loginuser">Login</button>
                                             <button type="submit"
                                                 class="btn btn-outline-success my-2 my-sm-0 float-start"
                                                 data-bs-toggle="modal" data-bs-target="#register">Register</button>
                                         </fieldset>
+
                                         <div class="modal fade" id="register" aria-labelledby="exampleModalCenterTitle"
                                             aria-hidden="true" tabindex="-1">
                                             <div class="modal-dialog modal-dialog-centered container">

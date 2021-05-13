@@ -2,9 +2,21 @@
   "users": [
     {
       "id": "mk@123",
-      "username": "Mandar",
-      "phone": "21312423432",
+      "username": "mandar",
+      "phone": "123432421",
       "password": "mk"
+    },
+    {
+      "id": "noel@123",
+      "username": "noel",
+      "phone": "45231342",
+      "password": "mk"
+    },
+    {
+      "id": "qwe",
+      "username": "qwe",
+      "phone": "qwe",
+      "password": "qwe"
     }
   ]
 }
