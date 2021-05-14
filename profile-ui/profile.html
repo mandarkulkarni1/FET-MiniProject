@@ -20,7 +20,7 @@
 
     <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="../styles/styles.css">
     <script defer src="../js/script.js"></script>
@@ -29,25 +29,49 @@
 <body>
     <!--profile page upper section -->
     <section>
-    
+        <!-- <div class="row" style="height: 300px;">
+            <div class="col-md-2 col-lg-2 col-12 m-auto my-profile">
+                <div>
+                    <img class="rounded-circle" id="my-img" src="../assets/Mahesh Shingane.JPG" alt="">
+                    <i class="fa fa-camera upload-button"></i>
+                    <input class="file-upload d-none" type="file" accept="image/*">
+                </div>
+                <div>
+                    <a href="../ui/edit-profile.html"><img class="edit-pro" style="height: 20px; margin-left: 45px;"
+                            src="../assets/resume (1).png" alt=""></a>
+                    <h6 style="margin-left: 15px;">Edit Profile</h6>
+                </div>
+            </div>
+            <div class="col-md-10 col-lg-10 col-12 m-auto">
+                <h1 id="name"></h1>
+                <h5 id="phone"></h5>
+            </div>
+
+        </div> -->
+
+
+
         <div class="page-header header-filter" data-parallax="true"
-            style="background-image:url('https://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png');">
+            style="background-image:url('../assets/image2.jpg');">
         </div>
         <div class="main main-raised">
-            <div class="float-right m-4 setting"><a href="../ui/edit-profile.html"><i class="fa fa-cog edit-link"></i></a></div>
+            <div class="float-right m-4 setting"><a href="../ui/edit-profile.html"><i
+                        class="fa fa-cog edit-link"></i></a></div>
             <div class="profile-content">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="profile">
                                 <div class="avatar">
-                                   
-                                    <img src="" alt="Circle Image" class="img-raised rounded-circle img-fluid my-img">
-                                    
+<!-- 
+                                    <img src="../assets/profile-pic.jpeg" alt="Circle Image"
+                                        class="img-raised rounded-circle img-fluid my-img"> -->
+                                    <div class="offset-4 add-profile"><a href="../ui/edit-profile.html"><i
+                                                class="fa fa-camera upload-button"></i></a></div>
+
                                 </div>
-                               <div class="offset-2 add-profile"> <i class="fa fa-camera upload-button"></i></div>
-                                <div class="name">
-                                    <h3 class="title">Mahesh Shingane</h3>
+                                <div class="name offset-2">
+                                    <h3 class="title"></h3>
                                     <h6>Designer</h6>
                                     <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i
                                             class="fa fa-dribbble"></i></a>
@@ -62,11 +86,35 @@
                 </div>
             </div>
         </div>
-        </div>
+       
     </section>
-    <hr>
+  
     <section>
-        <h1>My Playlist</h1>
+        <div class="playlist row">
+            <h1>My Playlist</h1>
+            <hr>
+            <table class="table-striped table-responsive">
+                <tr>
+                    <td>
+                        <div class="playlist1">
+                            <div class="cover">
+                                <img src="../assets/song1.jpeg" alt="">
+                            </div>
+                            <div class="m-3 song-info">
+                                <h3>song name</h3>
+                                <h6>singer, singer2, singer3</h6>
+                            </div>
+                            <div class="play">
+                               <a href="#"><img class="play-button" src="../assets/play-button.png" alt=""></a>
+                               <img src="../assets/music-note.png" alt="">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+           
+        </div>
+
     </section>
 </body>
 
