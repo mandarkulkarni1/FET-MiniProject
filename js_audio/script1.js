@@ -1,4 +1,22 @@
 
+let title;
+let album;
+let id;
+// add to fav songs
+function mySong() {
+
+  localStorage.setItem("favsong", "");
+  }
+  function appendToStorage(name, data){
+    var old = localStorage.getItem(name);
+    if(old === null) old = "";
+    localStorage.setItem(name, old + data);
+    alert('Added to FavSong ')
+  }
+  function mySongOne() {
+    appendToStorage("favsong", `<a href='${title}'><h1>descriptions</h1></a>`);
+ }
+ // get the song from db
 $(document).ready(function () {
   $("body").on("load", function () {
     $.ajax({
@@ -8,20 +26,24 @@ $(document).ready(function () {
       async: true,
       success: function (data) {
         console.log(data);
-        let products = "";
+        title=data.title;
+        id=data.id;
+        album=data.image;
+        let image = "";
         let s="";
         // $.each(data, function (i, v) {
-          products += `
+          image += `
 
          
             <div><img src="${data.image}" alt="3rdburglar by Wordburglar" /></div> `
      
           ;
         // });
-        $(".cover").append(products);
+        $(".cover").append(image);
         $('audio').append(`<source src="${data.title}" type="audio/ogg" />`);
         console.log(data.title)
         // $(".audio1").append(s);
+        // for download option
         $('#download').attr('href',`${data.title}`)
        
       },
@@ -32,9 +54,24 @@ $(document).ready(function () {
   });
   $("body").trigger("load");
   
+  // modal for share
   $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
   })
+
+  // AJAX Request to post song for add to playlist
+   $('#playlist').on('click',function(){
+    $.ajax({
+      type: 'POST',
+      url: 'http://localhost:3000/playlist',
+      data: JSON.stringify({ "id": id, "title": title, "image": album, "userId": 1 }),
+      success: alert('Added to playlist'),
+      contentType: "application/json",
+      dataType: 'json'
+    });
+  });
+   });
+
   var player = $('.player'),
   audio = player.find('audio'),
   duration = $('.duration'),
@@ -138,4 +175,4 @@ if (mouseDown || e.type === 'click') {
 }
 });
 
-});
+
