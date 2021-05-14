@@ -2,190 +2,202 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PlanetM</title>
+ <!-- Required meta tags -->
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    
-    <link rel="stylesheet" href="../library-styles/style.css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+ <!-- Bootstrap CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+ <!--Font Awesome-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+     integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+     crossorigin="anonymous" />
+ <link rel="stylesheet" href="../sass/main.css">
+ <title>Planet M </title>
+ <link rel="icon" href="./image/title.png">
+
+ <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+ <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+
+ <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+ <script defer src="../library-js/library.js"></script>
+  <link rel="stylesheet" href="../library-styles/style.css" />
 </head>
 
 <body>
-    <header>
-        <div class="nav" style="text-align: center; border: 3px solid red;">
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">PlanetM</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Music Library</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Now Playing</a>
-                </li>
-                <li class="" style="border:3px solid tan;">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                        Logout
-                    </button>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fab fa-napster"></i> <span>Planet M</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- <li class="nav-item">
+                        <a class="btn" aria-current="page" href="#">Home</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <button id="musicLibAnchor" class="btn btn-outline-secondary" 
+                            onclick="window.location='./library-ui/music_library.html'">Music Library</button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="nowPlayingAnchor" class="btn btn-outline-secondary " 
+                            onclick="window.location='./ui_audio/audio.html'">Now
+                            Playing</button>
+                    </li>
 
+                </ul>
+                <div class="d-flex">
+                    
+                    <button type="button" id="userbutton"  class="btn btn-outline-success my-2 my-sm-0 ">User
+                        Settings</button>
+                    <button type="button" id="logoutbutton"  class="btn btn-outline-danger my-2 my-sm-0 "
+                        style="margin: 3px;">Logout</button>
+                </div>
+            </div>
         </div>
-    </header>
-      
+    </nav>
+</header>
 
-    <div style="height: auto; border: 3px solid slateblue; margin: 3px">
-    
+
+  <div style="height: auto; border: 3px solid #5fcf32; margin: 3px; padding: 10px;">
+
     <header class="section-title">
-    <h3>Album Categories</h3>
-    </header>  
-    <div class="section">
-        <div class="card" >
-          <img class="card-img-top" src="../library-assets/images/rock.jfif" alt="Card image cap">
-          <h5 class="card-title">Rock</h5>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src="../library-assets/images/jazz.jfif" alt="Card image cap">
-          <h5 class="card-title">Jazz</h5>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src="../library-assets/images/hip_hop.jfif" alt="Card image cap">
-          <h5 class="card-title">Hip Hop</h5>
-        </div>
-       
-        <div class="card">
-          <img class="card-img-top" src="../library-assets/images/western_classical.jfif" alt="Card image cap">
-          <h5 class="card-title">Western Classical</h5>
-        </div>
-
-        <div class="card">
-          <img class="card-img-top" src="../library-assets/images/indian_classical.jfif" alt="Card image cap">
-          <h5 class="card-title">Indian Classical</h5>
-        </div>
-        
+      <h3>Album Categories</h3>
+    </header>
+    <div id="category" class="section">
+      <div id="rock" class="card">
+        <img class="card-img-top" src="../library-assets/images/rock.jfif" alt="Card image cap">
+        <h5 class="card-title">Rock</h5>
       </div>
-      <hr>
-    
+      <div  id="jazz" class="card">
+        <img  class="card-img-top" src="../library-assets/images/jazz.jfif" alt="Card image cap">
+        <h5 class="card-title">Jazz</h5>
+      </div>
+      <div id="hiphop" class="card">
+        <img class="card-img-top" src="../library-assets/images/hip_hop.jfif" alt="Card image cap">
+        <h5 class="card-title">Hip Hop</h5>
+      </div>
+
+      <div id="indian_classical" class="card">
+        <img class="card-img-top" src="../library-assets/images/western_classical.jfif" alt="Card image cap">
+        <h5 class="card-title">Western Classical</h5>
+      </div>
+
+      <div id="western_classical" class="card">
+        <img class="card-img-top" src="../library-assets/images/indian_classical.jfif" alt="Card image cap">
+        <h5 class="card-title">Indian Classical</h5>
+      </div>
+
+    </div>
+    <hr>
+
 
     <header class="section-title">
       <h3>Trending albums</h3>
-      </header>  
-      <div id="albums" class="section">
-          <div class="card" >
-            <img class="card-img-top" src="../library-assets/images/album1.jfif" alt="Card image cap">
-            <h5 class="card-title">After Hours</h5>
-            <p class="card-text" style="font-size: 12px;">The Weeknd</p>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src="../library-assets/images/album2.jfif" alt="Card image cap">
-            <h5 class="card-title">Punya Paap</h5>
-            <p class="card-text" style="font-size: 12px;">Divine</p>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src="../library-assets/images/album3.jfif" alt="Card image cap">
-            <h5 class="card-title">Pagglait</h5>
-            <p class="card-text" style="font-size: 12px;">Arijit Singh</p>
-          </div>
-         
-          <div class="card">
-            <img class="card-img-top" src="../library-assets/images/album4.jfif" alt="Card image cap">
-            <h5 class="card-title">Still Here</h5>
-            <p class="card-text" style="font-size: 12px;">Kr$na</p>
-          </div>
-  
-          <div class="card">
-            <img class="card-img-top" src="../library-assets/images/album5.jfif" alt="Card image cap">
-            <h5 class="card-title">G.O.A.T.</h5>
-            <p class="card-text" style="font-size: 12px;">Diljit Dosanjh</p>
-          </div>
-          
+    </header>
+    <div id="albums" class="section">
+
+    </div>
+    <hr>
+
+    <header class="section-title">
+      <h3>Featured Artists</h3>
+    </header>
+    <div id="artists" class="section">
+        <div id="Artist1" class="card">
+          <img class="card-img-top" src="../library-assets/images/artist1.jfif" alt="Card image cap">
+          <h6 class="card-title">Coldplay</h6>
         </div>
-        <hr>
-
-      <header class="section-title">
-        <h3>Featured Artists</h3>
-        </header>
-        <div id="artists" class="section">  
-        <div class="section">
-            <div class="card" >
-              <img class="card-img-top" src="../library-assets/images/artist1.jfif" alt="Card image cap">
-              <h6 class="card-title">Coldplay</h6>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="../library-assets/images/artist2.jfif" alt="Card image cap">
-              <h6 class="card-title">Eminem</h6>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="../library-assets/images/artist3.jfif" alt="Card image cap">
-              <h6 class="card-title">Beyonce</h6>
-            </div>
-           
-            <div class="card">
-              <img class="card-img-top" src="../library-assets/images/artist4.jfif" alt="Card image cap">
-              <h6 class="card-title">Ritviz</h6>
-            </div>
-    
-            <div class="card">
-              <img class="card-img-top" src="../library-assets/images/artist5.jfif" alt="Card image cap">
-              <h6 class="card-title">Arijit Singh</h6>
-            </div>
-          </div>  
-          </div>
-        <hr>
-
-        <header class="section-title">
-          <h3>Recently played songs</h3>
-        </header>
-
-        <div id="recent" class="section">
-          <div class="card" >
-            <img class="card-img-top" src="../library-assets/images/album1.jfif" alt="Card image cap">
-            <h5 class="card-title">Song1</h5>
-            <p class="card-text" style="font-size: 12px;">The Weeknd</p>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src="../library-assets/images/album2.jfif" alt="Card image cap">
-            <h5 class="card-title">Song2</h5>
-            <p class="card-text" style="font-size: 12px;">Divine</p>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src="../library-assets/images/album3.jfif" alt="Card image cap">
-            <h5 class="card-title">Song3</h5>
-            <p class="card-text" style="font-size: 12px;">Arijit Singh</p>
-          </div>
-         
-          <div class="card">
-            <img class="card-img-top" src="../library-assets/images/album4.jfif" alt="Card image cap">
-            <h5 class="card-title">Song4</h5>
-            <p class="card-text" style="font-size: 12px;">Kr$na</p>
-          </div>
-  
-          <div class="card">
-            <img class="card-img-top" src="../library-assets/images/album5.jfif" alt="Card image cap">
-            <h5 class="card-title">Song5</h5>
-            <p class="card-text" style="font-size: 12px;">Diljit Dosanjh</p>
-          </div>
-          
+        <div class="card">
+          <img class="card-img-top" src="../library-assets/images/artist2.jfif" alt="Card image cap">
+          <h6 class="card-title">Eminem</h6>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="../library-assets/images/artist3.jfif" alt="Card image cap">
+          <h6 class="card-title">Beyonce</h6>
         </div>
 
-        <audio src="https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3" controls></audio>
+        <div class="card">
+          <img class="card-img-top" src="../library-assets/images/artist4.jfif" alt="Card image cap">
+          <h6 class="card-title">Ritviz</h6>
+        </div>
 
-        
-
-        
-
-    
-    
+        <div class="card">
+          <img class="card-img-top" src="../library-assets/images/artist5.jfif" alt="Card image cap">
+          <h6 class="card-title">Arijit Singh</h6>
+        </div>
       </div>
-    <footer class="bg-dark text-center text-white fixed-bottom">
-        &copyPlanetM, 2021
-    </footer>
+    <hr>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <header class="section-title">
+      <h3>Recently played songs</h3>
+    </header>
+
+    <div id="recent" class="section">
+      <div class="card">
+        <img class="card-img-top" src="../library-assets/images/album1.jfif" alt="Card image cap">
+        <h5 class="card-title">Song1</h5>
+        <p class="card-text" style="font-size: 12px;">The Weeknd</p>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="../library-assets/images/album2.jfif" alt="Card image cap">
+        <h5 class="card-title">Song2</h5>
+        <p class="card-text" style="font-size: 12px;">Divine</p>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="../library-assets/images/album3.jfif" alt="Card image cap">
+        <h5 class="card-title">Song3</h5>
+        <p class="card-text" style="font-size: 12px;">Arijit Singh</p>
+      </div>
+
+      <div class="card">
+        <img class="card-img-top" src="../library-assets/images/album4.jfif" alt="Card image cap">
+        <h5 class="card-title">Song4</h5>
+        <p class="card-text" style="font-size: 12px;">Kr$na</p>
+      </div>
+
+      <div class="card">
+        <img class="card-img-top" src="../library-assets/images/album5.jfif" alt="Card image cap">
+        <h5 class="card-title">Song5</h5>
+        <p class="card-text" style="font-size: 12px;">Diljit Dosanjh</p>
+      </div>
+
+    </div>
+
+    <audio id="player" controls></audio>
+    <br>
+    <br>
+
+
+
+
+
+
+
+  </div>
+  <footer class="bg-dark text-center text-white fixed-bottom">
+    &copyPlanetM, 2021
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 </body>
+
 
 </html>
