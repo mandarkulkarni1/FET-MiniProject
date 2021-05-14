@@ -42,6 +42,7 @@
                         <!-- <li class="nav-item">
                             <a class="btn" aria-current="page" href="#">Home</a>
                         </li> -->
+
                         <li class="nav-item">
                             <button id="musicLibAnchor" class="btn btn-outline-secondary" disabled="disabled"
                                 onclick="window.location='./library-ui/music_library.html'">Music Library</button>
@@ -52,8 +53,14 @@
                                 Playing</button>
                         </li>
 
+                        <li class="nav-item">
+                            <button id="nowPlayingAnchor" class="btn btn-outline-success "
+                                onclick="window.location='./ui/contactus.html'">Contact Us</button>
+                        </li>
+
                     </ul>
                     <div class="d-flex">
+
                         <button type="button" id="loginbutton" class="btn btn-outline-success my-2 my-sm-0 "
                             data-bs-toggle="modal" data-bs-target="#login">Login</button>
                         <button type="button" id="userbutton" hidden class="btn btn-outline-success my-2 my-sm-0 ">User
@@ -64,18 +71,21 @@
                             <div class="modal-dialog modal-dialog-centered container">
                                 <div class="modal-content">
                                     <div class="modal-header  bg-success text-light">
-                                        <h5 class="modal-title"> Login</h5>
+                                        <h5 class="modal-title">Login</h5>
                                         <button type="button" class="btn-close" id="closes" aria-label="Close">
                                     </div>
                                     <div class="modal-body ">
                                         <form id="form1">
                                             <div class="mb-2">
-                                                <label class="form-label required">Email</label>
-                                                <input id="email" type="email" class="form-control" required />
+                                                <span class="fa fa-user"></span>
+                                                <label class="form-label ">Email</label>
+                                                <input id="email" type="email" class="form-control required" required />
                                             </div>
                                             <div class="mb-2">
-                                                <label class="form-label required">Password</label>
-                                                <input id="passwd" type="password" class="form-control" required />
+                                                <span class="fa fa-lock"></span>
+                                                <label class="form-label ">Password</label>
+                                                <input id="passwd" type="password" class="form-control required"
+                                                    required />
                                             </div>
                                         </form>
                                     </div>
@@ -102,27 +112,35 @@
                                                     <div class="modal-body">
                                                         <form id="form2">
                                                             <div class="mb-2">
-                                                                <label class="form-label required">Name</label>
-                                                                <input id="name" type="text" class="form-control">
+                                                                <span class="fa fa-person-booth"></span>
+                                                                <label class="form-label ">Name</label>
+                                                                <input id="name" type="text" class="form-control"
+                                                                    required />
                                                             </div>
                                                             <div class="mb-2">
-                                                                <label class="form-label required">Mobile</label>
-                                                                <input id="phone" type="tel" class="form-control">
+                                                                <span class="fa fa-phone"></span>
+                                                                <label class="form-label ">Mobile</label>
+                                                                <input id="phone" type="tel" class="form-control"
+                                                                    required />
                                                             </div>
                                                             <div class="mb-2">
-                                                                <label class="form-label required">Email</label>
-                                                                <input id="emailid" type="email" class="form-control">
+                                                                <span class="fa fa-mail-bulk"></span>
+                                                                <label class="form-label ">Email</label>
+                                                                <input id="emailid" type="email" class="form-control"
+                                                                    required>
                                                             </div>
                                                             <div class="mb-2">
+                                                                <span class="fa fa-lock-open"></span>
                                                                 <label class="form-label required">Password</label>
                                                                 <input id="passwordnew" type="password"
-                                                                    class="form-control">
+                                                                    class="form-control" required />
                                                             </div>
                                                             <div class="mb-2">
+                                                                <span class="fa fa-lock"></span>
                                                                 <label class="form-label required">Confirm
                                                                     Password</label>
-                                                                <input id="confirm-password" type="password"
-                                                                    class="form-control">
+                                                                <input id="confirm-password required" type="password"
+                                                                    class="form-control" required />
                                                             </div>
 
 

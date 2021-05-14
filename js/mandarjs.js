@@ -1,21 +1,24 @@
 $(document).ready(function () {
-  
+
+  //Force Required Check for login form
+  $(function () {
+    var validator = $("#form1").validate({
+      rules: { name1: { required: true, minlength: 2 } },
+      messages: { name1: "bad name" },
+      onfocusout: function (element) { $(element).valid(); }
+    });
+  });
+  //Force Required Check for Registration form
+  $(function () {
+    var validator = $("#form2").validate({
+      rules: { name1: { required: true, minlength: 2 } },
+      messages: { name1: "bad name" },
+      onfocusout: function (element) { $(element).valid(); }
+    });
+  });
+
   //Flag variable
   var validuser = false;
-
-  //Form Validation Using JQuery
-  $('#loginuser').click(function(){
-    var uid = document.getElementById('email').value;
-    var pass = document.getElementById('passwd').value;
-    var regex =  /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-
-    if(uid == null || uid<3 || uid>25 ||regex.test(uid) || pass<3 || pass>25 || pass == null){
-      alert('Invalid User ID');
-      return false;
-    }
-
-
-  })
 
   //function to logout
   $('#logoutbutton').click(function () {
@@ -27,17 +30,15 @@ $(document).ready(function () {
   $('#closes').click(function () {
     $('#login').modal('hide');
     $('#form1')[0].reset();
+    location.reload();
   });
 
   //Function to close Registration Modal
   $('#close1').click(function () {
     $('#register').modal('hide');
+    $('#form2')[0].reset();
+    location.reload();
   });
-
-  // //Function to close Language Modal
-  // $('#close3').click(function () {
-  //   $('#language').modal('hide');
-  // });
 
   //FUnction to reset form
   $('#reset1').click(function () {
