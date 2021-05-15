@@ -2,7 +2,7 @@
     "songs": [
         {
             "id": "s1",
-            "name": "song1",
+            "name": "song",
             "path": "../library-assets/songs/song1.mp3",
             "album_id": "a1",
             "artist": [
@@ -13,10 +13,20 @@
             "id": "s2",
             "name": "song2",
             "path": "../library-assets/songs/song2.mp3",
-            "album_id": "a2",
+            "album_id": "a1",
             "artist": [
                 "Artist1",
                 "Artist2"
+            ]
+        },
+        {
+            "id": "s3",
+            "name": "song3",
+            "path": "../library-assets/songs/song2.mp3",
+            "album_id": "a1",
+            "artist": [
+                "Artist1",
+                "Artist3"
             ]
         }
     ],

@@ -1,4 +1,3 @@
-
 let title;
 let album;
 let id;
@@ -16,35 +15,64 @@ function mySong() {
   function mySongOne() {
     appendToStorage("favsong", `<a href='${title}'><h1>descriptions</h1></a>`);
  }
+ 
+ 
  // get the song from db
 $(document).ready(function () {
+
+    
   $("body").on("load", function () {
+    let songId=sessionStorage.getItem("selectedSong");
     $.ajax({
       type: "GET",
-      url: "http://localhost:3000/songs/1",
+      url: "http://localhost:3000/songs",
       dataType: "json",
+      data: {"id":songId},
       async: true,
       success: function (data) {
-        console.log(data);
-        title=data.title;
-        id=data.id;
-        album=data.image;
-        let image = "";
-        let s="";
-        // $.each(data, function (i, v) {
-          image += `
+        
+          $.each(data, function (i, song) {
+            console.log(song);
+            title=song.name;
+            id=song.id;
+            albumId=song.album_id;
+            let image = "";
 
-         
-            <div><img src="${data.image}" alt="3rdburglar by Wordburglar" /></div> `
-     
-          ;
+            $.ajax({
+               type: "GET",
+                url: "http://localhost:3000/albums",
+                dataType: "json",
+                data: {"id":albumId},
+                async: true,
+                success: function (data) {
+                  console.log(albumId)
+                  $.each(data, function (i, album) {
+                    image += `<div><img src=${album.cover} alt="3rdburglar by Wordburglar" /></div> `
+                    $(".cover").append(image);
+                    $('audio').append(`<source src=${song.path} type="audio/ogg" />`);
+                    $(".info h1").text(title);
+                    $(".info h2").text(song.artist);
+                    
+                    console.log(title)
+                    // $(".audio1").append(s);
+                    // for download option
+                    $('#download').attr('href',`${title}`)
+                  })
+
+                },
+
+                error: function () {
+                  console.log("not able to process request");
+                },
+
+
+            })
+       //     album=data.image;
+       //     let s="";
+            ;
         // });
-        $(".cover").append(image);
-        $('audio').append(`<source src="${data.title}" type="audio/ogg" />`);
-        console.log(data.title)
-        // $(".audio1").append(s);
-        // for download option
-        $('#download').attr('href',`${data.title}`)
+        
+      })
        
       },
       error: function () {
@@ -52,6 +80,8 @@ $(document).ready(function () {
       },
     });
   });
+
+
   $("body").trigger("load");
   
   // modal for share
@@ -174,5 +204,3 @@ if (mouseDown || e.type === 'click') {
   }
 }
 });
-
-

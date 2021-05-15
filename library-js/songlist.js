@@ -15,6 +15,15 @@ $(document).ready(function () {
                 else {
                     
                     $.each(albums, function (i, a) {
+
+                        var albumHead=`
+                            <img src=${a.cover}>
+                            <h8>Album</h8>
+                            <h3>${a.name}</h3>
+                            <h5>${a.artist}</h5>
+                        `
+                        $(".album-header").append(albumHead);
+
                         var albumId = a.id;
                         $.ajax({
                             type: "GET",
@@ -29,21 +38,21 @@ $(document).ready(function () {
                                 else {
                                     let songlist = ""
                                     $.each(songs, function (i, s) {
+                                        
                                         console.log(s.id)
                                         songlist += `
-                                                    <div class="song">
-                                                    <div id=${s.id} class="card">
-                                                    <img class="card-img-top" src=${a.cover} alt="Card image cap">
-                                                    <div class="card-body" style="text-align: left;">
-                                                    <h5 class="card-title" style="margin:2px;">${s.name}</h5>
-                                                    <p class="card-text" style="font-size: 12px;margin:2px;">Album : ${a.name}</p>
-                                                    <p class="card-text" style="font-size: 12px;margin:2px;">Artist : ${s.artist}</p>
+                                                    <div id=${s.id} class="song">
+                                                    <img src="../library-assets/images/play.png" >
+                                                    <h5>${(i+1)+". "+s.name}</h5>
+                                                    <h5 style="position:absolute ; left: 642px">${s.artist}</h5>
+                                                    <h5 style="position:absolute ; right:30px">Duration</h5>
+                                                    
                                                     </div>
                                                     </div>
                                                     </div>
                                                 `;
                                     })
-                                    $(".song-container").append(songlist);
+                                    $(".album-song-container").append(songlist);
                                 }
                             },
                             error: function () {
@@ -51,11 +60,21 @@ $(document).ready(function () {
                             },
                         });
                     })
+                        
                 }
             },
             error: function () {
                 console.log("not able to process request");
             },
         });
+
+        $(".album-song-container").on("click",".song",function (e) {
+    
+            let selectedSong=e.currentTarget.id;
+            console.log(e.currentTarget.id);
+            sessionStorage.setItem("selectedSong",selectedSong);
+            window.location.href="../ui_audio/audio.html"
+        })
+
 
 })

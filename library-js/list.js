@@ -123,5 +123,13 @@ $(document).ready(function () {
         window.location.href="songlist.html"
   })
 
+  $(".song-container").on("click",".card",function (e) {
+    
+    let selectedSong=e.currentTarget.id;
+    console.log(e.currentTarget.id);
+    sessionStorage.setItem("selectedSong",selectedSong);
+    window.location.href="../ui_audio/audio.html"
+})
+
 
 })
