@@ -52,12 +52,14 @@ $(document).ready(function () {
                     $('audio').append(`<source src=${song.path} type="audio/ogg" />`);
                     $(".info h1").text(songName);
                     $(".info h2").text(song.artist);
-                    songImage-image;
+                    songImage=image;
                     console.log(songName)
                     // $(".audio1").append(s);
                     // for download option
                     $('#download').attr('href',`${song.path}`)
-                    $('#facebook').attr('href')
+                    let pathShare=song.path.substr(2);
+                    $('#facebook').attr('href',`https://www.facebook.com/sharer.php?u=http://127.0.0.1:5501${pathShare}`)
+                    $('#whatsapp').attr('href',`https://api.whatsapp.com/send?phone=&text=http://127.0.0.1:5501${pathShare}`)
                   })
 
                 },
@@ -103,6 +105,14 @@ $(document).ready(function () {
     });
   });
    });
+// changing the volume
+   $("#volume-control").on("change",function(e){
+    console.log(e.currentTarget.value)
+    $("audio").prop("volume",e.currentTarget.value/100)
+  })
+
+
+  
   var player = $('.player'),
   audio = player.find('audio'),
   duration = $('.duration'),

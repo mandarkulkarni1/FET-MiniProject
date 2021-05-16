@@ -100,7 +100,7 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
         
     <!-- Use any element to open the sidenav -->
     <span onclick="openNav()" id="sideBar">
-      <i class="fa fa-bars" style="font-size:30px; padding: 20px; float: right;"></i></span>
+      <i class="fa fa-bars" style="font-size:30px; padding: 20px; float: right; cursor: pointer;"></i></span>
        <div class="album">
          <div class="cover">
            <!-- <div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/38273/3rdburglar-cover-192.jpg" alt="3rdburglar by Wordburglar" /></div> -->
@@ -135,9 +135,11 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
            <div class="arrow"></div>
            <div class="arrow"></div>
          </button>
-         <button class="repeat"></button>
-        
+         <button class="repeat" ></button>
+          
+         
        </div>
+       <input type="range" id="volume-control">
        <div class="audio1">
 
        </div>
@@ -145,6 +147,7 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
      </div>
 
  </div>
+ 
      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
        <div class="modal-dialog" role="document">
          <div class="modal-content">
@@ -159,10 +162,10 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
                <h5>Share via..</h5>
                <p>Share this songs from here.. <a href="#" role="button"  title="Popover title" data-content="Popover body content is set in this attribute."> Click Below link</a> </p>
                <hr>
-                 <a id="facebook" href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:5501/library-ui/songlist.html"  class="tooltip-test" title="Tooltip" target="_blank">  <h5>facebook share</h5>  <img src="./../images/fb.png" style="width: 3em; height: 3em; " alt=""></a>
+                 <a id="facebook" class="tooltip-test" title="Tooltip" target="_blank">  <h5>facebook share</h5>  <img src="./../images/fb.png" style="width: 3em; height: 3em; " alt=""></a>
                  <br>
                  <hr>
-                 <a id="whatsapp" href="https://api.whatsapp.com/send?phone=&text=http://127.0.0.1:5501/library-ui/songlist.html"  class="tooltip-test" title="Tooltip"><h5>whats app</h5> <img src="./../images/whatapp.png" style="width: 3em; height: 3em;" alt=""></a>
+                 <a id="whatsapp" class="tooltip-test" title="Tooltip"><h5>whats app</h5> <img src="./../images/whatapp.png" style="width: 3em; height: 3em;" alt=""></a>
              </div>
            </div>
            
