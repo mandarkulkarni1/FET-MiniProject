@@ -1,6 +1,6 @@
-let title;
-let album;
-let id;
+let songName;
+let songImage;
+let song_ID;
 // add to fav songs
 function mySong() {
 
@@ -13,7 +13,7 @@ function mySong() {
     alert('Added to FavSong ')
   }
   function mySongOne() {
-    appendToStorage("favsong", `<a href='${title}'><h1>descriptions</h1></a>`);
+    appendToStorage("favsong", `<a href='${songName}'><h1>${songName}</h1></a>`);
  }
  
  
@@ -30,11 +30,11 @@ $(document).ready(function () {
       data: {"id":songId},
       async: true,
       success: function (data) {
-        
+          console.log(data)
           $.each(data, function (i, song) {
             console.log(song);
-            title=song.name;
-            id=song.id;
+            songName=song.name;
+            song_ID=song.id;
             albumId=song.album_id;
             let image = "";
 
@@ -50,13 +50,14 @@ $(document).ready(function () {
                     image += `<div><img src=${album.cover} alt="3rdburglar by Wordburglar" /></div> `
                     $(".cover").append(image);
                     $('audio').append(`<source src=${song.path} type="audio/ogg" />`);
-                    $(".info h1").text(title);
+                    $(".info h1").text(songName);
                     $(".info h2").text(song.artist);
-                    
-                    console.log(title)
+                    songImage-image;
+                    console.log(songName)
                     // $(".audio1").append(s);
                     // for download option
-                    $('#download').attr('href',`${title}`)
+                    $('#download').attr('href',`${song.path}`)
+                    $('#facebook').attr('href')
                   })
 
                 },
@@ -91,17 +92,17 @@ $(document).ready(function () {
 
   // AJAX Request to post song for add to playlist
    $('#playlist').on('click',function(){
+    let userEmail=sessionStorage.getItem("id");
     $.ajax({
       type: 'POST',
       url: 'http://localhost:3000/playlist',
-      data: JSON.stringify({ "id": id, "title": title, "image": album, "userId": 1 }),
+      data: JSON.stringify({ "id": songId, "title": songName, "image": songImage, "userEmail": userEmail }),
       success: alert('Added to playlist'),
       contentType: "application/json",
       dataType: 'json'
     });
   });
    });
-
   var player = $('.player'),
   audio = player.find('audio'),
   duration = $('.duration'),
@@ -204,3 +205,15 @@ if (mouseDown || e.type === 'click') {
   }
 }
 });
+
+
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
