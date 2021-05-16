@@ -17,6 +17,11 @@ $(document).ready(function () {
     });
   });
 
+  //Tooltip activator
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+
   //Flag variable
   var validuser = false;
 
