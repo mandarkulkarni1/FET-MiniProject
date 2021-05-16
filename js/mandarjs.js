@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+
+
   //Force Required Check for login form
   $(function () {
     var validator = $("#form1").validate({
@@ -115,29 +117,33 @@ $(document).ready(function () {
         //If User is Valid, DO THE RITUALS
         if (validuser == true) {
 
-          //Toggle modal  
-          $('#login').modal('toggle');
+          //Set Language to selected
+          $('#lang').change(function () {
+            sessionStorage.setItem("lang", document.getElementById('lang').value);
 
-          //HIDE LOGIN BUTTON
-          $('#loginbutton').hide();
+            //setting User ID
+            sessionStorage.setItem("id", uid);
 
-          //Show Hidden Buttons
-          $('#userbutton').removeAttr('hidden');
-          $('#logoutbutton').removeAttr('hidden');
+            //HIDE LOGIN BUTTON
+            $('#loginbutton').hide();
 
-          //Toggling UI Buttons
-          $('#musicLibAnchor').prop("disabled", false).removeClass('btn-outline-secondry').addClass('btn-outline-success');
-          $('#nowPlayingAnchor').prop("disabled", false).removeClass('btn-outline-secondry').addClass('btn-outline-success');
+            //Show Hidden Buttons
+            $('#userbutton').removeAttr('hidden');
+            $('#logoutbutton').removeAttr('hidden');
 
-          //setting Session storage
-          sessionStorage.setItem("id", uid);
+            //Toggling UI Buttons
+            $('#musicLibAnchor').prop("disabled", false).removeClass('btn-outline-secondry').addClass('btn-outline-success');
+            $('#nowPlayingAnchor').prop("disabled", false).removeClass('btn-outline-secondry').addClass('btn-outline-success');
 
-          //toggle language MOdal
-          // $('#languagemodal').modal('show');
+            // Toggling Modals
+            $('#login').modal('hide');
+            $('#language').modal('hide');
+          })
 
         }
 
       }
     });
   });
+
 });
