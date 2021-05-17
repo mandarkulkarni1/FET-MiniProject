@@ -55,7 +55,7 @@
 
                         <li class="nav-item">
                             <button id="nowPlayingAnchor" class="btn btn-outline-success "
-                                onclick="window.location='./ui/contactus.html'">Contact Us</button>
+                                onclick="window.location='./ui/contactus.html'"></i>Contact Us</button>
                         </li>
 
                     </ul>
@@ -63,10 +63,11 @@
 
                         <button type="button" id="loginbutton" class="btn btn-outline-success my-2 my-sm-0 "
                             data-bs-toggle="modal" data-bs-target="#login">Login</button>
-                        <button type="button" id="userbutton" hidden class="btn btn-outline-success my-2 my-sm-0 ">User
-                            Settings</button>
+                        <button type="button" id="userbutton" hidden class="btn btn-outline-success my-2 my-sm-0 "
+                            data-toggle="tooltip" title="User Settings"><i class="fa fa-user-edit"></i></button>
                         <button type="button" id="logoutbutton" hidden class="btn btn-outline-danger my-2 my-sm-0 "
-                            style="margin: 3px;">Logout</button>
+                            style="margin: 3px;" data-toggle="tooltip" title="Sign Out"><i
+                                class="fa fa-sign-out-alt"></i></button>
                         <div class="modal fade " id="login" tabindex="-1" aria-labelledby="exampleModalCenterTitle">
                             <div class="modal-dialog modal-dialog-centered container">
                                 <div class="modal-content">
@@ -92,11 +93,39 @@
                                     <div class="modal-footer">
                                         <fieldset class="w-100">
                                             <button type="submit" class="btn btn-outline-primary my-2 my-sm-0 float-end"
-                                                id="loginuser">Login</button>
+                                                id="loginuser" data-bs-toggle="modal"
+                                                data-bs-target="#language">Login</button>
                                             <button type="submit"
                                                 class="btn btn-outline-success my-2 my-sm-0 float-start"
                                                 data-bs-toggle="modal" data-bs-target="#register">Register</button>
                                         </fieldset>
+
+                                        <!--======================================================== -->
+                                        <div class="modal fade" id="language" tabindex="-1"
+                                            aria-labelledby="exampleModalCenterTitle">
+                                            <div class="modal modal-dialog modal-dialog-centered container show">
+                                                <div class="modal-content">
+                                                    <div class="modal-header  bg-success text-light">
+                                                        <h5 class="modal-title">Select Language</h5>
+                                                    </div>
+                                                    <div class="modal-body ">
+                                                            <div class="dropdown text-center justify-content-center">
+                                                                <select class="form-control" name="language" id="lang">
+                                                                    <option id="asd">Select Language </option>
+                                                                    <option value="all" id="all">All Songs</option>
+                                                                    <option value="hindi" id="hindi">Hindi</option>
+                                                                    <option value="marathi" id="marathi">Marathi</option>
+                                                                    <option value="english" id="english">English</option>
+                                                                </select>
+                                                            </div>
+                                                            <br>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ======================================================= -->
 
                                         <div class="modal fade" id="register" aria-labelledby="exampleModalCenterTitle"
                                             aria-hidden="true" tabindex="-1">
@@ -139,7 +168,7 @@
                                                                 <span class="fa fa-lock"></span>
                                                                 <label class="form-label required">Confirm
                                                                     Password</label>
-                                                                <input id="confirm-password required" type="password"
+                                                                <input id="confirm-password" type="password"
                                                                     class="form-control" required />
                                                             </div>
 
