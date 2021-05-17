@@ -138,6 +138,25 @@ $(document).ready(function () {
             // Toggling Modals
             $('#login').modal('hide');
             $('#language').modal('hide');
+
+            //setting User ID
+            sessionStorage.setItem("id", uid);
+
+            //HIDE LOGIN BUTTON
+            $('#loginbutton').hide();
+
+            //Show Hidden Buttons
+            $('#userbutton').removeAttr('hidden');
+            $('#logoutbutton').removeAttr('hidden');
+
+            //Toggling UI Buttons
+            $('#musicLibAnchor').prop("disabled", false).removeClass('btn-outline-secondry').addClass('btn-outline-success');
+            $('#nowPlayingAnchor').prop("disabled", false).removeClass('btn-outline-secondry').addClass('btn-outline-success');
+
+            // Toggling Modals
+            $('#login').modal('hide');
+            $('#language').modal('hide');
+            window.location.href="library-ui/music_library.html"
           })
 
         }

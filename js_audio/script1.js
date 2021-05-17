@@ -22,7 +22,10 @@ $(document).ready(function () {
 
     
   $("body").on("load", function () {
-    let songId=sessionStorage.getItem("selectedSong");
+    //songId=sessionStorage.getItem("selectedSong");
+    const URLparams= new URLSearchParams(window.location.search);
+    songId=URLparams.get('id');
+    console.log(songId)
     $.ajax({
       type: "GET",
       url: "http://localhost:3000/songs",
@@ -49,7 +52,7 @@ $(document).ready(function () {
                   $.each(data, function (i, album) {
                     image += `<div><img src=${album.cover} alt="3rdburglar by Wordburglar" /></div> `
                     $(".cover").append(image);
-                    $('audio').append(`<source src=${song.path} type="audio/ogg" />`);
+                    $('audio').append(`<source src="${song.path}" type="audio/ogg" />`);
                     $(".info h1").text(songName);
                     $(".info h2").text(song.artist);
                     songImage=image;
@@ -58,8 +61,8 @@ $(document).ready(function () {
                     // for download option
                     $('#download').attr('href',`${song.path}`)
                     let pathShare=song.path.substr(2);
-                    $('#facebook').attr('href',`https://www.facebook.com/sharer.php?u=http://127.0.0.1:5501${pathShare}`)
-                    $('#whatsapp').attr('href',`https://api.whatsapp.com/send?phone=&text=http://127.0.0.1:5501${pathShare}`)
+                    $('#facebook').attr('href',`https://www.facebook.com/sharer.php?u=${window.location.href}?id=${songId}`)
+                    $('#whatsapp').attr('href',`https://api.whatsapp.com/send?phone=&text=${window.location.href}?id=${songId}`)
                   })
 
                 },

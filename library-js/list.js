@@ -1,4 +1,15 @@
+
+
+
 $(document).ready(function () {
+
+    let selectedLang={}
+    selectedLang=sessionStorage.getItem("lang");
+    
+    if(selectedLang==="all")
+    selectedLang={}
+
+    console.log(selectedLang);
 
     var selectedCategory;
     if (sessionStorage.getItem("section") === "category") {
@@ -10,7 +21,8 @@ $(document).ready(function () {
             type: "GET",
             url: "http://localhost:3000/albums",
             dataType: "json",
-            data: { "category": selectedCategory },
+            data: { "category": selectedCategory ,
+                    "language": selectedLang},
             async: true,
             success: function (albums) {
                 if (albums.length === 0)
@@ -78,8 +90,10 @@ $(document).ready(function () {
                                                     <div class="card-body" style="text-align: left;">
                                                     <h5 class="card-title" style="margin:2px;">${s.name}</h5>
                                                     <p class="card-text" style="font-size: 12px;margin:2px;">Album : ${a.name}</p>
-                                                    <p class="card-text" style="font-size: 12px;margin:2px;">Artist : ${s.artist}</p>
+                                                    <p class="card-text" style="font-size: 12px;margin:2px;">Artist(s) : ${s.artist}</p>
+                                                    <p class="card-text" style="font-size: 12px;margin:2px;">Duration : ${s.duration}</p>
                                                     </div>
+                                                    <img class="play-img" src="../library-assets/images/play.png" >
                                                     </div>
                                                     </div>
                                                 `;
@@ -95,7 +109,7 @@ $(document).ready(function () {
                         if (a.artist.includes(selectedArtist)) {
                             var albumId = a.id;
 
-                            albumlist += `
+                            albumlist += `  
                                             <div id=${albumId} class="card">
                                             <img class="card-img-top" src=${a.cover} alt="Card image cap">
                                             <h5 class="card-title">${a.name}</h5>
@@ -127,9 +141,18 @@ $(document).ready(function () {
     
     let selectedSong=e.currentTarget.id;
     console.log(e.currentTarget.id);
-    sessionStorage.setItem("selectedSong",selectedSong);
-    window.location.href="../ui_audio/audio.html"
+    //sessionStorage.setItem("selectedSong",selectedSong);
+    //window.location.href="../ui_audio/audio.html"
+    window.location.href="../ui_audio/audio.html?id="+selectedSong
+
+    // $.ajax({
+    //     type: "POST",
+    //     url: "http://localhost:3000/users?id=mk@123",
+    //     dataType: "json",
+    //     data: { 
+    //             "recent": selectedSong },
+    //     async: true,
+    //     success: function (albums) {}})
+
 })
-
-
 })

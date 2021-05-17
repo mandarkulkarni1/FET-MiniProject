@@ -1,10 +1,34 @@
 
+ let selectedLang={}
+
 $(document).ready(function () {
 
+ selectedLang=sessionStorage.getItem("lang");
+ if(selectedLang==="english"){
+   $("#hindi-artists").hide()
+   $("#marathi-artists").hide()
+ }
+
+ if(selectedLang==="hindi"){
+  $("#english-artists").hide()
+  $("#marathi-artists").hide()
+}
+
+if(selectedLang==="marathi"){
+  $("#hindi-artists").hide()
+  $("#english-artists").hide()
+}
+  if(selectedLang==="all")
+  selectedLang={}
+
+  
+  console.log(selectedLang);
   $.ajax({
     type: "GET",
     url: "http://localhost:3000/albums",
     dataType: "json",
+    data: { "trending":"yes",
+            "language":selectedLang},
     async: true,
     success: function (data) {
       if (data.length === 0)
@@ -63,15 +87,24 @@ $(document).ready(function () {
 })
 
 
+$("#category .card").on("click",function () {
+    
+  let selectedSection=$(this).parent().attr('id')
+  
+  sessionStorage.setItem("section",selectedSection)
+  console.log(sessionStorage.getItem("section"))
+  sessionStorage.setItem("value",$(this).attr('id'))
+  console.log(sessionStorage.getItem("value"))
+  window.location.href="list.html"
+})
 
-  $(".card").on("click",function () {
-    //var url = "http://google.com"; $(location).attr('href',url);
-    //window.location.href="../Home.html"
-    let selectedSection=$(this).parent().attr('id')
+  $("#artists .card").on("click",function () {
+    
+    let selectedSection=$(this).parent().parent().attr('id')
     
     sessionStorage.setItem("section",selectedSection)
     console.log(sessionStorage.getItem("section"))
-    sessionStorage.setItem("value",$(this).attr('id'))
+    sessionStorage.setItem("value",$(this).attr('name'))
     console.log(sessionStorage.getItem("value"))
     window.location.href="list.html"
   
