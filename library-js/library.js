@@ -27,8 +27,8 @@ if(selectedLang==="marathi"){
     type: "GET",
     url: "http://localhost:3000/albums",
     dataType: "json",
- //   data: { "trending":"yes",
- //           "language":selectedLang},
+    data: { "trending":"yes",
+            "language":selectedLang},
     async: true,
     success: function (data) {
       if (data.length === 0)

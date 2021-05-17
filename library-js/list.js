@@ -1,10 +1,15 @@
 
-let selectedLang={}
+
 
 $(document).ready(function () {
+
+    let selectedLang={}
     selectedLang=sessionStorage.getItem("lang");
+    
     if(selectedLang==="all")
     selectedLang={}
+
+    console.log(selectedLang);
 
     var selectedCategory;
     if (sessionStorage.getItem("section") === "category") {
@@ -16,7 +21,8 @@ $(document).ready(function () {
             type: "GET",
             url: "http://localhost:3000/albums",
             dataType: "json",
-            data: { "category": selectedCategory },
+            data: { "category": selectedCategory ,
+                    "language": selectedLang},
             async: true,
             success: function (albums) {
                 if (albums.length === 0)
@@ -137,7 +143,7 @@ $(document).ready(function () {
     console.log(e.currentTarget.id);
     //sessionStorage.setItem("selectedSong",selectedSong);
     //window.location.href="../ui_audio/audio.html"
-    //window.location.href="../ui_audio/audio.html?id="+selectedSong
+    window.location.href="../ui_audio/audio.html?id="+selectedSong
 
     // $.ajax({
     //     type: "POST",
