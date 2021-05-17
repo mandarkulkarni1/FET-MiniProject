@@ -2,6 +2,21 @@ let songName;
 let songImage;
 let song_ID;
 // add to fav songs
+
+//wait for DOM ready...
+document.addEventListener('DOMContentLoaded', () => {
+
+  //...get the button
+  let btn = document.querySelector('#btn');
+
+  //...bind the click event
+  btn.addEventListener('click', () => {}, false);
+
+  //...trigger the click event on page enter
+  btn.click();
+
+}, false);
+// add to fav songs
 function mySong() {
 
   localStorage.setItem("favsong", "");
@@ -22,7 +37,10 @@ $(document).ready(function () {
 
     
   $("body").on("load", function () {
-    let songId=sessionStorage.getItem("selectedSong");
+    //songId=sessionStorage.getItem("selectedSong");
+    const URLparams= new URLSearchParams(window.location.search);
+    songId=URLparams.get('id');
+    console.log(songId)
     $.ajax({
       type: "GET",
       url: "http://localhost:3000/songs",
@@ -49,7 +67,7 @@ $(document).ready(function () {
                   $.each(data, function (i, album) {
                     image += `<div><img src=${album.cover} alt="3rdburglar by Wordburglar" /></div> `
                     $(".cover").append(image);
-                    $('audio').append(`<source src=${song.path} type="audio/ogg" />`);
+                    $('audio').append(`<source src="${song.path}" type="audio/ogg" />`);
                     $(".info h1").text(songName);
                     $(".info h2").text(song.artist);
                     songImage=image;
@@ -58,8 +76,8 @@ $(document).ready(function () {
                     // for download option
                     $('#download').attr('href',`${song.path}`)
                     let pathShare=song.path.substr(2);
-                    $('#facebook').attr('href',`https://www.facebook.com/sharer.php?u=http://127.0.0.1:5501${pathShare}`)
-                    $('#whatsapp').attr('href',`https://api.whatsapp.com/send?phone=&text=http://127.0.0.1:5501${pathShare}`)
+                    $('#facebook').attr('href',`https://www.facebook.com/sharer.php?u=${window.location.href}?id=${songId}`)
+                    $('#whatsapp').attr('href',`https://api.whatsapp.com/send?phone=&text=${window.location.href}?id=${songId}`)
                   })
 
                 },
@@ -112,7 +130,7 @@ $(document).ready(function () {
   })
 
 
-  
+
   var player = $('.player'),
   audio = player.find('audio'),
   duration = $('.duration'),
@@ -163,6 +181,7 @@ var self = $(this);
 if (self.hasClass('play-pause') && player.hasClass('paused')) {
   player.removeClass('paused').addClass('playing');
   audio[0].play();
+  
   getCurrentTime();
 } else if (self.hasClass('play-pause') && player.hasClass('playing')) {
   player.removeClass('playing').addClass('paused');
@@ -226,4 +245,49 @@ function openNav() {
 /* Set the width of the side navigation to 0 */
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+var audio = document.querySelectorAll('audio');
+var playBtn = document.querySelectorAll('.play pause');
+var seekBar = document.querySelectorAll('.seek-bar');
+var fillBar = document.querySelectorAll('.fill');
+var pointerdown = false;
+var playing = undefined;
+
+function handleSeekbar(e, i) {
+  pointerdown = true;
+  var vidDur = audio[i].duration;
+  var seekCoords = Math.round(
+    (e.clientX - seekBar[i].offsetLeft) *
+      (vidDur / seekBar[i].clientWidth)
+  );
+  handleAudioPlayback(i, seekCoords);
+  var p = getP(e, i);
+  updateFillBar(i, p * 100);
+}
+
+function handleAudioPlayback(i, time) {
+  if (playing !== i) {
+    audio[playing].pause();
+    playing = i;
+  }
+  var a = audio[i];
+  if (pointerdown) {
+    a.currentTime = time;
+    a.play();
+    pointerdown = false;
+  } else if (a.paused) {
+    a.play();
+  } else {
+    a.pause();
+  }
+}
+
+function updateFillBar(i, val) {
+  fillBar[i].style.width = val + '%';
 }
