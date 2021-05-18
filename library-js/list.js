@@ -192,4 +192,61 @@ $(document).ready(function () {
 
         
 })
+
+
+if(sessionStorage.getItem("section")==="search"){
+$("#album-heading").hide()
+$.ajax({
+    type: "GET",
+    url: "http://localhost:3000/songs",
+    dataType: "json",
+    async: true,
+    success: function (data) {
+        const URLparams= new URLSearchParams(window.location.search);
+        searchedSong=URLparams.get('searchSong')
+        $.each(data, function (i, song) {
+          if(song.name.toLowerCase()===searchedSong)
+          $.ajax({
+             type: "GET",
+              url: "http://localhost:3000/albums",
+              dataType: "json",
+              data: {"id":song.album_id},
+              async: true,
+              success: function (data) {
+                let songlist="";
+                $.each(data, function (i, album) {
+                  songlist += `
+                                    <div class="song">
+                                    <div id=${song.id} class="card">
+                                    <img class="card-img-top" src=${album.cover} alt="Card image cap">
+                                    <div class="card-body" style="text-align: left;">
+                                    <h5 class="card-title" style="margin:2px;">${song.name}</h5>
+                                    <p class="card-text" style="font-size: 12px;margin:2px;">Album : ${album.name}</p>
+                                    <p class="card-text" style="font-size: 12px;margin:2px;">Artist(s) : ${song.artist}</p>
+                                    <p class="card-text" style="font-size: 12px;margin:2px;">Duration : ${song.duration}</p>
+                                    </div>
+                                    <img class="play-img" src="../library-assets/images/play.png" >
+                                    </div>
+                                    </div>
+                                `;
+                })
+                $(".song-container").append(songlist);
+
+              },
+
+              error: function () {
+                console.log("not able to process request");
+              },
+
+
+          })
+    })
+     
+    },
+    error: function () {
+      console.log("not able to process request");
+    },
+  });
+}
+
 })

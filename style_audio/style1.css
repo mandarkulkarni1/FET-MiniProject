@@ -478,6 +478,7 @@ button {
   border: 0.125em solid;
   border-right-color: transparent;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .repeat::before {
@@ -501,11 +502,14 @@ button {
   border: 0.25em solid transparent;
   border-top-width: 0.375em;
   border-top-color: currentColor;
+  
 }
 
 .shuffle.active,
 .repeat.active {
-  color: black;
+  color:red;
+  font-size: 20px;
+  
 }
 
 @keyframes spin {
@@ -531,7 +535,7 @@ button {
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color:dimgrey;
+  background-color:white;
 }
 
 .dropdown-content {
@@ -579,7 +583,7 @@ button {
 }
 
 .sidenav {
-  height: auto; /* 100% Full-height */
+  height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
@@ -604,7 +608,7 @@ button {
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: blue;
 }
 
 /* Position and style the close button (top right corner) */
@@ -626,4 +630,39 @@ button {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+
+
+
+.seek-bar {
+  width: 90%;
+  margin: 0 auto;
+  height:0px;
+  border-radius: 4px;
+  background-color: blueviolet;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.fill {
+  height: 4px;
+  width: 8px;
+  border-radius: 4px;
+  background-color: rgb(49, 10, 187);
+  position: relative;
+}
+.handle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  background: #fff;
+  transform: translate(50%, -50%) scale(0);
+  transition: transform 0.2s;
+}
+.seek-bar:hover .handle {
+  transform: translate(50%, -50%) scale(1);
 }

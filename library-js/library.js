@@ -48,24 +48,6 @@ if(selectedLang==="marathi"){
                                         </div>
       
                                     `
-
-
-          /*        var arr=[];
-                  $.each(v.artist,function (j, str){
-                      arr.push(str.toLowerCase())
-                      
-                  })
-                  console.log(arr)
-  
-              if(arr.includes("artist1")){
-                 path=v.path;
-                 console.log(v);}
-                });
-                
-               $("#player").attr("src",v.path);
-                */                       //Case insensitive search by artist
-
-
         })
 
         $("#albums").append(albumlist);
@@ -213,7 +195,20 @@ $("#category .card").on("click",function () {
       
           })
   
+          $("#search button").on("click",function () {
+    
+            let searchSong=$("#searchbox").val().trim().toLowerCase();
+            console.log(searchSong+searchSong)
 
+            if(searchSong.match(/^$/))
+              console.log("Empty")
+
+            else{
+            sessionStorage.setItem("section","search")
+            window.location.href="list.html?searchSong="+searchSong
+            }
+      
+          })
   
 });
 
