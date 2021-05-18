@@ -48,24 +48,6 @@ if(selectedLang==="marathi"){
                                         </div>
       
                                     `
-
-
-          /*        var arr=[];
-                  $.each(v.artist,function (j, str){
-                      arr.push(str.toLowerCase())
-                      
-                  })
-                  console.log(arr)
-  
-              if(arr.includes("artist1")){
-                 path=v.path;
-                 console.log(v);}
-                });
-                
-               $("#player").attr("src",v.path);
-                */                       //Case insensitive search by artist
-
-
         })
 
         $("#albums").append(albumlist);
@@ -133,8 +115,100 @@ $("#category .card").on("click",function () {
     // });
 
   })
-  
 
+
+          $.ajax({
+             type: "GET",
+              url: "http://localhost:3000/users/"+sessionStorage.getItem("id"),
+              dataType: "json",
+              async: true,
+              success: function (user) {
+                user=JSON.parse(JSON.stringify(user).replace("recentlyPlayed[]","recentlyPlayed"));
+                $.each(user.recentlyPlayed,function(i,songId){
+
+                  $.ajax({
+                    type: "GET",
+                    url: "http://localhost:3000/songs",
+                    dataType: "json",
+                    data: {"id":songId},
+                    async: true,
+                    success: function (data) {
+                        console.log(data)
+                        $.each(data, function (i, song) {
+                          console.log("udshsd"+song)
+                          $.ajax({
+                             type: "GET",
+                              url: "http://localhost:3000/albums",
+                              dataType: "json",
+                              data: {"id":song.album_id},
+                              async: true,
+                              success: function (data) {
+                                let songlist="";
+                                $.each(data, function (i, album) {
+                                  songlist += `
+                                                    <div class="song">
+                                                    <div id=${song.id} class="card">
+                                                    <img class="card-img-top" src=${album.cover} alt="Card image cap">
+                                                    <div class="card-body" style="text-align: left;">
+                                                    <h5 class="card-title" style="margin:2px;">${song.name}</h5>
+                                                    <p class="card-text" style="font-size: 12px;margin:2px;">Album : ${album.name}</p>
+                                                    <p class="card-text" style="font-size: 12px;margin:2px;">Artist(s) : ${song.artist}</p>
+                                                    <p class="card-text" style="font-size: 12px;margin:2px;">Duration : ${song.duration}</p>
+                                                    </div>
+                                                    <img class="play-img" src="../library-assets/images/play.png" >
+                                                    </div>
+                                                    </div>
+                                                `;
+                                })
+                                $("#recent").append(songlist);
+              
+                              },
+              
+                              error: function () {
+                                console.log("not able to process request");
+                              },
+              
+              
+                          })
+                    })
+                     
+                    },
+                    error: function () {
+                      console.log("not able to process request");
+                    },
+                  });
+                })
+
+              },
+
+              error: function () {
+                console.log("not able to process request");
+              },
+
+
+          })
+    
+          $(".song-container").on("click",".card",function (e) {
+    
+            let selectedSong=e.currentTarget.id;
+            window.location.href="../ui_audio/audio.html?id="+selectedSong
+      
+          })
+  
+          $("#search button").on("click",function () {
+    
+            let searchSong=$("#searchbox").val().trim().toLowerCase();
+            console.log(searchSong+searchSong)
+
+            if(searchSong.match(/^$/))
+              console.log("Empty")
+
+            else{
+            sessionStorage.setItem("section","search")
+            window.location.href="list.html?searchSong="+searchSong
+            }
+      
+          })
   
 });
 

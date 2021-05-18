@@ -72,7 +72,7 @@ $(document).ready(function () {
     $.ajax({
       type: 'POST',
       url: 'http://localhost:3000/users/',
-      data: JSON.stringify({ "id": id, "username": username, "phone": phone, "password": password }),
+      data: JSON.stringify({ "id": id, "username": username, "phone": phone, "password": password ,"recentlyPlayed":["none","none"]}),
       success: alert('Account Created Successfully'),
       contentType: "application/json",
       dataType: 'json'

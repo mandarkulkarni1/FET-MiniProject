@@ -92,6 +92,14 @@ input{
     width: 450px;
 }
 
+
+#recent .song .card{
+    
+    flex-direction: row;
+    height: 120px;
+    width: 450px;
+}
+
 .song  .play-img{
     display: none;
     margin: 10px;

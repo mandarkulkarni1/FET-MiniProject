@@ -75,8 +75,59 @@ $(document).ready(function () {
             console.log(e.currentTarget.id);
             //sessionStorage.setItem("selectedSong",selectedSong);
             //window.location.href="../ui_audio/audio.html"
-            window.location.href="../ui_audio/audio.html?id="+selectedSong
-        })
+            
+            console.log("http://localhost:3000/users/"+sessionStorage.getItem("id"))
+
+            
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/users/"+sessionStorage.getItem("id"),
+                dataType: "json",
+                async: true,
+                success: function (user) {
+                    let userAddSong;
+                                    
+                     user=JSON.parse(JSON.stringify(user).replace("recentlyPlayed[]","recentlyPlayed"));
+
+                    if(user.recentlyPlayed.includes(selectedSong)){
+                        user.recentlyPlayed.splice(user.recentlyPlayed.indexOf(selectedSong),1)
+                        user.recentlyPlayed.unshift(selectedSong)
+                    }
+                   
+                    else if(user.recentlyPlayed.length<=5){
+                    user.recentlyPlayed.unshift(selectedSong)
+                        if(user.recentlyPlayed.includes("none"))
+                        user.recentlyPlayed.pop()
+                    
+                    }
+                    else{
+                    user.recentlyPlayed.unshift(selectedSong)
+                    user.recentlyPlayed.pop()
+                    }
+
+                    // // userAddSong=user
+                    // // console.log(user.recentlyPlayed)
+                    // // u=JSON.stringify(userAddSong)
+                   
+                    $.ajax({
+                
+                        type: "PUT",
+                       url: "http://localhost:3000/users/"+sessionStorage.getItem("id"),
+                        dataType: "json",
+                        data: user,
+                        async: true,
+                        success: function () {
+                            window.location.href="../ui_audio/audio.html?id="+selectedSong
+                       //    console.log(userAddSong)
+                       //    console.log(user)
+                        }})
+                    
+                }})
+
+
+             
+      
+         })
 
 
 })

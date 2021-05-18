@@ -1,6 +1,22 @@
 let songName;
 let songImage;
 let song_ID;
+let songPath;
+
+//...Autoplay 
+document.addEventListener('DOMContentLoaded', () => {
+
+  //...get the button
+  let btn = document.querySelector('#btn');
+
+  //...bind the click event
+  btn.addEventListener('click', () => {}, false);
+
+  //...trigger the click event on page enter
+  btn.click();
+
+}, false)
+
 // add to fav songs
 
 //wait for DOM ready...
@@ -26,9 +42,10 @@ function mySong() {
     if(old === null) old = "";
     localStorage.setItem(name, old + data);
     alert('Added to FavSong ')
+    
   }
   function mySongOne() {
-    appendToStorage("favsong", `<a href='${songName}'><h1>${songName}</h1></a>`);
+    appendToStorage("favsong", `<a href='${window.location.href}'><h4>${songName}</h4></a>`);
  }
  
  
@@ -53,6 +70,7 @@ $(document).ready(function () {
             console.log(song);
             songName=song.name;
             song_ID=song.id;
+            songPath=song.path;
             albumId=song.album_id;
             let image = "";
 
@@ -70,14 +88,16 @@ $(document).ready(function () {
                     $('audio').append(`<source src="${song.path}" type="audio/ogg" />`);
                     $(".info h1").text(songName);
                     $(".info h2").text(song.artist);
-                    songImage=image;
+                    songImage=album.cover;
                     console.log(songName)
                     // $(".audio1").append(s);
                     // for download option
                     $('#download').attr('href',`${song.path}`)
+                    console.log(song.path)
                     let pathShare=song.path.substr(2);
-                    $('#facebook').attr('href',`https://www.facebook.com/sharer.php?u=${window.location.href}?id=${songId}`)
-                    $('#whatsapp').attr('href',`https://api.whatsapp.com/send?phone=&text=${window.location.href}?id=${songId}`)
+                    $('#facebook').attr('href',`https://www.facebook.com/sharer.php?u=${window.location.href}`)
+                    $('#whatsapp').attr('href',`https://api.whatsapp.com/send?phone=&text=${window.location.href}`)
+                   
                   })
 
                 },
@@ -88,10 +108,9 @@ $(document).ready(function () {
 
 
             })
-       //     album=data.image;
-       //     let s="";
+    
             ;
-        // });
+        
         
       })
        
@@ -115,22 +134,32 @@ $(document).ready(function () {
     let userEmail=sessionStorage.getItem("id");
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:3000/playlist',
-      data: JSON.stringify({ "id": songId, "title": songName, "image": songImage, "userEmail": userEmail }),
+      url: 'http://localhost:3000/playlists',
+      data: JSON.stringify({ "id": songId, "name": songName, "path": songPath, "image":songImage,"userEmail": userEmail }),
       success: alert('Added to playlist'),
       contentType: "application/json",
       dataType: 'json'
     });
   });
    });
+
+  
 // changing the volume
    $("#volume-control").on("change",function(e){
     console.log(e.currentTarget.value)
     $("audio").prop("volume",e.currentTarget.value/100)
   })
 
+//
 
+$('#favsong').on('click',function(){
 
+  document.getElementById('favmenu').innerHTML = "";
+  let favSongList=localStorage.getItem('favsong');
+  console.log(favSongList);
+  $('#favmenu').append(favSongList);
+})
+ 
   var player = $('.player'),
   audio = player.find('audio'),
   duration = $('.duration'),
@@ -248,8 +277,7 @@ function closeNav() {
 }
 
 
-
-
+//seekbar in control panel
 ///////////////////////////////////////////////////////////////////////////////////////
 
 var audio = document.querySelectorAll('audio');
