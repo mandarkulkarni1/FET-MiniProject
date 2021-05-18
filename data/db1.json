@@ -5,11 +5,23 @@
       "username": "Mandar kulkarni",
       "phone": "9850005820",
       "password": "mk123",
-      "profilePic": "../assets/profile-pic.jpeg"     
+      "profilePic": "../assets/profile-pic.jpeg"
+    },
+    {
+      "id": "diva@gmail",
+      "username": "Divyanshi ",
+      "phone": "12345678",
+      "password": "diva"
     }
   ],
   "playlists": [
-    {}
+    {
+      "id": "s61",
+      "name": "Pagglait",
+      "path": "../../songs/Pagglait.mp3",
+      "image": "../library-assets/images/album-covers/pagglait.jpg",
+      "userEmail": "diva@gmail"
+    }
   ],
   "songs": [
     {

@@ -41,14 +41,19 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
                         <a class="btn" aria-current="page" href="#">Home</a>
                     </li> -->
                     <li class="nav-item">
-                        <button id="musicLibAnchor" class="btn btn-outline-secondary" 
-                            onclick="window.location='./library-ui/music_library.html'">Music Library</button>
-                    </li>
-                    <li class="nav-item">
-                        <button id="nowPlayingAnchor" class="btn btn-outline-secondary " 
-                            onclick="window.location='./ui_audio/audio.html'">Now
-                            Playing</button>
-                    </li>
+                      <button id="musicLibAnchor" class="btn btn-outline-secondary" 
+                          onclick="window.location='./library-ui/music_library.html'">Music Library</button>
+                  </li>
+                  <li class="nav-item">
+                      <button id="nowPlayingAnchor" class="btn btn-outline-secondary " 
+                          onclick="window.location='./ui_audio/audio.html'">Now
+                          Playing</button>
+                  </li>
+
+                  <li class="nav-item">
+                    <button id="nowPlayingAnchor" class="btn btn-outline-success "
+                        onclick="window.location='./ui/contactus.html'"></i>Contact Us</button>
+                </li>
 
                 </ul>
                 <div class="d-flex">
@@ -72,10 +77,19 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
          </a>
          <a id="playlist" class="dropdown-item">Add to Playlist</a>
          
-          <a type="button" onclick="mySongOne()" class="dropdown-item">add to favorite</a>
+          <a type="button" onclick="mySongOne()" class="dropdown-item">Add to favorite</a>
          <div class="dropdown-divider"></div>
-         <a class="dropdown-item" href="#">sdg</a>
+         <!-- <a class="dropdown-item" href="#">favorite List</a> -->
+          <div class="btn-group" style="float: right; padding: 20px;">
+       <a type="button" id="favsong" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Favorite songs
+       </a>
+       <div id="favmenu" class="dropdown-menu" style="padding-right: 20px;">
+        
+       </div>
+     </div>
       </div>
+     
    <div class="player paused col-sm-12">
      
   
@@ -109,11 +123,15 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
        </div>
        
        <div class="info">
-         <div class="time">
-           <span class="current-time">0:00</span>
-           <span class="progress"><span></span></span>
-           <span class="duration">0:00</span>
-         </div>
+        <div class="time">
+          <span class="current-time">0:00</span>
+          <span class="progress" style="height: 8px;"><span>
+           <div class="seek-bar" style="height: 8px;">
+             <div class="fill" style="height: 8px;"><div class="handle"></div></div>
+           </div>
+          </span></span>
+          <span class="duration">0:00</span>
+        </div>
          
          <h1>Drawings With Words</h1>
          <h2>3RDBURGLAR</h2>
@@ -128,7 +146,7 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
            <div class="arrow"></div>
            <div class="arrow"></div>
          </button>
-         <button class="button play-pause">
+         <button id="btn" class="button play-pause">
            <div class="arrow"></div>
          </button>
          <button class="button ff">
