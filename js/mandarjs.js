@@ -1,6 +1,12 @@
 $(document).ready(function () {
 
+  //Flag variable
+  var validuser = false;
 
+  //Redirection to Profile page
+  $('#userutton').click(function () {
+    window.location.href = "../ui/profile.html"
+  })
 
   //Force Required Check for login form
   $(function () {
@@ -23,9 +29,6 @@ $(document).ready(function () {
   $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
-
-  //Flag variable
-  var validuser = false;
 
   //function to logout
   $('#logoutbutton').click(function () {
@@ -96,7 +99,7 @@ $(document).ready(function () {
         //iterating through RES object
         for (var i = 0; i < res.length; i++) {
           //if UserID and passowrd are correct
-          if (uid == res[i].id && pass == res[i].password) {
+          if (uid === res[i].id && pass === res[i].password) {
             //toggle FLAG
             validuser = true;
           }
@@ -108,14 +111,14 @@ $(document).ready(function () {
 
         }
         //if UserID Not found 
-        if (validuser == false) {
+        if (validuser === false) {
           alert('User Not Exist');
           $('#form1')[0].reset();
           return;
         }
 
         //If User is Valid, DO THE RITUALS
-        if (validuser == true) {
+        if (validuser === true) {
 
           //Set Language to selected
           $('#lang').change(function () {
@@ -156,7 +159,7 @@ $(document).ready(function () {
             // Toggling Modals
             $('#login').modal('hide');
             $('#language').modal('hide');
-            window.location.href="library-ui/music_library.html"
+            window.location.href = "library-ui/music_library.html"
           })
 
         }
