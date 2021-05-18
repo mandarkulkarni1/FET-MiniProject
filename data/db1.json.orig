@@ -7,24 +7,12 @@
       "password": "mk123",
       "profilePic": "../assets/profile-pic.jpeg",
       "recentlyPlayed[]": [
-        "s46",
-        "s11",
-        "s24",
-        "s1",
-        "s6",
-        "s5"
-      ]
-    },
-    {
-      "id": "noel@a.com",
-      "username": "Noel",
-      "phone": "9999999999",
-      "password": "1111",
-      "recentlyPlayed[]": [
-        "s103",
+        "s40",
         "s61",
-        "s62",
-        "s46"
+        "s71",
+        "s76",
+        "s78",
+        "s70"
       ]
     }
   ],
