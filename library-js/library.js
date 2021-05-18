@@ -2,6 +2,16 @@
  let selectedLang={}
 
 $(document).ready(function () {
+  
+  $('#logoutbutton').click(function () {
+    sessionStorage.clear();
+    location.reload();
+    window.location.replace('../Home.html');
+  });
+
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
 
  selectedLang=sessionStorage.getItem("lang");
  if(selectedLang==="english"){

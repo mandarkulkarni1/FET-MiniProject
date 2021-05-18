@@ -33,7 +33,7 @@ $(document).ready(function () {
   //function to logout
   $('#logoutbutton').click(function () {
     sessionStorage.clear();
-    location.reload();
+    window.location.replace('../Home.html');
   });
 
   //Function to close Login Modal

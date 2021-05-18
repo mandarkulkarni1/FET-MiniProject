@@ -51,11 +51,11 @@
                         <a class="btn" aria-current="page" href="#">Home</a>
                     </li> -->
                     <li class="nav-item">
-                        <button id="musicLibAnchor" class="btn btn-outline-secondary" 
+                        <button id="musicLibAnchor" class="btn btn-outline-success" 
                             onclick="window.location='./library-ui/music_library.html'">Music Library</button>
                     </li>
                     <li class="nav-item">
-                        <button id="nowPlayingAnchor" class="btn btn-outline-secondary " 
+                        <button id="nowPlayingAnchor" class="btn btn-outline-success " 
                             onclick="window.location='./ui_audio/audio.html'">Now
                             Playing</button>
                     </li>
@@ -67,10 +67,10 @@
                       <button type="submit"><i class="fa fa-search"></i></button>
                     </div>
                     
-                    <button type="button" id="userbutton"  class="btn btn-outline-success my-2 my-sm-0 ">User
-                        Settings</button>
+                    <button type="button" id="userbutton"  class="btn btn-outline-success my-2 my-sm-0" data-toggle="tooltip" title="User Profile" onclick="window.location='../ui/profile.html'"><i class="fa fa-user-edit"></i></button>
                     <button type="button" id="logoutbutton"  class="btn btn-outline-danger my-2 my-sm-0 "
-                        style="margin: 3px;">Logout</button>
+                        style="margin: 3px;" data-toggle="tooltip" title="Logout"><i
+                        class="fa fa-sign-out-alt"></i></button>
                 </div>
             </div>
         </div>
