@@ -5,7 +5,15 @@
       "username": "Mandar kulkarni",
       "phone": "9850005820",
       "password": "mk123",
-      "profilePic": "../assets/profile-pic.jpeg"     
+      "profilePic": "../assets/profile-pic.jpeg",
+      "recentlyPlayed[]": [
+        "s40",
+        "s61",
+        "s71",
+        "s76",
+        "s78",
+        "s70"
+      ]
     }
   ],
   "playlists": [
