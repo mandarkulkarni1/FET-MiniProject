@@ -263,7 +263,7 @@ h1 {
   justify-content: center;
   align-items: center;
   padding: 0 0.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.7em;
   color: black;
   font-size: 20px;
 }
@@ -279,13 +279,16 @@ h1 {
   border-radius: 0.0625em;
   box-shadow: 0 0.0625em black;
   cursor: pointer;
+  width: 20px;
+
 }
 
 .progress span {
   display: block;
-  width: 2;
+  width: 15px;
   height: 100%;
   background-color: black;
+  cursor: pointer;
 }
 
 
@@ -626,4 +629,38 @@ button {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+
+
+.seek-bar {
+  width: 90%;
+  margin: 0 auto;
+  height:0px;
+  border-radius: 4px;
+  background-color: hsla(251, 95%, 75%, 0.3);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.fill {
+  height: 4px;
+  width: 8px;
+  border-radius: 4px;
+  background-color: rgb(49, 10, 187);
+  position: relative;
+}
+.handle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  background: #fff;
+  transform: translate(50%, -50%) scale(0);
+  transition: transform 0.2s;
+}
+.seek-bar:hover .handle {
+  transform: translate(50%, -50%) scale(1);
 }
