@@ -7,12 +7,12 @@
       "password": "mk123",
       "profilePic": "../assets/profile-pic.jpeg",
       "recentlyPlayed[]": [
+        "s18",
+        "s16",
+        "s17",
+        "s19",
         "s76",
-        "s74",
-        "s71",
-        "s70",
-        "s20",
-        "s66"
+        "s74"
       ]
     },
     {
@@ -55,6 +55,20 @@
       "path": "../../songs/Pagglait.mp3",
       "image": "../library-assets/images/album-covers/pagglait.jpg",
       "userEmail": "diva@gmail"
+    },
+    {
+      "id": "s47",
+      "name": "Socha Hai",
+      "path": "../../songs/Socha Hai.mp3",
+      "image": "../library-assets/images/album-covers/rock-on.jpg",
+      "userEmail": "mk@123"
+    },
+    {
+      "id": "s19",
+      "name": "Rise Up",
+      "path": "../../songs/Rise Up.mp3",
+      "image": "../library-assets/images/album-covers/evolve.jfif",
+      "userEmail": "mk@123"
     }
   ],
   "songs": [

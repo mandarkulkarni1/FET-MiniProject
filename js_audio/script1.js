@@ -136,7 +136,7 @@ $(document).ready(function () {
     $("audio").prop("volume",e.currentTarget.value/100)
   })
 
-//
+// add to favourite
 
 $('#favsong').on('click',function(){
 
@@ -146,6 +146,50 @@ $('#favsong').on('click',function(){
   $('#favmenu').append(favSongList);
 })
  
+// shuffle the songs
+
+$('.shuffle').on('click',function(){
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:3000/songs",
+    dataType: "json",
+    async: true,
+    success: function (data) {
+      
+      if (data.length === 0)
+        console.log("Not found")
+      else {
+        let albumlist=""
+        var currentIndex = data.length, temporaryValue, randomIndex ;
+        $.each(data, function (i, a) {
+         
+           // Pick a remaining element...
+           randomIndex = Math.floor(Math.random() * currentIndex);
+           currentIndex -= 1;
+       
+           // And swap it with the current element.
+           temporaryValue = data[currentIndex];
+           data[currentIndex] = data[randomIndex];
+           data[randomIndex] = temporaryValue;
+            //  window.location.replace('?id='+``)
+
+            $('audio').on('ended',function(){
+   
+              window.location.replace('?id='+a.id);
+            })
+         
+        })
+       
+      }
+      
+    },
+    error: function () {
+      console.log("not able to process request");
+    },
+  });
+}) 
+
+
   var player = $('.player'),
   audio = player.find('audio'),
   duration = $('.duration'),
