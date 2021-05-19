@@ -17,21 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }, false)
 
-// add to fav songs
 
-//wait for DOM ready...
-document.addEventListener('DOMContentLoaded', () => {
-
-  //...get the button
-  let btn = document.querySelector('#btn');
-
-  //...bind the click event
-  btn.addEventListener('click', () => {}, false);
-
-  //...trigger the click event on page enter
-  btn.click();
-
-}, false);
 // add to fav songs
 function mySong() {
 
@@ -83,11 +69,11 @@ $(document).ready(function () {
                 success: function (data) {
                   console.log(albumId)
                   $.each(data, function (i, album) {
-                    image += `<div><img src=${album.cover} alt="3rdburglar by Wordburglar" /></div> `
+                    image += `<div><img src=${album.cover}  /></div> `
                     $(".cover").append(image);
                     $('audio').append(`<source src="${song.path}" type="audio/ogg" />`);
                     $(".info h1").text(songName);
-                    $(".info h2").text(song.artist);
+                    $(".info").append("<h2>"+song.artist+"</h2>");
                     songImage=album.cover;
                     console.log(songName)
                     // $(".audio1").append(s);

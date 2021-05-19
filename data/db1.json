@@ -7,12 +7,12 @@
       "password": "mk123",
       "profilePic": "../assets/profile-pic.jpeg",
       "recentlyPlayed[]": [
-        "s66",
-        "s5",
-        "s92",
-        "s72",
+        "s76",
+        "s74",
+        "s71",
         "s70",
-        "s46"
+        "s20",
+        "s66"
       ]
     },
     {
@@ -24,6 +24,26 @@
         "s103",
         "s61",
         "s62",
+        "s46"
+      ]
+    },
+    {
+      "id": "sam@a.com",
+      "username": "Sam",
+      "phone": "88888888888",
+      "password": "1111",
+      "recentlyPlayed[]": [
+        "s87",
+        "s84"
+      ]
+    },
+    {
+      "id": "mangal@a.com",
+      "username": "Mangaldeep",
+      "phone": "8787878888",
+      "password": "1111",
+      "recentlyPlayed[]": [
+        "s70",
         "s46"
       ]
     }

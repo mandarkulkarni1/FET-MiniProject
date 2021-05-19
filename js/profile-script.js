@@ -64,6 +64,7 @@ $(document).ready(function () {
       dataType: "json",
       async: true,
       success: function (data) {
+        
         var myProfile = {
 
           "id": data.id,
