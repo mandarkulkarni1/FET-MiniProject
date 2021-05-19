@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  var id = "mk@123";  //take it from session
+  var id = sessionStorage.getItem("id");  //take it from session
 
 //---------------------------------------------------------------------------------------------------------//
            /*loading profile image from json server */
@@ -64,6 +64,8 @@ $(document).ready(function () {
       dataType: "json",
       async: true,
       success: function (data) {
+
+        data=JSON.parse(JSON.stringify(data).replace("recentlyPlayed[]","recentlyPlayed"));
         
         var myProfile = {
 
@@ -71,7 +73,7 @@ $(document).ready(function () {
           "username": data.username,
           "phone": data.phone,
           "password": data.password,
-          "profilePic": `../assets/${pic}`
+          "profilePic": `../assets/images/profile/${pic}`
         }
 
    //  call for updating profile picture
@@ -144,13 +146,14 @@ $(document).ready(function () {
     alert("Current Passwords Don't Match");
     return;
   }
-
+  body=JSON.parse(JSON.stringify(body).replace("recentlyPlayed[]","recentlyPlayed"));
   var body = {
     "id": data.id,
     "username": name,
     "phone": phone,
     "password": cnfPassword,
-    "profilePic": data.profilePic
+    "profilePic": data.profilePic,
+    "recentlyPlayed": data.recentlyPlayed
   }
         //AJAX Request to update data to rest API
     

@@ -159,7 +159,7 @@ $(document).ready(function () {
             // Toggling Modals
             $('#login').modal('hide');
             $('#language').modal('hide');
-            window.location.href = "library-ui/music_library.html"
+            window.location.href = "ui/music_library.html"
           })
 
         }
