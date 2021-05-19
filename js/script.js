@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  var id = "mk@123";  //take it from session
+  var id = sessionStorage.getItem("id");  //take it from session
 
   //---------------------------------------------------------------------------------------------------------//
   /*loading profile image from json server */
@@ -64,13 +64,16 @@ $(document).ready(function () {
       dataType: "json",
       async: true,
       success: function (data) {
+
+        data=JSON.parse(JSON.stringify(data).replace("recentlyPlayed[]","recentlyPlayed"));
         var myProfile = {
 
           "id": data.id,
           "username": data.username,
           "phone": data.phone,
           "password": data.password,
-          "profilePic": `../assets/${pic}`
+          "profilePic": `../assets/images/profile/${pic}`,
+          "recentlyPlayed": data.recentlyPlayed
         }
 
         //  call for updating profile picture
@@ -135,13 +138,14 @@ $(document).ready(function () {
       success: function (data) {
 
         if (curPassword == "" && cnfPassword == "") {
-
+          data=JSON.parse(JSON.stringify(data).replace("recentlyPlayed[]","recentlyPlayed"));
           var body = {
             "id": data.id,
             "username": name,
             "phone": phone,
             "password": data.password,
-            "profilePic": data.profilePic
+            "profilePic": data.profilePic,
+            "recentlyPlayed": data.recentlyPlayed
           }
           //AJAX Request to update data to rest API
 
@@ -172,10 +176,11 @@ $(document).ready(function () {
             "username": name,
             "phone": phone,
             "password": cnfPassword,
-            "profilePic": data.profilePic
+            "profilePic": data.profilePic,
+            "recentlyPlayed": data.recentlyPlayed
           }
           //AJAX Request to update data to rest API
-
+          body=JSON.parse(JSON.stringify(body).replace("recentlyPlayed[]","recentlyPlayed"));
           $.ajax({
             url: `http://localhost:3000/users/${id}`,
             type: 'PUT',

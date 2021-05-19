@@ -1,6 +1,12 @@
 $(document).ready(function () {
 
+  //Flag variable
+  var validuser = false;
 
+  //Redirection to Profile page
+  $('#userutton').click(function () {
+    window.location.href = "../ui/profile.html"
+  })
 
   //Force Required Check for login form
   $(function () {
@@ -24,13 +30,10 @@ $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
 
-  //Flag variable
-  var validuser = false;
-
   //function to logout
   $('#logoutbutton').click(function () {
     sessionStorage.clear();
-    location.reload();
+    window.location.replace('../Home.html');
   });
 
   //Function to close Login Modal
@@ -72,7 +75,7 @@ $(document).ready(function () {
     $.ajax({
       type: 'POST',
       url: 'http://localhost:3000/users/',
-      data: JSON.stringify({ "id": id, "username": username, "phone": phone, "password": password }),
+      data: JSON.stringify({ "id": id, "username": username, "phone": phone, "password": password ,"recentlyPlayed":["none","none"]}),
       success: alert('Account Created Successfully'),
       contentType: "application/json",
       dataType: 'json'
@@ -96,7 +99,7 @@ $(document).ready(function () {
         //iterating through RES object
         for (var i = 0; i < res.length; i++) {
           //if UserID and passowrd are correct
-          if (uid == res[i].id && pass == res[i].password) {
+          if (uid === res[i].id && pass === res[i].password) {
             //toggle FLAG
             validuser = true;
           }
@@ -108,14 +111,14 @@ $(document).ready(function () {
 
         }
         //if UserID Not found 
-        if (validuser == false) {
+        if (validuser === false) {
           alert('User Not Exist');
           $('#form1')[0].reset();
           return;
         }
 
         //If User is Valid, DO THE RITUALS
-        if (validuser == true) {
+        if (validuser === true) {
 
           //Set Language to selected
           $('#lang').change(function () {
@@ -138,6 +141,25 @@ $(document).ready(function () {
             // Toggling Modals
             $('#login').modal('hide');
             $('#language').modal('hide');
+
+            //setting User ID
+            sessionStorage.setItem("id", uid);
+
+            //HIDE LOGIN BUTTON
+            $('#loginbutton').hide();
+
+            //Show Hidden Buttons
+            $('#userbutton').removeAttr('hidden');
+            $('#logoutbutton').removeAttr('hidden');
+
+            //Toggling UI Buttons
+            $('#musicLibAnchor').prop("disabled", false).removeClass('btn-outline-secondry').addClass('btn-outline-success');
+            $('#nowPlayingAnchor').prop("disabled", false).removeClass('btn-outline-secondry').addClass('btn-outline-success');
+
+            // Toggling Modals
+            $('#login').modal('hide');
+            $('#language').modal('hide');
+            window.location.href = "ui/music_library.html"
           })
 
         }

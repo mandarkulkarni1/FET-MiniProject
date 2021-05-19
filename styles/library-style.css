@@ -1,0 +1,190 @@
+
+
+input{
+    margin: 5px;
+}
+ 
+.card-img-top{
+    height: 75%;
+}
+
+.card-title{
+    margin: 10px;
+    
+}
+
+.card{
+    width: 250px;
+    height: 180px;
+    margin: 20px;
+    text-align: center;
+}
+
+.card:hover{
+    cursor: pointer;
+    box-shadow: 3px 3px 5px black;    
+    transform: scale(1.03);
+}
+
+.card-body{
+    text-align: center;
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.section-title{
+    margin-top: 20px;
+    margin-left:20px ;
+}
+
+#albums  .card{
+    width: 225px;
+    height: 260px;
+}
+
+#albums .card-title{
+   padding-top: 8px;
+   margin: 0px;
+}
+
+.album-container .card{
+    width: 225px;
+    height: 260px;
+}
+.album-container .card-title{
+   padding-top: 8px;
+   margin: 0px;
+}
+
+#artists .card{
+    width: 130px;
+    border: white;
+    
+}
+
+#artists .card:hover{  
+    transform: scale(1.1);
+    box-shadow: 0px 0px 0px white;
+}
+
+#artists  img{
+    border-radius: 50%;
+
+}
+
+#recent .card{
+    width: 150px;
+}
+
+#recent .card-title{
+   margin: 0px;;
+}
+
+.song .card{
+    
+    flex-direction: row;
+    height: 120px;
+    width: 450px;
+}
+
+
+#recent .song .card{
+    
+    flex-direction: row;
+    height: 120px;
+    width: 450px;
+}
+
+.song  .play-img{
+    display: none;
+    margin: 10px;
+    height:30px;
+    width:30px;
+    border-radius:50%;
+}
+
+.song:hover  .play-img{
+    display: inline;
+}
+
+.song .card-img-top{
+    width: 120px;
+    height: 100%;
+}
+
+.song-container{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.song-container:hover .card-img-top{
+    src: "../library-assets/images/play.png";
+
+}
+
+.album-container{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+
+
+hr{
+    color:#5fcf32;
+}
+
+footer{
+    background-color: #5fcf32;
+}
+
+.album-header{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    margin-bottom: 20px;
+    
+}
+
+.album-header img{
+    height: 250px;
+    width: 250px;
+   
+}
+
+.album-song-container .song{
+    padding: 10px;
+    display: flex;
+    flex-direction:row;
+    align-items: center;    
+
+}
+
+.album-song-container .song:hover{
+    background-color: chartreuse;
+    cursor: pointer;
+    
+}
+
+.album-song-container .song > img{
+    display: none;
+    margin: 1px;
+    margin-right:15px  ;
+    height:30px;
+    width:30px;
+    border-radius:50%;
+}
+
+.album-song-container .song:hover > img{
+    display: inline;
+}
