@@ -1,17 +1,18 @@
 $(document).ready(function () {
 
     let selectedLang = {}
-    selectedLang = sessionStorage.getItem("lang");
+    selectedLang = sessionStorage.getItem("lang");         //Get selected language from session variable
 
     if (selectedLang === "all")
         selectedLang = {}
-
-    var selectedCategory;
-    if (sessionStorage.getItem("section") === "category") {
+  
+    //If album category selected in library page
+    if (sessionStorage.getItem("section") === "category") {   
+        var selectedCategory;
         $("#song-heading").hide();
-        selectedCategory = sessionStorage.getItem("value")
+        selectedCategory = sessionStorage.getItem("value")         //Get selected category name
 
-        $.ajax({
+        $.ajax({                                              //Get albums as per selected category and language  
             type: "GET",
             url: "http://localhost:3000/albums",
             dataType: "json",
@@ -26,16 +27,14 @@ $(document).ready(function () {
 
                 else {
                     let albumlist = ""
-                    $.each(albums, function (i, a) {
+                    $.each(albums, function (i, a) {            //Display each album as card
                         var albumId = a.id;
-
                         albumlist += `
                                         <div id=${albumId} class="card">
                                         <img class="card-img-top" src=${a.cover} alt="Card image cap">
                                         <h5 class="card-title">${a.name}</h5>
                                         <p class="card-text" style="font-size: 12px;">${a.artist}</p>
-                                        </div>
-      
+                                        </div>      
                                     `
                     })
                     $(".album-container").append(albumlist);
@@ -48,13 +47,14 @@ $(document).ready(function () {
 
     }
 
-
+    //If artist selected in library page
     if (sessionStorage.getItem("section") === "artists") {
-        selectedArtist = sessionStorage.getItem("value")
-        $.ajax({
+        selectedArtist = sessionStorage.getItem("value")     //Get artist name from session variable
+        $.ajax({                                               //Get albums as per selected language
             type: "GET",
             url: "http://localhost:3000/albums",
             dataType: "json",
+            date:{ "language" : selectedLang},
             async: true,
             success: function (albums) {
                 if (albums.length === 0)
@@ -62,7 +62,7 @@ $(document).ready(function () {
 
                 else {
                     let albumlist = "";
-                    $.each(albums, function (i, a) {
+                    $.each(albums, function (i, a) {        //Get all the songs
 
                         $.ajax({
                             type: "GET",
@@ -75,9 +75,9 @@ $(document).ready(function () {
 
                                 else {
                                     let songlist = ""
-                                    $.each(songs, function (i, s) {
-                                        if (s.artist.includes(selectedArtist) && a.id === s.album_id) {
-                                            songlist += `
+                                    $.each(songs, function (i, s) {    //Check if the selected artist is associated with the song and the song is assoiciated with album fetched
+                                        if (s.artist.includes(selectedArtist) && a.id === s.album_id) {  
+                                            songlist += `                           //                
                                                     <div class="song">
                                                     <div id=${s.id} class="card">
                                                     <img class="card-img-top" src=${a.cover} alt="Card image cap">
@@ -131,7 +131,7 @@ $(document).ready(function () {
         window.location.href = "songlist.html"
     })
 
-    $(".song-container").on("click", ".card", function (e) {
+    $(".song-container,.album-song-container").on("click", ".card", function (e) {
 
         let selectedSong = e.currentTarget.id;
         $.ajax({

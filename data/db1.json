@@ -3,16 +3,13 @@
     {
       "id": "mk@123",
       "username": "Mandar kulkarni",
-      "phone": "9850005820",
-      "password": "mk123",
-      "profilePic": "../assets/images/profile/profile1.jpeg",
       "recentlyPlayed[]": [
+        "s1",
         "s99",
         "s46",
         "s61",
         "s58",
-        "s50",
-        "s63"
+        "s50"
       ]
     },
     {
