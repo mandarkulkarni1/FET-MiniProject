@@ -7,12 +7,12 @@
       "password": "mk123",
       "profilePic": "../assets/images/profile/profile1.jpeg",
       "recentlyPlayed[]": [
-        "s39",
+        "s99",
+        "s46",
         "s61",
-        "s70",
-        "s76",
-        "s74",
-        "s71"
+        "s58",
+        "s50",
+        "s63"
       ]
     },
     {
@@ -45,6 +45,19 @@
       "profilePic": "../assets/images/profile/profile-pic.jpeg",
       "recentlyPlayed[]": [
         "s70",
+        "s46"
+      ]
+    },
+    {
+      "id": "mahesh@sh.com",
+      "username": "mahesh",
+      "phone": "8888481238",
+      "password": "1234",
+      "profilePic": "../assets/images/profile/profile-pic.jpeg",
+      "recentlyPlayed[]": [
+        "s103",
+        "s61",
+        "s62",
         "s46"
       ]
     }

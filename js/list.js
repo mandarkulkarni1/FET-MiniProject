@@ -1,28 +1,24 @@
-
-
-
 $(document).ready(function () {
 
-    let selectedLang={}
-    selectedLang=sessionStorage.getItem("lang");
-    
-    if(selectedLang==="all")
-    selectedLang={}
+    let selectedLang = {}
+    selectedLang = sessionStorage.getItem("lang");
 
-    console.log(selectedLang);
+    if (selectedLang === "all")
+        selectedLang = {}
 
     var selectedCategory;
     if (sessionStorage.getItem("section") === "category") {
         $("#song-heading").hide();
         selectedCategory = sessionStorage.getItem("value")
-        console.log(selectedCategory)
 
         $.ajax({
             type: "GET",
             url: "http://localhost:3000/albums",
             dataType: "json",
-            data: { "category": selectedCategory ,
-                    "language": selectedLang},
+            data: {
+                "category": selectedCategory,
+                "language": selectedLang
+            },
             async: true,
             success: function (albums) {
                 if (albums.length === 0)
@@ -55,7 +51,6 @@ $(document).ready(function () {
 
     if (sessionStorage.getItem("section") === "artists") {
         selectedArtist = sessionStorage.getItem("value")
-        console.log(selectedArtist)
         $.ajax({
             type: "GET",
             url: "http://localhost:3000/albums",
@@ -82,7 +77,6 @@ $(document).ready(function () {
                                     let songlist = ""
                                     $.each(songs, function (i, s) {
                                         if (s.artist.includes(selectedArtist) && a.id === s.album_id) {
-                                            console.log(s.id)
                                             songlist += `
                                                     <div class="song">
                                                     <div id=${s.id} class="card">
@@ -130,92 +124,83 @@ $(document).ready(function () {
 
 
 
-    $(".album-container").on("click",".card",function (e) {
-    
-        let selectedAlbum=e.currentTarget.id;
-        sessionStorage.setItem("selectedAlbum",selectedAlbum);
-        window.location.href="songlist.html"
-  })
+    $(".album-container").on("click", ".card", function (e) {
 
-  $(".song-container").on("click",".card",function (e) {
-    
-    let selectedSong=e.currentTarget.id;
-    console.log(e.currentTarget.id);
-    //sessionStorage.setItem("selectedSong",selectedSong);
-    //window.location.href="../ui_audio/audio.html"
-    
+        let selectedAlbum = e.currentTarget.id;
+        sessionStorage.setItem("selectedAlbum", selectedAlbum);
+        window.location.href = "songlist.html"
+    })
 
-    $.ajax({
-        type: "GET",
-        url: "http://localhost:3000/users/"+sessionStorage.getItem("id"),
-        dataType: "json",
-        async: true,
-        success: function (user) {
-            let userAddSong;
-                            
-             user=JSON.parse(JSON.stringify(user).replace("recentlyPlayed[]","recentlyPlayed"));
+    $(".song-container").on("click", ".card", function (e) {
 
-             if(user.recentlyPlayed.includes(selectedSong)){
-                user.recentlyPlayed.splice(user.recentlyPlayed.indexOf(selectedSong),1)
-                user.recentlyPlayed.unshift(selectedSong)
+        let selectedSong = e.currentTarget.id;
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/users/" + sessionStorage.getItem("id"),
+            dataType: "json",
+            async: true,
+            success: function (user) {
+                let userAddSong;
+
+                user = JSON.parse(JSON.stringify(user).replace("recentlyPlayed[]", "recentlyPlayed"));
+
+                if (user.recentlyPlayed.includes(selectedSong)) {
+                    user.recentlyPlayed.splice(user.recentlyPlayed.indexOf(selectedSong), 1)
+                    user.recentlyPlayed.unshift(selectedSong)
+                }
+
+                else if (user.recentlyPlayed.length <= 5) {
+                    user.recentlyPlayed.unshift(selectedSong)
+                    if (user.recentlyPlayed.includes("none"))
+                        user.recentlyPlayed.pop()
+
+                }
+                else {
+                    user.recentlyPlayed.unshift(selectedSong)
+                    user.recentlyPlayed.pop()
+                }
+
+                $.ajax({
+
+                    type: "PUT",
+                    url: "http://localhost:3000/users/" + sessionStorage.getItem("id"),
+                    dataType: "json",
+                    data: user,
+                    async: true,
+                    success: function () {
+                        window.location.href = "audio.html?id=" + selectedSong
+                    }
+                })
+
             }
-           
-            else if(user.recentlyPlayed.length<=5){
-            user.recentlyPlayed.unshift(selectedSong)
-                if(user.recentlyPlayed.includes("none"))
-                user.recentlyPlayed.pop()
-            
-            }
-            else{
-            user.recentlyPlayed.unshift(selectedSong)
-            user.recentlyPlayed.pop()
-            }
-
-            // // userAddSong=user
-            // // console.log(user.recentlyPlayed)
-            // // u=JSON.stringify(userAddSong)
-           
-            $.ajax({
-        
-                type: "PUT",
-               url: "http://localhost:3000/users/"+sessionStorage.getItem("id"),
-                dataType: "json",
-                data: user,
-                async: true,
-                success: function () {
-                    window.location.href="audio.html?id="+selectedSong
-               //    console.log(userAddSong)
-               //    console.log(user)
-                }})
-            
-        }})
-
-        
-})
+        })
 
 
-if(sessionStorage.getItem("section")==="search"){
-$("#album-heading").hide()
-$.ajax({
-    type: "GET",
-    url: "http://localhost:3000/songs",
-    dataType: "json",
-    async: true,
-    success: function (data) {
-        const URLparams= new URLSearchParams(window.location.search);
-        searchedSong=URLparams.get('searchSong')
-        $.each(data, function (i, song) {
-          if(song.name.toLowerCase()===searchedSong)
-          $.ajax({
-             type: "GET",
-              url: "http://localhost:3000/albums",
-              dataType: "json",
-              data: {"id":song.album_id},
-              async: true,
-              success: function (data) {
-                let songlist="";
-                $.each(data, function (i, album) {
-                  songlist += `
+    })
+
+
+    if (sessionStorage.getItem("section") === "search") {
+        $("#album-heading").hide()
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/songs",
+            dataType: "json",
+            async: true,
+            success: function (data) {
+                const URLparams = new URLSearchParams(window.location.search);
+                searchedSong = URLparams.get('searchSong')
+                $.each(data, function (i, song) {
+                    if (song.name.toLowerCase() === searchedSong)
+                        $.ajax({
+                            type: "GET",
+                            url: "http://localhost:3000/albums",
+                            dataType: "json",
+                            data: { "id": song.album_id },
+                            async: true,
+                            success: function (data) {
+                                let songlist = "";
+                                $.each(data, function (i, album) {
+                                    songlist += `
                                     <div class="song">
                                     <div id=${song.id} class="card">
                                     <img class="card-img-top" src=${album.cover} alt="Card image cap">
@@ -229,24 +214,24 @@ $.ajax({
                                     </div>
                                     </div>
                                 `;
+                                })
+                                $(".song-container").append(songlist);
+
+                            },
+
+                            error: function () {
+                                console.log("not able to process request");
+                            },
+
+
+                        })
                 })
-                $(".song-container").append(songlist);
 
-              },
-
-              error: function () {
+            },
+            error: function () {
                 console.log("not able to process request");
-              },
-
-
-          })
-    })
-     
-    },
-    error: function () {
-      console.log("not able to process request");
-    },
-  });
-}
+            },
+        });
+    }
 
 })

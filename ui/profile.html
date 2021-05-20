@@ -22,35 +22,62 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../styles/styles.css">
-    <script defer src="../js/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+    integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+    crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="../styles/profile-styles.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <script defer src="../js/profile-script.js"></script>
 </head>
 
 <body>
+
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fab fa-napster"></i> <span>Planet M</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- <li class="nav-item">
+                            <a class="btn" aria-current="page" href="#">Home</a>
+                        </li> -->
+
+                        <li class="nav-item">
+                            <button id="musicLibAnchor" class="btn btn-outline-secondary" disabled="disabled"
+                                onclick="window.location='../ui/music_library.html'">Music Library</button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="nowPlayingAnchor" class="btn btn-outline-secondary " disabled="disabled"
+                                onclick="window.location='../ui/audio.html'">Now
+                                Playing</button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button id="nowPlayingAnchor" class="btn btn-outline-success "
+                                onclick="window.location='../ui/contactus.html'"></i>Contact Us</button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button id="" class="btn btn-outline-success "
+                                onclick="window.location='../ui/profile.html'"></i>My Profile</button>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <!--profile page upper section -->
     <section>
-        <!-- <div class="row" style="height: 300px;">
-            <div class="col-md-2 col-lg-2 col-12 m-auto my-profile">
-                <div>
-                    <img class="rounded-circle" id="my-img" src="../assets/Mahesh Shingane.JPG" alt="">
-                    <i class="fa fa-camera upload-button"></i>
-                    <input class="file-upload d-none" type="file" accept="image/*">
-                </div>
-                <div>
-                    <a href="../ui/edit-profile.html"><img class="edit-pro" style="height: 20px; margin-left: 45px;"
-                            src="../assets/resume (1).png" alt=""></a>
-                    <h6 style="margin-left: 15px;">Edit Profile</h6>
-                </div>
-            </div>
-            <div class="col-md-10 col-lg-10 col-12 m-auto">
-                <h1 id="name"></h1>
-                <h5 id="phone"></h5>
-            </div>
-
-        </div> -->
-        
-
-
 
         <div class="page-header header-filter" data-parallax="true"
             style="background-image:url('../assets/images/image2.jpg');">
@@ -64,16 +91,13 @@
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="profile">
                                 <div class="avatar">
-<!-- 
-                                    <img src="../assets/profile-pic.jpeg" alt="Circle Image"
-                                        class="img-raised rounded-circle img-fluid my-img"> -->
-                                    <div class="offset-4 add-profile"><a href="../ui/edit-profile.html"><i
-                                                class="fa fa-camera upload-button"></i></a></div>
-
+                                   
                                 </div>
                                 <div class="name offset-2">
                                     <h3 class="title"></h3>
                                     <h6>Designer</h6>
+                                   <a href="../ui/edit-profile.html"><i
+                                        class="btn btn-just-icon btn-link fa fa-camera"></i></a>
                                     <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i
                                             class="fa fa-dribbble"></i></a>
                                     <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i
@@ -99,15 +123,16 @@
                     <td>
                         <div class="playlist1">
                             <div class="cover">
-                                <img src="../assets/images/song1.jpeg" alt="">
+                                <a href="#"><img src="../assets/images/song1.jpeg" alt="">
+                                <i  class="fa fa-play-circle"></i></a>
                             </div>
                             <div class="m-3 song-info">
                                 <h3>song name</h3>
                                 <h6>singer, singer2, singer3</h6>
                             </div>
                             <div class="play">
-                               <a href="#"><img class="play-button" src="../assets//images/play-button.png" alt=""></a>
-                               <img src="../assets/images/music-note.png" alt="">
+                               <a href="#"><img class="play-button" src="../assets/images/play-button.png" alt=""></a>
+                               <img id="music" src="../assets/images/music-note.png" alt="">
                             </div>
                         </div>
                     </td>
@@ -117,6 +142,10 @@
         </div>
 
     </section>
+
+
+   
+
 </body>
 
 </html>
