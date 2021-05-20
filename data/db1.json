@@ -7,17 +7,26 @@
       "password": "mk123",
       "profilePic": "../assets/images/profile/profile1.jpeg",
       "recentlyPlayed[]": [
+<<<<<<< Updated upstream
         "s99",
         "s46",
         "s61",
         "s58",
         "s50",
         "s63"
+=======
+        "s104",
+        "s99",
+        "s39",
+        "s61",
+        "s70",
+        "s76"
+>>>>>>> Stashed changes
       ]
     },
     {
       "id": "noel@a.com",
-      "username": "Noel",
+      "username": "Noel Francis",
       "phone": "9999999999",
       "password": "1111",
       "recentlyPlayed[]": [
@@ -75,6 +84,20 @@
       "name": "3:59 AM",
       "path": "../../songs/3 59 AM.mp3",
       "image": "../assets/images/album-covers/punya-paap.jfif",
+      "userEmail": "mk@123"
+    },
+    {
+      "id": "s99",
+      "name": "Houn Jau Dya",
+      "path": "../../songs/Houn Jau Dya.mp3",
+      "image": "../assets/images/album-covers/bucket-list.jpg",
+      "userEmail": "mk@123"
+    },
+    {
+      "id": "s104",
+      "name": "Deva Tujhya Gabharyala",
+      "path": "../../songs/Deva Tujhya Gabharyala.m4a",
+      "image": "../assets/images/album-covers/duniyadari.jpg",
       "userEmail": "mk@123"
     }
   ],
@@ -1223,11 +1246,7 @@
       "language": "english",
       "name": "7",
       "category": "edm",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/7.jpg",
-=======
       "cover": "../assets/images/album-covers/7.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "David Guetta"
       ],
@@ -1238,11 +1257,7 @@
       "name": "Avicii",
       "language": "english",
       "category": "edm",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/stories.jpg",
-=======
       "cover": "../assets/images/album-covers/stories.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Avicii"
       ]
@@ -1252,11 +1267,7 @@
       "name": "All Blues",
       "language": "english",
       "category": "jazz",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/all-blues.jfif",
-=======
       "cover": "../assets/images/album-covers/all-blues.jfif",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Miles Davis"
       ]
@@ -1266,11 +1277,7 @@
       "name": "Evolve",
       "language": "english",
       "category": "rock",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/evolve.jfif",
-=======
       "cover": "../assets/images/album-covers/evolve.jfif",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Imagine Dragons"
       ],
@@ -1281,11 +1288,7 @@
       "name": "Meteora",
       "language": "english",
       "category": "rock",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/meteora.jpg",
-=======
       "cover": "../assets/images/album-covers/meteora.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Linkin Park"
       ]
@@ -1295,11 +1298,7 @@
       "name": "Music To Be Murdered By",
       "language": "english",
       "category": "hiphop",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/eminem-album.jpg",
-=======
       "cover": "../assets/images/album-covers/eminem-album.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Eminem"
       ]
@@ -1309,11 +1308,7 @@
       "name": "The Off-Season",
       "language": "english",
       "category": "hiphop",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/off-season.jpeg",
-=======
       "cover": "../assets/images/album-covers/off-season.jpeg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "J. Cole"
       ],
@@ -1324,11 +1319,7 @@
       "name": "Ved",
       "language": "hindi",
       "category": "edm",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/ved.jfif",
-=======
       "cover": "../assets/images/album-covers/ved.jfif",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Ritviz"
       ]
@@ -1338,11 +1329,7 @@
       "name": "Dev",
       "language": "hindi",
       "category": "edm",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/dev.jfif",
-=======
       "cover": "../assets/images/album-covers/dev.jfif",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Ritviz"
       ],
@@ -1353,11 +1340,7 @@
       "name": "Raja Baja",
       "language": "hindi",
       "category": "edm",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/raja-baja.jpg",
-=======
       "cover": "../assets/images/album-covers/raja-baja.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Nucleya"
       ]
@@ -1367,11 +1350,7 @@
       "name": "Rock On!!",
       "language": "hindi",
       "category": "rock",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/rock-on.jpg",
-=======
       "cover": "../assets/images/album-covers/rock-on.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Shankar-Ehsaan-Loy"
       ]
@@ -1381,11 +1360,7 @@
       "name": "Rockstar",
       "language": "hindi",
       "category": "rock",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/rockstar.jfif",
-=======
       "cover": "../assets/images/album-covers/rockstar.jfif",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "A.R. Rahman"
       ]
@@ -1395,11 +1370,7 @@
       "name": "Bajirao Mastani",
       "language": "hindi",
       "category": "indian_classical",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/bajirao-mastani.jpg",
-=======
       "cover": "../assets/images/album-covers/bajirao-mastani.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Sanjay Leela Bhansali"
       ]
@@ -1409,11 +1380,7 @@
       "name": "Bombay Velvet",
       "language": "hindi",
       "category": "jazz",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/bombay-velvet.jpg",
-=======
       "cover": "../assets/images/album-covers/bombay-velvet.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Amit Trivedi"
       ]
@@ -1422,11 +1389,7 @@
       "id": "a15",
       "name": "Pagglait",
       "language": "hindi",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/pagglait.jpg",
-=======
       "cover": "../assets/images/album-covers/pagglait.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Arijit Singh"
       ],
@@ -1436,11 +1399,7 @@
       "id": "a16",
       "name": "Ludo",
       "language": "hindi",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/ludo.jpg",
-=======
       "cover": "../assets/images/album-covers/ludo.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Pritam"
       ],
@@ -1451,11 +1410,7 @@
       "name": "Punya Paap",
       "language": "hindi",
       "category": "hiphop",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/punya-paap.jfif",
-=======
       "cover": "../assets/images/album-covers/punya-paap.jfif",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Divine"
       ],
@@ -1466,11 +1421,7 @@
       "name": "Still Here",
       "language": "hindi",
       "category": "hiphop",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/still-here.jfif",
-=======
       "cover": "../assets/images/album-covers/still-here.jfif",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Kr$na"
       ],
@@ -1481,11 +1432,7 @@
       "name": "Katyar Kaljat Ghusli",
       "language": "marathi",
       "category": "indian_classical",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/katyar.jpg",
-=======
       "cover": "../assets/images/album-covers/katyar.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Jitendra Abhisheki",
         "Shankar-Ehsaan-Loy"
@@ -1495,11 +1442,7 @@
       "id": "a20",
       "name": "Sairat",
       "language": "marathi",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/sairat.jpg",
-=======
       "cover": "../assets/images/album-covers/sairat.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Ajay-Atul"
       ],
@@ -1509,11 +1452,7 @@
       "id": "a21",
       "name": "Lai Bhaari",
       "language": "marathi",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/lai-bhaari.jpg",
-=======
       "cover": "../assets/images/album-covers/lai-bhaari.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Ajay-Atul"
       ],
@@ -1523,11 +1462,7 @@
       "id": "a22",
       "name": "Mauli",
       "language": "marathi",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/mauli.jpg",
-=======
       "cover": "../assets/images/album-covers/mauli.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Ajay-Atul"
       ],
@@ -1537,11 +1472,7 @@
       "id": "a23",
       "name": "Bucket List",
       "language": "marathi",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/bucket-list.jpg",
-=======
       "cover": "../assets/images/album-covers/bucket-list.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Rohan-Rohan"
       ],
@@ -1551,11 +1482,7 @@
       "id": "a24",
       "name": "Duniyadari",
       "language": "marathi",
-<<<<<<< HEAD
-      "cover": "../library-assets/images/album-covers/duniyadari.jpg",
-=======
       "cover": "../assets/images/album-covers/duniyadari.jpg",
->>>>>>> 072f248499ccf28a0e2cbc0dc317d893eb885b2e
       "artist": [
         "Amitraj Sawant",
         "Pankaj Padghan",
