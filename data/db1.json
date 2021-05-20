@@ -7,12 +7,12 @@
       "password": "mk123",
       "profilePic": "../assets/images/profile/profile1.jpeg",
       "recentlyPlayed[]": [
-        "s39",
         "s99",
         "s46",
         "s61",
         "s58",
-        "s50"
+        "s50",
+        "s63"
       ]
     },
     {
@@ -21,6 +21,7 @@
       "phone": "9999999999",
       "password": "1111",
       "recentlyPlayed[]": [
+        "s96",
         "s103",
         "s61",
         "s62",
@@ -89,6 +90,13 @@
       "name": "Deva Tujhya Gabharyala",
       "path": "../../songs/Deva Tujhya Gabharyala.m4a",
       "image": "../assets/images/album-covers/duniyadari.jpg",
+      "userEmail": "mk@123"
+    },
+    {
+      "id": "s59",
+      "name": "Behroopia",
+      "path": "../../songs/Behroopia.mp3",
+      "image": "../assets/images/album-covers/bombay-velvet.jpg",
       "userEmail": "mk@123"
     }
   ],
