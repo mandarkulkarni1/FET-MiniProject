@@ -3,25 +3,23 @@
 
 <head>
   <!-- Required meta tags -->
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
- <!-- Bootstrap CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-     integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
- <!--Font Awesome-->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-     integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
-     crossorigin="anonymous" />
- <link rel="stylesheet" href="../styles/main.css">
- <title>Planet M </title>
- <link rel="icon" href="../assets/images/title.png">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+    integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="../styles/main.css">
+  <title>Planet M </title>
+  <link rel="icon" href="../assets/images/title.png">
 
- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 
-
- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script defer src="../js/songlist.js"></script>
   <script defer src="../js/library.js"></script>
 
@@ -35,76 +33,60 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fab fa-napster"></i> <span>Planet M</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <!-- <li class="nav-item">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <i class="fab fa-napster"></i> <span>Planet M</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- <li class="nav-item">
                         <a class="btn" aria-current="page" href="#">Home</a>
                     </li> -->
-                    <li class="nav-item">
-                        <button id="musicLibAnchor" class="btn btn-outline-success" 
-                            onclick="window.location='music_library.html'">Music Library</button>
-                    </li>
-                    <li class="nav-item">
-                        <button id="nowPlayingAnchor" class="btn btn-outline-success " 
-                        onclick="window.location='../ui_audio/audio.html'">Now
-                            Playing</button>
-                    </li>
+            <li class="nav-item">
+              <button id="musicLibAnchor" class="btn btn-outline-success"
+                onclick="window.location='music_library.html'">Music Library</button>
+            </li>
+            <li class="nav-item">
+              <button id="nowPlayingAnchor" class="btn btn-outline-success "
+                onclick="window.location='../ui_audio/audio.html'">Now
+                Playing</button>
+            </li>
 
-                </ul>
-                <div class="d-flex">
-                    <div id=search style="margin-right: 15px;">
-                        <input id="searchbox" type="text" placeholder="Search by song name..." >
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                      </div>
-                    
-                      <button type="button" id="userbutton"  class="btn btn-outline-success my-2 my-sm-0" data-toggle="tooltip" title="User Profile" onclick="window.location='../ui/profile.html'"><i class="fa fa-user-edit"></i></button>
-                      <button type="button" id="logoutbutton"  class="btn btn-outline-danger my-2 my-sm-0 "
-                          style="margin: 3px;" data-toggle="tooltip" title="Logout"><i
-                          class="fa fa-sign-out-alt"></i></button>
-                        
-                </div>
+          </ul>
+          <div class="d-flex">
+            <div id=search style="margin-right: 15px;">
+              <input id="searchbox" type="text" placeholder="Search by song name...">
+              <button type="submit"><i class="fa fa-search"></i></button>
             </div>
+
+            <button type="button" id="userbutton" class="btn btn-outline-success my-2 my-sm-0" data-toggle="tooltip"
+              title="User Profile" onclick="window.location='../ui/profile.html'"><i
+                class="fa fa-user-edit"></i></button>
+            <button type="button" id="logoutbutton" class="btn btn-outline-danger my-2 my-sm-0 " style="margin: 3px;"
+              data-toggle="tooltip" title="Logout"><i class="fa fa-sign-out-alt"></i></button>
+
+          </div>
         </div>
+      </div>
     </nav>
-</header>
+  </header>
 
 
   <div style="height: auto; border: 3px solid #5fcf32; margin: 3px; padding: 10px;">
 
-    <div class="album-header">
-      
-
-    </div>
+    <div class="album-header"></div>
     <hr>
 
-  <div class="album-song-container">
-
-  </div>
-
+    <div class="album-song-container"></div>
 
   </div>
   <footer class="bg-dark text-center text-white fixed-bottom">
     &copyPlanetM, 2021
   </footer>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>
