@@ -47,6 +47,19 @@
         "s70",
         "s46"
       ]
+    },
+    {
+      "id": "mahesh@sh.com",
+      "username": "mahesh",
+      "phone": "8888481238",
+      "password": "1234",
+      "profilePic": "../assets/images/profile/profile-pic.jpeg",
+      "recentlyPlayed[]": [
+        "s103",
+        "s61",
+        "s62",
+        "s46"
+      ]
     }
   ],
   "playlists": [
