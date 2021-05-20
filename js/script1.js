@@ -81,24 +81,15 @@ $(document).ready(function () {
                     image += `<div><img src=${album.cover}  /></div> `
                     $(".cover").append(image);
                     $('audio').append(`<source src="${song.path}" type="audio/ogg" />`);
-<<<<<<< HEAD:js/script1.js
                     $(".info h2").text(songName);
                     $(".info").append("<h3>"+song.artist+"</h3>");
-=======
-                    $(".info h1").text(songName);
-                    $(".info").append("<h2>"+song.artist+"</h2>");
->>>>>>> 3df9c71cdbd32310b58045125c7d018d36eb6254:js_audio/script1.js
                     songImage=album.cover;
                     console.log(songName)
                     // $(".audio1").append(s);
                     // for download option
                     $('#download').attr('href',`${song.path}`)
                     console.log(song.path)
-<<<<<<< HEAD:js/script1.js
                    
-=======
-                    let pathShare=song.path.substr(2);
->>>>>>> 3df9c71cdbd32310b58045125c7d018d36eb6254:js_audio/script1.js
                     $('#facebook').attr('href',`https://www.facebook.com/sharer.php?u=${window.location.href}`)
                     $('#whatsapp').attr('href',`https://api.whatsapp.com/send?phone=&text=${window.location.href}`)
                    
@@ -155,60 +146,6 @@ $(document).ready(function () {
   })
 
 // add to favourite
-<<<<<<< HEAD:js/script1.js
-=======
-
-$('#favsong').on('click',function(){
-
-  document.getElementById('favmenu').innerHTML = "";
-  let favSongList=localStorage.getItem('favsong');
-  console.log(favSongList);
-  $('#favmenu').append(favSongList);
-})
- 
-// shuffle the songs
-
-$('.shuffle').on('click',function(){
-  $.ajax({
-    type: "GET",
-    url: "http://localhost:3000/songs",
-    dataType: "json",
-    async: true,
-    success: function (data) {
-      
-      if (data.length === 0)
-        console.log("Not found")
-      else {
-        let albumlist=""
-        var currentIndex = data.length, temporaryValue, randomIndex ;
-        $.each(data, function (i, a) {
-         
-           // Pick a remaining element...
-           randomIndex = Math.floor(Math.random() * currentIndex);
-           currentIndex -= 1;
-       
-           // And swap it with the current element.
-           temporaryValue = data[currentIndex];
-           data[currentIndex] = data[randomIndex];
-           data[randomIndex] = temporaryValue;
-            //  window.location.replace('?id='+``)
-
-            $('audio').on('ended',function(){
-   
-              window.location.replace('?id='+a.id);
-            })
-         
-        })
-       
-      }
-      
-    },
-    error: function () {
-      console.log("not able to process request");
-    },
-  });
-}) 
->>>>>>> 3df9c71cdbd32310b58045125c7d018d36eb6254:js_audio/script1.js
 
 $('#favsong').on('click',function(){
 
