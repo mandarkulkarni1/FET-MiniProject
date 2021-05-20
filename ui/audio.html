@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Planet M </title>
+    <link rel="icon" href="../assets/images/title.png">
     <!-- Latest compiled and minified CSS -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,35 +15,88 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
         integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
         crossorigin="anonymous" />
-        <link rel="stylesheet" href="./../style_audio/style1.css">
-    <title>Planet M </title>
-   
+        <link rel="stylesheet" href="../styles/style1.css">
+        <link rel="stylesheet" href="../styles/main.css">
+        <title>Planet M </title>
+        <link rel="icon" href="../assets/images/title.png">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   
-      <script defer src="./../js_audio/script1.js"></script>    
+      <script defer src="../js/script1.js"></script>  
+      <!-- <script defer src="../js/library.js"></script>   -->
+      <!-- <style>
+        .ss{
+          width: 100%;
+          height:auto;
+        }
+      </style> -->
 </head>
 <body>
    
-  
-    <div class="ss container">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fab fa-napster"></i> <span>Planet M</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- <li class="nav-item">
+                        <a class="btn" aria-current="page" href="#">Home</a>
+                    </li> -->
+                    <li class="nav-item">
+                      <button id="musicLibAnchor" class="btn btn-outline-success" 
+                          onclick="window.location='../library-ui/music_library.html'">Music Library</button>
+                  </li>
+                  <li class="nav-item">
+                      <button id="nowPlayingAnchor" class="btn btn-outline-success " 
+                      onclick="window.location.reload">Now
+                          Playing</button>
+                  </li>
+
+                </ul>
+                <div class="d-flex">
+                    
+                  <button type="button" id="userbutton"  class="btn btn-outline-success my-2 my-sm-0" data-toggle="tooltip" title="User Profile" onclick="window.location='../ui/profile.html'"><i class="fa fa-user-edit"></i></button>
+                  <button type="button" id="logoutbutton"  class="btn btn-outline-danger my-2 my-sm-0 "
+                      style="margin: 3px;" data-toggle="tooltip" title="Logout"><i
+                      class="fa fa-sign-out-alt"></i></button>
+                        
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+    <div class="ss">
+      <div id="mySidenav" class="sidenav" >
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a id="download" download class="dropdown-item">Download</a>
+         <a type="button" data-toggle="modal" data-target="#exampleModal" class="dropdown-item">
+           Share
+         </a>
+         <a id="playlist" class="dropdown-item">Add to Playlist</a>
          
-   <div class="player paused">
-     
-    <!-- <div class="dropdown" style="float: right;">
-       <button class="dropbtn" style="color: black;">option
-         <i class="fa fa-caret-down"></i>
-       </button>
-       <div class="dropdown-content">
-         
-         
-         <a href="#">Link 3</a>
+          <a type="button" onclick="mySongOne()" class="dropdown-item">Add to favorite</a>
+         <div class="dropdown-divider"></div>
+         <!-- <a class="dropdown-item" href="#">favorite List</a> -->
+          <div class="btn-group" style="float: right; padding: 20px;">
+       <a type="button" id="favsong" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Favorite songs
+       </a>
+       <div id="favmenu" class="dropdown-menu" style="padding-right: 20px;">
+        
        </div>
      </div>
-      -->
-      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-       <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-     </svg> -->
-      <div class="btn-group" style="float: right; padding: 20px;">
+      </div>
+     
+   <div class="player paused col-sm-12">
+     
+  
+      <!-- <div class="btn-group" style="float: right; padding: 20px;">
        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Options
        </button>
@@ -57,70 +111,51 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
          <div class="dropdown-divider"></div>
          <a class="dropdown-item" href="#">sdg</a>
        </div>
-     </div>
-     <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
-    </div>
-    
-    <!-- Use any element to open the sidenav -->
-    <span onclick="openNav()">open</span>
-    
-    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-    <div id="main">
-      ...
-    </div>
-     <!-- <div class="dropdown" style="float: right;">
-       <button class="dropbtn">more options
-         <i class="fa fa-caret-down"></i>
-       </button>
-       <div class="dropdown-content">
-         <a href="#">Add to favourite</a>
-         <a href="#">Add to Queue</a>
-         <a href="#">Download now</a>
-         <a href="#">Add to Playlist</a>
-         <a href="#">Share</a>
-       </div>
-     </div>  -->
+     </div> -->
 
-<!--       
-     
-       <div class="dropdown">
-         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           Dropdown button
-         </button>
-         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-           <a class="dropdown-item" href="#">Action</a>
-           <a class="dropdown-item" href="#">Another action</a>
-           <a class="dropdown-item" href="#">Something else here</a>
-         </div>
-       </div>
-     -->
-    
-       
+   
+        
+    <!-- Use any element to open the sidenav -->
+    <span onclick="openNav()" id="sideBar">
+      <i class="fa fa-bars" style="font-size:30px; padding: 20px; float: right; cursor: pointer;"></i></span>
        <div class="album">
          <div class="cover">
            <!-- <div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/38273/3rdburglar-cover-192.jpg" alt="3rdburglar by Wordburglar" /></div> -->
            <!-- <div style="background-color: black;"></div> -->
          </div>
        </div>
+       <!-- <div class="preNext">
+         <button class="pre">
+           <i class="fas fa-step-backward "></i>
+         </button>
+         <button class="next">
+          <i class="fas fa-step-forward "></i>
+        </button>
+       </div> -->
        
        <div class="info">
-         <div class="time">
-           <span class="current-time">0:00</span>
-           <span class="progress"><span></span></span>
-           <span class="duration">0:00</span>
-         </div>
+        <div class="time">
+          <span class="current-time">0:00</span>
+          <span class="progress" style="height: 8px;"><span>
+           <div class="seek-bar" style="height: 8px;">
+             <div class="fill" style="height: 8px;"><div class="handle"></div></div>
+           </div>
+          </span></span>
+          <span class="duration">0:00</span>
+        </div>
          
-         <h1>Drawings With Words</h1>
-         <h2>3RDBURGLAR</h2>
+         <h2>Drawings With Words</h2>
        </div>
        
        <div class="actions">
-         <button class="shuffle">
+          <div class="preNext" style="margin-right: 10px;">
+         <button class="pre">
+           <i class="fas fa-step-backward "></i>
+           
+         </button>
+         </div>
+         
+         <button id="shuffleBtn" class="shuffle">
            <div class="arrow"></div>
            <div class="arrow"></div>
          </button>
@@ -128,16 +163,22 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
            <div class="arrow"></div>
            <div class="arrow"></div>
          </button>
-         <button class="button play-pause">
+         <button id="btn" class="button play-pause">
            <div class="arrow"></div>
          </button>
          <button class="button ff">
            <div class="arrow"></div>
            <div class="arrow"></div>
          </button>
-         <button class="repeat"></button>
-        
+         <button class="repeat" ></button>
+          
+         <div class="preNext" style="float: right ;margin-left: 10px;">
+          <button class="next">
+           <i class="fas fa-step-forward "></i>
+         </button>
+        </div>
        </div>
+       <input type="range" id="volume-control">
        <div class="audio1">
 
        </div>
@@ -145,17 +186,7 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
      </div>
 
  </div>
- <!-- <div>
-   <a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/38273/Wordburglar_Drawings_with_Words.mp3" download>download here</a>
- </div> -->
-
- <!-- <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:5501/ui_audio/sample.html" target="_blank"> facebook share</a>
-     <br>
-     <br>
-     <a href="https://api.whatsapp.com/send?phone=&text= http://127.0.0.1:5501/ui_audio/sample.html">whats app</a> -->
-
-    
-     
+ 
      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
        <div class="modal-dialog" role="document">
          <div class="modal-content">
@@ -170,10 +201,10 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
                <h5>Share via..</h5>
                <p>Share this songs from here.. <a href="#" role="button"  title="Popover title" data-content="Popover body content is set in this attribute."> Click Below link</a> </p>
                <hr>
-                 <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:5501/ui_audio/sample.html"  class="tooltip-test" title="Tooltip" target="_blank">  <h5>facebook share</h5>  <img src="./../images/fb.png" style="width: 3em; height: 3em; " alt=""></a>
+                 <a id="facebook" class="tooltip-test" title="Tooltip" target="_blank">  <h5>facebook share</h5>  <img src="../assets/images/fb.png" style="width: 3em; height: 3em; " alt=""></a>
                  <br>
                  <hr>
-                 <a href="https://api.whatsapp.com/send?phone=&text= http://127.0.0.1:5501/ui_audio/sample.html"  class="tooltip-test" title="Tooltip"><h5>whats app</h5> <img src="./../images/whatapp.png" style="width: 3em; height: 3em;" alt=""></a>
+                 <a id="whatsapp" class="tooltip-test" title="Tooltip"><h5>whats app</h5> <img src="../assets/images/whatapp.png" style="width: 3em; height: 3em;" alt=""></a>
              </div>
            </div>
            
@@ -184,6 +215,10 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
 
 
     </div>
+     
+    <footer class="bg-dark text-center text-white fixed-bottom">
+      &copyPlanetM, 2021
+    </footer>
     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
