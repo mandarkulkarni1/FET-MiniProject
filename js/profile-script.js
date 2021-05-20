@@ -84,6 +84,7 @@ $(document).ready(function () {
           phone: data.phone,
           password: data.password,
           profilePic: `../assets/images/profile/${pic}`,
+          recentlyPlayed: data.recentlyPlayed
         };
 
         //  call for updating profile picture
@@ -143,6 +144,7 @@ $(document).ready(function () {
             phone: phone,
             password: data.password,
             profilePic: data.profilePic,
+            recentlyPlayed: data.recentlyPlayed
           };
           //AJAX Request to update data to rest API
 
@@ -176,6 +178,7 @@ $(document).ready(function () {
             phone: phone,
             password: cnfPassword,
             profilePic: data.profilePic,
+            recentlyPlayed: data.recentlyPlayed
           };
           //AJAX Request to update data to rest API
 
