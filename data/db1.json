@@ -7,12 +7,12 @@
       "password": "mk123",
       "profilePic": "../assets/images/profile/profile1.jpeg",
       "recentlyPlayed[]": [
-        "s39",
-        "s99",
+        "s49",
         "s46",
-        "s61",
-        "s58",
-        "s50"
+        "s18",
+        "s16",
+        "s17",
+        "s19"
       ]
     },
     {
@@ -71,24 +71,17 @@
       "userEmail": "diva@gmail"
     },
     {
-      "id": "s70",
-      "name": "3:59 AM",
-      "path": "../../songs/3 59 AM.mp3",
-      "image": "../assets/images/album-covers/punya-paap.jfif",
+      "id": "s47",
+      "name": "Socha Hai",
+      "path": "../../songs/Socha Hai.mp3",
+      "image": "../library-assets/images/album-covers/rock-on.jpg",
       "userEmail": "mk@123"
     },
     {
-      "id": "s99",
-      "name": "Houn Jau Dya",
-      "path": "../../songs/Houn Jau Dya.mp3",
-      "image": "../assets/images/album-covers/bucket-list.jpg",
-      "userEmail": "mk@123"
-    },
-    {
-      "id": "s104",
-      "name": "Deva Tujhya Gabharyala",
-      "path": "../../songs/Deva Tujhya Gabharyala.m4a",
-      "image": "../assets/images/album-covers/duniyadari.jpg",
+      "id": "s19",
+      "name": "Rise Up",
+      "path": "../../songs/Rise Up.mp3",
+      "image": "../library-assets/images/album-covers/evolve.jfif",
       "userEmail": "mk@123"
     }
   ],

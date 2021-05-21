@@ -74,7 +74,7 @@ h1 {
 .player {
   position: relative;
   width: 40em;
-  min-height: 40em;
+  min-height: 20em;
   overflow: hidden;
   background-color: transparent;
   border-radius: 0.25em;
