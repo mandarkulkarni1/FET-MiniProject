@@ -21,6 +21,8 @@
       "phone": "9999999999",
       "password": "1111",
       "recentlyPlayed[]": [
+        "s68",
+        "s96",
         "s103",
         "s61",
         "s62",
@@ -33,6 +35,9 @@
       "phone": "88888888888",
       "password": "1111",
       "recentlyPlayed[]": [
+        "s103",
+        "s104",
+        "s100",
         "s87",
         "s84"
       ]
@@ -100,6 +105,20 @@
       "path": "../../songs/Deva Tujhya Gabharyala.m4a",
       "image": "../assets/images/album-covers/duniyadari.jpg",
       "userEmail": "mk@123"
+    },
+    {
+      "id": "s59",
+      "name": "Behroopia",
+      "path": "../../songs/Behroopia.mp3",
+      "image": "../assets/images/album-covers/bombay-velvet.jpg",
+      "userEmail": "mk@123"
+    },
+    {
+      "id": "s103",
+      "name": "Tik Tik Vajate Dokyaat",
+      "path": "../../songs/Tik Tik Vajate Dokyaat.m4a",
+      "image": "../assets/images/album-covers/duniyadari.jpg",
+      "userEmail": "sam@a.com"
     }
   ],
   "songs": [

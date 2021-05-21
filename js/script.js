@@ -18,7 +18,7 @@ $(document).ready(function () {
 
 
 
-  //Function To Display Favorites
+  //Function To Display Recently Played
 
   $.ajax({
     type: "GET",
@@ -26,16 +26,13 @@ $(document).ready(function () {
     dataType: "json",
     async: true,
     success: function (data) {
-      // console.log(data);
       data = JSON.parse(JSON.stringify(data).replace("recentlyPlayed[]", "recentlyPlayed"))
-      // console.log('recently played'+ data.recentlyPlayed);
       $.ajax({
         type: "GET",
         url: `http://localhost:3000/songs/`,
         dataType: "json",
         async: true,
         success: function (songs) {
-          // for (var i = 0; i < songs.length; i++) {
           $.each(songs, function (i, song) {
             for (var j = 0; j < data.recentlyPlayed.length; j++) {
               if (data.recentlyPlayed[j] === song.id) {
@@ -49,14 +46,6 @@ $(document).ready(function () {
                   }
 
                 })
-
-
-
-
-
-
-
-
               }
             }
 

@@ -32,7 +32,7 @@
 
 .bg-c-lite-green {
     background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
-    background: linear-gradient(to right, #68a014, #fd4949)
+    background: linear-gradient(#68a014, #ffffff)
 }
 
 .user-profile {s

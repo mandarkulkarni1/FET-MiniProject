@@ -59,11 +59,11 @@ $(document).ready(function () {
   $("#createuser").click(function () {
 
     //Getting All the values
-    var id = document.getElementById("emailid").value;
-    var username = document.getElementById("name").value;
-    var phone = document.getElementById("phone").value;
-    var password = document.getElementById("passwordnew").value;
-    var cnfpass = document.getElementById("confirm-password").value;
+    var id = $('#emailid').val();
+    var username = $('#name').val();
+    var phone = $('#phone').val();
+    var password = $('#passwordnew').val();
+    var cnfpass = $('#confirm-password').val();
 
     //Password Confirmation
     if (password != cnfpass) {
@@ -93,8 +93,9 @@ $(document).ready(function () {
       success: function (res) {
 
         //Getting Essential Data
-        var uid = document.getElementById('email').value;
-        var pass = document.getElementById('passwd').value;
+        // console.log($('#email').val);
+        var uid = $('#email').val();
+        var pass = $('#passwd').val();
 
         //iterating through RES object
         for (var i = 0; i < res.length; i++) {
@@ -122,7 +123,7 @@ $(document).ready(function () {
 
           //Set Language to selected
           $('#lang').change(function () {
-            sessionStorage.setItem("lang", document.getElementById('lang').value);
+            sessionStorage.setItem("lang", $('#lang').val());
 
             //setting User ID
             sessionStorage.setItem("id", uid);
