@@ -1,203 +1,145 @@
-/* variables */
-$header-bg:rgba(0,0,0,.5);
-$my-boxShadow:0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
-/*Edit profile page*/
+$themeColor:#5cb85c;
+$gradient:white;
 
-.file-upload{
-    display: none;
+
+.padding {
+  padding: 3rem !important;
 }
 
-.img-warning{
-    visibility: hidden;
-   
-    color: blue;
+.user-card-full {
+  overflow: hidden;
 }
 
-nav{
-    z-index: 1100;
+.card {
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+  box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+  border: none;
+  margin-bottom: 30px;
 }
 
-/*profile page*/
-
-html *{
-    -webkit-font-smoothing: antialiased;
-}
-/*for background of profile cover */
-.profile-page .page-header {
-    height: 200px;
-    background-position:center;
+.m-r-0 {
+  margin-right: 0px;
 }
 
-.page-header {
-    height: 80vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: flex;
-    align-items: center;
-}
-.header-filter:after, .header-filter:before {
-    position: absolute;
-    z-index: 1;
-    width: 80%;
-    height: 50%;
-    display: block;
-    left: 0;
-    top: 0;
-    content: "";
-}
-.header-filter::before {
-    background:$header-bg;
+.m-l-0 {
+  margin-left: 0px;
 }
 
-.main {
-    background: #FFF;
-    position: relative;
-    z-index: 3;
-    bottom: 200px;
+.user-card-full .user-profile {
+  border-radius: 5px 0 0 5px;
 }
 
-.main-raised {
-    margin: -60px 30px 0;
-    border-radius: 6px;
-    box-shadow: $my-boxShadow;
-
-    .profile-page .profile {
-        text-align: center;
-
-        img {
-            max-width: 160px;
-            width: 100%;
-            margin: 0 auto;
-            -webkit-transform: translate3d(0,-50%,0);
-            -moz-transform: translate3d(0,-50%,0);
-            -o-transform: translate3d(0,-50%,0);
-            -ms-transform: translate3d(0,-50%,0);
-            transform: translate3d(0,-50%,0);
-
-            .img-raised {
-                box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
-               
-            }
-            .rounded-circle {
-                border-radius: 50%!important;
-            }
-            .img-fluid, .img-thumbnail {
-                max-width: 100%;
-                height: auto;
-            }
-        }
-
-        .name{
-            margin-top: -90px;
-           
-        }
-        .avatar{
-            position: relative;
-          
-            .add-profile{
-                position: absolute;
-                bottom: 50px;
-                right: 50px;
-            }
-        }
-    }
-    .avatar{
-        position: relative;
-      
-        .add-profile{
-            position: absolute;
-            bottom: 50px;
-            right: 50px;
-        }
-    }
+.bg-c-lite-green {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from($themeColor),
+    to($gradient)
+  );
+  background: linear-gradient(to right, $themeColor, $gradient);
 }
 
-.playlist{
-    margin: auto;
-    border-radius: 6px;
-    box-shadow: $my-boxShadow;
-    position: relative;
-    top: -150px;
-    width: 60%;
-
-    .playlist1{
-        display: inline-flex;
-        width: 100%;
-        
-        .cover img{
-            height: 100px;
-            width: 100px;
-        }
-
-        .play img{
-            height: 80px;
-            width: 80px;
-            position: absolute;
-            right: 5px;
-        
-        }
-        .play-button{
-            margin-right: 100px;
-            &:hover{
-                background-color: chartreuse;
-                border-radius: 50%;
-            }
-        }
-        
-      }
+.user-profile {
+  padding: 20px 0;
 }
 
-/* Mobile responsive*/
+.card-block {
+  padding: 1.25rem;
+}
 
+.m-b-25 {
+  margin-bottom: 25px;
+}
 
-.playlist{
-  @media only screen and (min-width: 0px) and (max-width: 800px) {
+.img-radius {
+  border-radius: 5px;
+}
 
-    .cover{
-        position: relative;
-        i{
-           
-            position: absolute;
-            left: 50%;
-            bottom: 50%;
-        }
-    }
-    h1{
-        font-size: 20px;
-    }
-  display: flex;
-  flex-direction: column;
+h6 {
+  font-size: 14px;
+}
 
-  .song-info{
-      h3{
-          font-size: 20px;
-      }
-      h6{
-        font-size: 15px;
-      }
+.card .card-block p {
+  line-height: 25px;
+}
+
+@media only screen and (min-width: 1400px) {
+  p {
+    font-size: 14px;
   }
-  .play{
-      #music{
-          display: none;
-      }
-      a img{
-        display: none;
-      }
-  }
-
 }
-}
-.playlist{
-    @media only screen and (min-width: 801px) and (max-width: 3000px) {
 
-        .cover{
-                
-             i{
-                       display: none;
-            }
-        }      
-    }
+.card-block {
+  padding: 1.25rem;
+}
+
+.b-b-default {
+  border-bottom: 1px solid $gradient;
+}
+
+.m-b-20 {
+  margin-bottom: 20px;
+}
+
+.p-b-5 {
+  padding-bottom: 5px !important;
+}
+
+.card .card-block p {
+  line-height: 25px;
+}
+
+.m-b-10 {
+  margin-bottom: 10px;
+}
+
+.text-muted {
+  color: #919aa3 !important;
+}
+
+.b-b-default {
+  border-bottom: 1px solid $gradient;
+}
+
+.f-w-600 {
+  font-weight: 600;
+}
+
+.m-b-20 {
+  margin-bottom: 20px;
+}
+
+.m-t-40 {
+  margin-top: 20px;
+}
+
+.p-b-5 {
+  padding-bottom: 5px !important;
+}
+
+.m-b-10 {
+  margin-bottom: 10px;
+}
+
+.m-t-40 {
+  margin-top: 20px;
+}
+
+.user-card-full .social-link li {
+  display: inline-block;
+}
+
+.user-card-full .social-link li a {
+  font-size: 20px;
+  margin: 0 10px 0 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+a{
+    text-decoration: none;
+    color: $gradient;
+    font-weight: bolder;
 }
