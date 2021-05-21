@@ -2,13 +2,20 @@ let songName;
 let songImage;
 let song_ID;
 let songPath;
-const URLparams= new URLSearchParams(window.location.search);
-    songId=URLparams.get('id');
-    console.log(songId)
+let songList;
+// sessionStorage.setItem('shuffleBtn',false);
 //...Autoplay 
 document.addEventListener('DOMContentLoaded', () => {
 
   //...get the button
+  let shuffleBtn=document.querySelector('#shuffleBtn');
+  let shufflev=sessionStorage.getItem('shuffleBtn');
+  console.log(shufflev);
+  if(shufflev==1){
+    console.log('inside shuffle')
+    shuffleBtn.addEventListener('click',()=>{},false);
+    shuffleBtn.click();
+  }
   let btn = document.querySelector('#btn');
 
   //...bind the click event
@@ -37,15 +44,15 @@ function mySong() {
  }
  
  
- 
  // get the song from db
 $(document).ready(function () {
 
-  
-  
-
-    //songId=sessionStorage.getItem("selectedSong");
     
+  $("body").on("load", function () {
+    //songId=sessionStorage.getItem("selectedSong");
+    const URLparams= new URLSearchParams(window.location.search);
+    songId=URLparams.get('id');
+    console.log(songId)
     $.ajax({
       type: "GET",
       url: "http://localhost:3000/songs",
@@ -74,15 +81,15 @@ $(document).ready(function () {
                     image += `<div><img src=${album.cover}  /></div> `
                     $(".cover").append(image);
                     $('audio').append(`<source src="${song.path}" type="audio/ogg" />`);
-                    $(".info h1").text(songName);
-                    $(".info").append("<h2>"+song.artist+"</h2>");
+                    $(".info h2").text(songName);
+                    $(".info").append("<h3>"+song.artist+"</h3>");
                     songImage=album.cover;
                     console.log(songName)
                     // $(".audio1").append(s);
                     // for download option
                     $('#download').attr('href',`${song.path}`)
                     console.log(song.path)
-                    let pathShare=song.path.substr(2);
+                   
                     $('#facebook').attr('href',`https://www.facebook.com/sharer.php?u=${window.location.href}`)
                     $('#whatsapp').attr('href',`https://api.whatsapp.com/send?phone=&text=${window.location.href}`)
                    
@@ -107,8 +114,9 @@ $(document).ready(function () {
         console.log("not able to process request");
       },
     });
+  });
 
-
+  
   $("body").trigger("load");
   
   // modal for share
@@ -137,7 +145,7 @@ $(document).ready(function () {
     $("audio").prop("volume",e.currentTarget.value/100)
   })
 
-//
+// add to favourite
 
 $('#favsong').on('click',function(){
 
@@ -147,6 +155,68 @@ $('#favsong').on('click',function(){
   $('#favmenu').append(favSongList);
 })
  
+// shuffle the songs
+
+$('.shuffle').on('click',function(){
+//  let shuffleValue= sessionStorage.getItem('shuffleBtn');
+  sessionStorage.setItem('shuffleBtn',1);
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:3000/songs",
+    dataType: "json",
+    async: true,
+    success: function (data) {
+      
+      if (data.length === 0)
+        console.log("Not found")
+      else {
+        let albumlist=""
+        var currentIndex = data.length, temporaryValue, randomIndex ;
+        $.each(data, function (i, a) {
+         
+           // Pick a remaining element...
+           randomIndex = Math.floor(Math.random() * currentIndex);
+           currentIndex -= 1;
+       
+           // And swap it with the current element.
+           temporaryValue = data[currentIndex];
+           data[currentIndex] = data[randomIndex];
+           data[randomIndex] = temporaryValue;
+            //  window.location.replace('?id='+``)
+
+            $('audio').on('ended',function(){
+   
+              window.location.replace('?id='+a.id);
+            })
+         
+        })
+       
+      }
+      
+    },
+    error: function () {
+      console.log("not able to process request");
+    },
+  });
+}) 
+
+$('.pre').on('click',function(){
+  let songNum=song_ID.substr(1);
+  console.log(songNum)
+    songNum=songNum-1;
+    console.log(songNum)
+     window.location.replace('?id=s'+songNum)
+
+})
+
+$('.next').on('click',function(){
+  let songNext=song_ID.substr(1);
+    songNext=(+songNext)+(+1)
+    console.log(songNext)
+     window.location.replace('?id=s'+songNext)
+
+})
+
   var player = $('.player'),
   audio = player.find('audio'),
   duration = $('.duration'),
@@ -306,4 +376,3 @@ function handleAudioPlayback(i, time) {
 function updateFillBar(i, val) {
   fillBar[i].style.width = val + '%';
 }
-

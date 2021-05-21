@@ -3,8 +3,11 @@
     {
       "id": "mk@123",
       "username": "Mandar kulkarni",
+      "phone": "9850005820",
+      "password": "mk123",
+      "profilePic": "../assets/images/profile/profile1.jpeg",
       "recentlyPlayed[]": [
-        "s1",
+        "s39",
         "s99",
         "s46",
         "s61",
@@ -14,7 +17,7 @@
     },
     {
       "id": "noel@a.com",
-      "username": "Noel",
+      "username": "Noel Francis",
       "phone": "9999999999",
       "password": "1111",
       "recentlyPlayed[]": [
@@ -72,6 +75,20 @@
       "name": "3:59 AM",
       "path": "../../songs/3 59 AM.mp3",
       "image": "../assets/images/album-covers/punya-paap.jfif",
+      "userEmail": "mk@123"
+    },
+    {
+      "id": "s99",
+      "name": "Houn Jau Dya",
+      "path": "../../songs/Houn Jau Dya.mp3",
+      "image": "../assets/images/album-covers/bucket-list.jpg",
+      "userEmail": "mk@123"
+    },
+    {
+      "id": "s104",
+      "name": "Deva Tujhya Gabharyala",
+      "path": "../../songs/Deva Tujhya Gabharyala.m4a",
+      "image": "../assets/images/album-covers/duniyadari.jpg",
       "userEmail": "mk@123"
     }
   ],

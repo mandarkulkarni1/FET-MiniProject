@@ -22,7 +22,7 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   
       <script defer src="../js/script1.js"></script>  
-      <script defer src="../js/library.js"></script>  
+      <!-- <script defer src="../js/library.js"></script>   -->
       <!-- <style>
         .ss{
           width: 100%;
@@ -50,7 +50,7 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
                     </li> -->
                     <li class="nav-item">
                       <button id="musicLibAnchor" class="btn btn-outline-success" 
-                          onclick="window.location='music_library.html'">Music Library</button>
+                          onclick="window.location='../library-ui/music_library.html'">Music Library</button>
                   </li>
                   <li class="nav-item">
                       <button id="nowPlayingAnchor" class="btn btn-outline-success " 
@@ -124,6 +124,14 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
            <!-- <div style="background-color: black;"></div> -->
          </div>
        </div>
+       <!-- <div class="preNext">
+         <button class="pre">
+           <i class="fas fa-step-backward "></i>
+         </button>
+         <button class="next">
+          <i class="fas fa-step-forward "></i>
+        </button>
+       </div> -->
        
        <div class="info">
         <div class="time">
@@ -136,11 +144,18 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
           <span class="duration">0:00</span>
         </div>
          
-         <h1>Drawings With Words</h1>
+         <h2>Drawings With Words</h2>
        </div>
        
        <div class="actions">
-         <button class="shuffle">
+          <div class="preNext" style="margin-right: 10px;">
+         <button class="pre">
+           <i class="fas fa-step-backward "></i>
+           
+         </button>
+         </div>
+         
+         <button id="shuffleBtn" class="shuffle">
            <div class="arrow"></div>
            <div class="arrow"></div>
          </button>
@@ -157,7 +172,11 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
          </button>
          <button class="repeat" ></button>
           
-         
+         <div class="preNext" style="float: right ;margin-left: 10px;">
+          <button class="next">
+           <i class="fas fa-step-forward "></i>
+         </button>
+        </div>
        </div>
        <input type="range" id="volume-control">
        <div class="audio1">
