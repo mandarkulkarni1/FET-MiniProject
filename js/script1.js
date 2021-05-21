@@ -3,7 +3,7 @@ let songImage;
 let song_ID;
 let songPath;
 let songList;
-// sessionStorage.setItem('shuffleBtn',false);
+
 //...Autoplay 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // add to fav songs
 function mySong() {
-
-  localStorage.setItem("favsong", "");
+  let userId=sessionStorage.getItem('id');
+  localStorage.setItem(userId, "");
   }
   function appendToStorage(name, data){
     var old = localStorage.getItem(name);
@@ -40,7 +40,8 @@ function mySong() {
     
   }
   function mySongOne() {
-    appendToStorage("favsong", `<a href='${window.location.href}'><h4>${songName}</h4></a>`);
+    let userId=sessionStorage.getItem('id');
+    appendToStorage(userId, `<a href='${window.location.href}'><h4>${songName}</h4></a>`);
  }
  
  
@@ -148,9 +149,10 @@ $(document).ready(function () {
 // add to favourite
 
 $('#favsong').on('click',function(){
-
+  let userId=sessionStorage.getItem('id');
+  console.log(userId)
   document.getElementById('favmenu').innerHTML = "";
-  let favSongList=localStorage.getItem('favsong');
+  let favSongList=localStorage.getItem(userId);
   console.log(favSongList);
   $('#favmenu').append(favSongList);
 })
