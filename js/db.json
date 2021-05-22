@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "mk@123",
+      "username": "mandar",
+      "phone": "123432421",
+      "password": "mk"
+    },
+    {
+      "id": "noel@123",
+      "username": "noel",
+      "phone": "45231342",
+      "password": "mk"
+    },
+    {
+      "id": "mk@124356",
+      "username": "ji",
+      "phone": "78433",
+      "password": "123"
+    }
+  ]
+}
