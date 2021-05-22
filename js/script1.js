@@ -36,10 +36,15 @@ function mySong() {
     var old = localStorage.getItem(name);
     if(old === null) old = "";
     localStorage.setItem(name, old + data);
+    
     alert('Added to FavSong ')
+    // document.getElementsByClassName('favicon').find('i').toggleClass('fa fa-heart red-color')
+   
+    $('#favicon').find('i').removeClass('fas fa-heart').addClass('fa fa-heart red color').css('color', 'red');
     
   }
   function mySongOne() {
+    
     let userId=sessionStorage.getItem('id');
     appendToStorage(userId, `<a href='${window.location.href}'><h4>${songName}</h4></a>`);
  }
@@ -82,8 +87,8 @@ $(document).ready(function () {
                     image += `<div><img src=${album.cover}  /></div> `
                     $(".cover").append(image);
                     $('audio').append(`<source src="${song.path}" type="audio/ogg" />`);
-                    $(".info h2").text(songName);
-                    $(".info").append("<h3>"+song.artist+"</h3>");
+                    $(".info h3").text(songName);
+                    $(".info").append("<h5>"+song.artist+"</h5>");
                     songImage=album.cover;
                     console.log(songName)
                     // $(".audio1").append(s);
@@ -157,6 +162,8 @@ $('#favsong').on('click',function(){
   $('#favmenu').append(favSongList);
 })
  
+
+
 // shuffle the songs
 
 $('.shuffle').on('click',function(){
