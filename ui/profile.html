@@ -20,11 +20,12 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- Adding Stylesheet -->
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/profile-styles.css">
+    <link rel="stylesheet" href="../styles/main.css">
 
 
     <!-- Script to Fetch data from backend  -->
-    <script defer src="../js/script.js"></script>
+    <script defer src="../js/profiles.js"></script>
 
     <!-- Script to navigate among pages -->
     <script defer src="../js/navigation.js"></script>
@@ -32,11 +33,11 @@
 
 <body>
     <!--profile page upper section -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <i class="fab fa-napster"></i> <span>Planet M</span>
+                    <i class="fab fa-napster"></i> <span>PlanetM</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -61,7 +62,7 @@
 
 
                     <!-- Logout And Profile Button -->
-                    <button type="button" id="userbutton" class="btn btn-outline-success my-2 my-sm-0"
+                    <button type="button" id="userbutton" class="btn btn-outline-success my-2 my-sm-0 shadow-lg"
                         data-toggle="tooltip" title="User Profile" onclick="window.location='edit-profile.html'"><i
                             class="fa fa-cog"></i></button>
                     <button type="button" id="logoutbutton" class="btn btn-outline-danger my-2 my-sm-0 "
@@ -79,7 +80,7 @@
             <div class="padding">
                 <div class="row container d-flex justify-content-center">
                     <div class="col-xl-6 col-md-12">
-                        <div class="card user-card-full">
+                        <div class="card user-card-full shadow-lg">
                             <div class="row m-l-0 m-r-0">
                                 <div class="col-sm-4 bg-c-lite-green user-profile">
                                     <div class="card-block text-center text-white">
@@ -93,9 +94,10 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
-                                    <div class="card-block">
+                                    <div class="card-block ">
+                                        <div class="shadow-lg p-3">
                                         <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
-                                        <div class="row">
+                                        <div class="row ">
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600 ">Email</p>
                                                 <h6 class="text-muted f-w-400 userName"></h6>
@@ -104,9 +106,14 @@
                                                 <p class="m-b-10 f-w-600">Phone</p>
                                                 <h6 class="text-muted f-w-400 phone"></h6>
                                             </div>
+
                                         </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="shadow-lg p-3">
                                         <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">My Songs</h6>
-                                        <div class="row" style="text-align:center;" data-toggle="tooltip"
+                                        <div class="row " style="text-align:center;" data-toggle="tooltip"
                                             title="Recently Played">
                                             <div class="col-sm-6 ">
                                                 <p class="m-b-10 f-w-600">Recently Played</p>
@@ -121,6 +128,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -131,33 +139,9 @@
 
     </section>
 
-    <!-- <section>
-        <div class="playlist row">
-            <h1>My Playlist</h1>
-            <hr>
-            <table class="table-striped table-responsive">
-                <tr>
-                    <td>
-                        <div class="playlist1">
-                            <div class="cover">
-                                <img src="../assets/images/song1.jpeg" alt="">
-                            </div>
-                            <div class="m-3 song-info">
-                                <h3>song name</h3>
-                                <h6>singer, singer2, singer3</h6>
-                            </div>
-                            <div class="play">
-                                <a href="#"><img class="play-button" src="../assets//images/play-button.png" alt=""></a>
-                                <img src="../assets/images/music-note.png" alt="">
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-
-        </div>
-
-    </section> -->
+    <footer class="bg-success text-center text-white fixed-bottom">
+        &copyPlanetM, 2021
+      </footer>
 </body>
 
 </html>
