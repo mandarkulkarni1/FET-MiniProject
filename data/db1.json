@@ -71,9 +71,10 @@
       "username": "Divya verma",
       "phone": "1234567",
       "password": "diva",
-      "recentlyPlayed": [
-        "none",
-        "none"
+      "recentlyPlayed[]": [
+        "s65",
+        "s64",
+        "s61"
       ]
     }
   ],
@@ -119,6 +120,13 @@
       "path": "../../songs/Tik Tik Vajate Dokyaat.m4a",
       "image": "../assets/images/album-covers/duniyadari.jpg",
       "userEmail": "sam@a.com"
+    },
+    {
+      "id": "s64",
+      "name": "Dil Udd Ja Re",
+      "path": "../../songs/Dil Udd Ja Re.mp3",
+      "image": "../assets/images/album-covers/pagglait.jpg",
+      "userEmail": "diva@gmail"
     }
   ],
   "songs": [
