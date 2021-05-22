@@ -10,7 +10,7 @@ $(document).ready(function () {
     success: function (data) {
       for (var i = 0; i < data.length; i++) {
         if (data[i].userEmail == id) {
-          $('.mysongs').append(`<div style="text-align:center"><img style="margin:3px;" height=50% width=50% src=${data[i].image}></image><p>${data[i].name}</p></div><hr>`)
+          $('.mysongs').append(`<div style="text-align:center" class="text"><img style="margin:3px;" height=50% width=50% src=${data[i].image}></image><p>${data[i].name}</p></div>`)
         }
       }
     }
@@ -42,7 +42,7 @@ $(document).ready(function () {
                   dataType: "json",
                   async: true,
                   success: function (album) {
-                    $('.recentlyPlayed').append(`<div style="text-align:center"><img style="margin:3px;" height=50% width=50% src=${album.cover}></image><p>${song.name}</p></div><hr>`)
+                    $('.recentlyPlayed').append(`<div style="text-align:center"><img style="margin:3px;" height=50% width=50% src=${album.cover}></image><p>${song.name}</p></div>`)
                   }
 
                 })

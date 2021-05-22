@@ -16,7 +16,7 @@
 
 
   <link rel="stylesheet" href="../styles/main.css">
-  <title>Planet M </title>
+  <title>PlanetM</title>
   <link rel="icon" href="../assets/images/title.png">
 
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -32,7 +32,7 @@
 
 <body>
 
-  <header>
+  <header class="sticky-top shadow-lg">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" href="#">
@@ -44,9 +44,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <!-- <li class="nav-item">
-                        <a class="btn" aria-current="page" href="#">Home</a>
-                    </li> -->
+
             <li class="nav-item">
               <button id="musicLibAnchor" class="btn btn-outline-success" onclick="window.location='#'">Music
                 Library</button>
@@ -73,142 +71,149 @@
   </header>
 
 
-  <div style="height: auto; border: 3px solid #5fcf32; margin: 3px; padding: 10px;">
+  <div class="m-4 p-1" style="height: auto;">
 
-    <header class="section-title">
-      <h3>Album Categories</h3>
-    </header>
-    <div id="category" class="section">
-      <div id="rock" class="card">
-        <img class="card-img-top" src="../assets/images/categories/rock.jfif" alt="Card image cap">
-        <h5 class="card-title">Rock</h5>
-      </div>
-      <div id="jazz" class="card">
-        <img class="card-img-top" src="../assets/images/categories/jazz.jfif" alt="Card image cap">
-        <h5 class="card-title">Jazz</h5>
-      </div>
-      <div id="hiphop" class="card">
-        <img class="card-img-top" src="../assets/images/categories/hip_hop.jfif" alt="Card image cap">
-        <h5 class="card-title">Hip Hop</h5>
-      </div>
-
-      <div id="edm" class="card">
-        <img class="card-img-top" src="../assets/images/categories/EDM.jfif" alt="Card image cap">
-        <h5 class="card-title">EDM</h5>
-      </div>
-
-      <div id="indian_classical" class="card">
-        <img class="card-img-top" src="../assets/images/categories/indian_classical.jfif" alt="Card image cap">
-        <h5 class="card-title">Indian Classical</h5>
-      </div>
-
-    </div>
-    <hr>
-
-
-    <header class="section-title">
-      <h3>Trending albums</h3>
-    </header>
-    <div id="albums" class="section">
-
-    </div>
-    <hr>
-
-    <header class="section-title">
-      <h3>Featured Artists</h3>
-    </header>
-    <div id="artists" class="section">
-      <div id="english-artists" class="section">
-        <div name="David Guetta" class="card">
-          <img class="card-img-top" src="../assets/images/artists/david-guetta.jfif" alt="Card image cap">
-          <h6 class="card-title">David Guetta</h6>
+    <div class="shadow-lg mycard">
+      <header class="section-title">
+        <h3>Album Categories</h3>
+      </header>
+      <div id="category" class="section">
+        <div id="rock" class="card">
+          <img class="card-img-top" src="../assets/images/categories/rock.jfif" alt="Card image cap">
+          <h5 class="card-title">Rock</h5>
         </div>
-        <div name="Eminem" class="card">
-          <img class="card-img-top" src="../assets/images/artists/eminem.jfif" alt="Card image cap">
-          <h6 class="card-title">Eminem</h6>
+        <div id="jazz" class="card">
+          <img class="card-img-top" src="../assets/images/categories/jazz.jfif" alt="Card image cap">
+          <h5 class="card-title">Jazz</h5>
         </div>
-        <div name="Imagine Dragons" class="card">
-          <img class="card-img-top" src="../assets/images/artists/imagine-dragons.jfif" alt="Card image cap">
-          <h6 class="card-title">Imagine Dragons</h6>
+        <div id="hiphop" class="card">
+          <img class="card-img-top" src="../assets/images/categories/hip_hop.jfif" alt="Card image cap">
+          <h5 class="card-title">Hip Hop</h5>
         </div>
 
-        <div name="J. Cole" class="card">
-          <img class="card-img-top" src="../assets/images/artists/jcole.jpg" alt="Card image cap">
-          <h6 class="card-title">J. Cole</h6>
+        <div id="edm" class="card">
+          <img class="card-img-top" src="../assets/images/categories/EDM.jfif" alt="Card image cap">
+          <h5 class="card-title">EDM</h5>
         </div>
 
-        <div name="Avicii" class="card">
-          <img class="card-img-top" src="../assets/images/artists/avicii.jfif" alt="Card image cap">
-          <h6 class="card-title">Avicii</h6>
-        </div>
-      </div>
-
-      <div id="hindi-artists" class="section">
-        <div name="Arijit Singh" class="card">
-          <img class="card-img-top" src="../assets/images/artists/arijit.jfif" alt="Card image cap">
-          <h6 class="card-title">Arijit Singh</h6>
-        </div>
-        <div name="A.R. Rahman" class="card">
-          <img class="card-img-top" src="../assets/images/artists/ar-rahman.jfif" alt="Card image cap">
-          <h6 class="card-title">A.R. Rahman</h6>
-        </div>
-        <div name="Ritviz" class="card">
-          <img class="card-img-top" src="../assets/images/artists/ritviz.jfif" alt="Card image cap">
-          <h6 class="card-title">Ritviz</h6>
+        <div id="indian_classical" class="card">
+          <img class="card-img-top" src="../assets/images/categories/indian_classical.jfif" alt="Card image cap">
+          <h5 class="card-title">Indian Classical</h5>
         </div>
 
-        <div name="Divine" class="card">
-          <img class="card-img-top" src="../assets/images/artists/divine.jfif" alt="Card image cap">
-          <h6 class="card-title">Divine</h6>
-        </div>
-
-        <div name="Mohit Chauhan" class="card">
-          <img class="card-img-top" src="../assets/images/artists/mohit-chauhan.jfif" alt="Card image cap">
-          <h6 class="card-title">Mohit Chauhan</h6>
-        </div>
-      </div>
-
-      <div id="marathi-artists" class="section">
-        <div name="Ajay-Atul" class="card">
-          <img class="card-img-top" src="../assets/images/artists/ajay-atul.jfif" alt="Card image cap">
-          <h6 class="card-title">Ajay-Atul</h6>
-        </div>
-        <div name="Shankar Mahadevan" class="card">
-          <img class="card-img-top" src="../assets/images/artists/shankar.jfif" alt="Card image cap">
-          <h6 class="card-title">Shankar Mahadevan</h6>
-        </div>
-        <div name="Shreya Ghoshal" class="card">
-          <img class="card-img-top" src="../assets/images/artists/shreya-ghoshal.jfif" alt="Card image cap">
-          <h6 class="card-title">Shreya Ghoshal</h6>
-        </div>
-
-
-        <div name="Shankar-Ehsaan-Loy" class="card">
-          <img class="card-img-top" src="../assets/images/artists/sel.jfif" alt="Card image cap">
-          <h6 class="card-title">Shankar-Ehsaan-Loy</h6>
-        </div>
-
-        <div name="Sonu Nigam" class="card">
-          <img class="card-img-top" src="../assets/images/artists/sonu.jfif" alt="Card image cap">
-          <h6 class="card-title">Sonu Nigam</h6>
-        </div>
       </div>
     </div>
-    <hr>
+      <hr>
 
-    <header class="section-title">
-      <h3>Recently played songs</h3>
-    </header>
+    <div class="shadow-lg mycard">
+      <header class="section-title">
+        <h3>Trending albums</h3>
+      </header>
+      <div id="albums" class="section">
 
-    <div id="recent" class="song-container">
-
+      </div>
     </div>
-    <br>
-    <br>
-  </div>
-  <footer class="bg-dark text-center text-white fixed-bottom">
-    &copyPlanetM, 2021
-  </footer>
+      <hr>
+
+    <div class="shadow-lg mycard">
+      <header class="section-title">
+        <h3>Featured Artists</h3>
+      </header>
+      <div id="artists" class="section">
+        <div id="english-artists" class="section">
+          <div name="David Guetta" class="card">
+            <img class="card-img-top" src="../assets/images/artists/david-guetta.jfif" alt="Card image cap">
+            <h6 class="card-title">David Guetta</h6>
+          </div>
+          <div name="Eminem" class="card">
+            <img class="card-img-top" src="../assets/images/artists/eminem.jfif" alt="Card image cap">
+            <h6 class="card-title">Eminem</h6>
+          </div>
+          <div name="Imagine Dragons" class="card">
+            <img class="card-img-top" src="../assets/images/artists/imagine-dragons.jfif" alt="Card image cap">
+            <h6 class="card-title">Imagine Dragons</h6>
+          </div>
+
+          <div name="J. Cole" class="card">
+            <img class="card-img-top" src="../assets/images/artists/jcole.jpg" alt="Card image cap">
+            <h6 class="card-title">J. Cole</h6>
+          </div>
+
+          <div name="Avicii" class="card">
+            <img class="card-img-top" src="../assets/images/artists/avicii.jfif" alt="Card image cap">
+            <h6 class="card-title">Avicii</h6>
+          </div>
+        </div>
+
+        <div id="hindi-artists" class="section">
+          <div name="Arijit Singh" class="card">
+            <img class="card-img-top" src="../assets/images/artists/arijit.jfif" alt="Card image cap">
+            <h6 class="card-title">Arijit Singh</h6>
+          </div>
+          <div name="A.R. Rahman" class="card">
+            <img class="card-img-top" src="../assets/images/artists/ar-rahman.jfif" alt="Card image cap">
+            <h6 class="card-title">A.R. Rahman</h6>
+          </div>
+          <div name="Ritviz" class="card">
+            <img class="card-img-top" src="../assets/images/artists/ritviz.jfif" alt="Card image cap">
+            <h6 class="card-title">Ritviz</h6>
+          </div>
+
+          <div name="Divine" class="card">
+            <img class="card-img-top" src="../assets/images/artists/divine.jfif" alt="Card image cap">
+            <h6 class="card-title">Divine</h6>
+          </div>
+
+          <div name="Mohit Chauhan" class="card">
+            <img class="card-img-top" src="../assets/images/artists/mohit-chauhan.jfif" alt="Card image cap">
+            <h6 class="card-title">Mohit Chauhan</h6>
+          </div>
+        </div>
+
+        <div id="marathi-artists" class="section">
+          <div name="Ajay-Atul" class="card">
+            <img class="card-img-top" src="../assets/images/artists/ajay-atul.jfif" alt="Card image cap">
+            <h6 class="card-title">Ajay-Atul</h6>
+          </div>
+          <div name="Shankar Mahadevan" class="card">
+            <img class="card-img-top" src="../assets/images/artists/shankar.jfif" alt="Card image cap">
+            <h6 class="card-title">Shankar Mahadevan</h6>
+          </div>
+          <div name="Shreya Ghoshal" class="card">
+            <img class="card-img-top" src="../assets/images/artists/shreya-ghoshal.jfif" alt="Card image cap">
+            <h6 class="card-title">Shreya Ghoshal</h6>
+          </div>
+
+
+          <div name="Shankar-Ehsaan-Loy" class="card">
+            <img class="card-img-top" src="../assets/images/artists/sel.jfif" alt="Card image cap">
+            <h6 class="card-title">Shankar-Ehsaan-Loy</h6>
+          </div>
+
+          <div name="Sonu Nigam" class="card">
+            <img class="card-img-top" src="../assets/images/artists/sonu.jfif" alt="Card image cap">
+            <h6 class="card-title">Sonu Nigam</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+      <hr>
+
+      <div class="shadow-lg mycard">
+      <header class="section-title">
+        <h3>Recently played songs</h3>
+      </header>
+
+      <div id="recent" class="song-container">
+
+      </div>
+      </div>
+      <br>
+      <br>
+    </div>
+    <footer style="background-color: #5cb85c;" class=" text-center text-white fixed-bottom">
+      &copyPlanetM, 2021
+    </footer>
 </body>
 
 </html>

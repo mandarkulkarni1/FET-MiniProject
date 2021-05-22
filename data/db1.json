@@ -3,16 +3,16 @@
     {
       "id": "mk@123",
       "username": "Mandar kulkarni",
-      "phone": "9850005820",
+      "phone": "9881122770",
       "password": "mk123",
       "profilePic": "../assets/images/profile/profile1.jpeg",
       "recentlyPlayed[]": [
+        "s96",
         "s58",
         "s29",
         "s67",
         "s39",
-        "s99",
-        "s46"
+        "s99"
       ]
     },
     {
@@ -75,6 +75,16 @@
         "s65",
         "s64",
         "s61"
+      ]
+    },
+    {
+      "id": "mns@gmail.com",
+      "username": "Mansi",
+      "phone": "2535435233",
+      "password": "mk123",
+      "recentlyPlayed": [
+        "none",
+        "none"
       ]
     }
   ],
