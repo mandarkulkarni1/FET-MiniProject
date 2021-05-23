@@ -73,6 +73,7 @@
       "password": "diva",
       "recentlyPlayed[]": [
         "s65",
+        "s79",
         "s64",
         "s61"
       ]
@@ -136,6 +137,13 @@
       "name": "Dil Udd Ja Re",
       "path": "../../songs/Dil Udd Ja Re.mp3",
       "image": "../assets/images/album-covers/pagglait.jpg",
+      "userEmail": "diva@gmail"
+    },
+    {
+      "id": "s45",
+      "name": "Lights",
+      "path": "../../songs/Lights.mp3",
+      "image": "../assets/images/album-covers/raja-baja.jpg",
       "userEmail": "diva@gmail"
     }
   ],

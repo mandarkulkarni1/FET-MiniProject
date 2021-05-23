@@ -16,12 +16,12 @@
             integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
             crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="../styles/audioStyle.css" />
+        <link rel="stylesheet" href="../styles/audio.css" />
         <link rel="stylesheet" href="../styles/main.css" />
         <title>Planet M</title>
         <link rel="icon" href="../assets/images/title.png" />
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script defer src="../js/script1.js"></script>
+        <script defer src="../js/audio.js"></script>
         <script defer src="../js/navigation.js"></script>
         <!-- <script defer src="../js/library.js"></script>   -->
     </head>
@@ -55,16 +55,17 @@
         </header>
         <div class="container-1">
             <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <a id="download" download class="dropdown-item">Download</a>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <a id="download" download class="dropdown-item"> <i class="fa fa-download" aria-hidden="true">  Download</i></a>
                 <a type="button" data-toggle="modal" data-target="#exampleModal" class="dropdown-item">
-                    Share
+                    <i class="fas fa-share">  Share</i>
                 </a>
-                <a id="playlist" class="dropdown-item">Add to Playlist</a> <a type="button" onclick="mySongOne()" class="dropdown-item">Add to favorite</a>
+                <a id="playlist" class="dropdown-item"><i class="fas fa-music">  Add to Playlist</i></a> 
+                <a type="button" onclick="mySongOne()" class="dropdown-item"> <i class="fa fa-heart red color">  Add to favorite</i></a>
                 <div class="dropdown-divider"></div>
                 <!-- <a class="dropdown-item" href="#">favorite List</a> -->
                 <div class="btn-group" style="float: right; padding: 20px;">
                     <a type="button" id="favsong" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Favorite songs
+                          Favorite songs
                     </a>
                     <div id="favmenu" class="dropdown-menu" style="padding-right: 20px;"></div>
                 </div>
@@ -122,7 +123,7 @@
                     <div class="audio1"></div>
                     <audio prelaod></audio>
                 </div>
-                <input type="range" />
+                <!-- <input type="range" /> -->
             </div>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">

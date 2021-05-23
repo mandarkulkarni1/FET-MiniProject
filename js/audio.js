@@ -46,7 +46,7 @@ function mySong() {
   function mySongOne() {
     
     let userId=sessionStorage.getItem('id');
-    appendToStorage(userId, `<a href='${window.location.href}'><h4>${songName}</h4></a>`);
+    appendToStorage(userId, `<a href='${window.location.href}'><i class="fas fa-music"> ${songName}</i></a>`);
  }
  
  
@@ -106,13 +106,7 @@ $(document).ready(function () {
                 error: function () {
                   console.log("not able to process request");
                 },
-
-
-            })
-    
-            ;
-        
-        
+            });
       })
        
       },
@@ -344,8 +338,6 @@ function closeNav() {
 
 
 //seekbar in control panel
-///////////////////////////////////////////////////////////////////////////////////////
-
 var audio = document.querySelectorAll('audio');
 var playBtn = document.querySelectorAll('.play pause');
 var seekBar = document.querySelectorAll('.seek-bar');

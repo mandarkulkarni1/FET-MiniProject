@@ -64,7 +64,7 @@ h3 {
 .container-1 {
 	max-width: 100%;
 	height: auto;
-	 background-image: url(../assets/images/ezgif.com-gif-maker.gif);
+	 background-image: url(../assets/images/background.gif);
 	//  background-color: rgb(27, 32, 57);
 	background-size: cover;
 	background-position: 50% 50%;
@@ -73,12 +73,7 @@ h3 {
 	align-items: center;
 	display: flex;
 }
-/* volume control */
-// #volume-control {
-// 	margin-left: 50%;
-// 	background-color: black;
-//      margin-bottom: 20px;
-// }
+
 /* The player controls */
 .player {
 	position: relative;
@@ -548,7 +543,7 @@ button {
 		display: block;
 		transition: 0.3s;
 		&:hover {
-			color: blue;
+			color:green;
 		}
 	}
 	.closebtn {
