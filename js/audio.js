@@ -8,18 +8,16 @@ let songList;
 document.addEventListener('DOMContentLoaded', () => {
 
   //...get the button
-  let shuffleBtn=document.querySelector('#shuffleBtn');
-  let shufflev=sessionStorage.getItem('shuffleBtn');
-  console.log(shufflev);
-  if(shufflev==1){
-    console.log('inside shuffle')
-    shuffleBtn.addEventListener('click',()=>{},false);
+  let shuffleBtn = document.querySelector('#shuffleBtn');
+  let shufflev = sessionStorage.getItem('shuffleBtn');
+  if (shufflev == 1) {
+    shuffleBtn.addEventListener('click', () => { }, false);
     shuffleBtn.click();
   }
   let btn = document.querySelector('#btn');
 
   //...bind the click event
-  btn.addEventListener('click', () => {}, false);
+  btn.addEventListener('click', () => { }, false);
 
   //...trigger the click event on page enter
   btn.click();
@@ -29,86 +27,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // add to fav songs
 function mySong() {
-  let userId=sessionStorage.getItem('id');
+  let userId = sessionStorage.getItem('id');
   localStorage.setItem(userId, "");
-  }
-  function appendToStorage(name, data){
-    var old = localStorage.getItem(name);
-    if(old === null) old = "";
-    localStorage.setItem(name, old + data);
-    
-    alert('Added to FavSong ')
-    // document.getElementsByClassName('favicon').find('i').toggleClass('fa fa-heart red-color')
-   
-    $('#favicon').find('i').removeClass('fas fa-heart').addClass('fa fa-heart red color').css('color', 'red');
-    
-  }
-  function mySongOne() {
-    
-    let userId=sessionStorage.getItem('id');
-    appendToStorage(userId, `<a href='${window.location.href}'><i class="fas fa-music"> ${songName}</i></a>`);
- }
- 
- 
- // get the song from db
+}
+function appendToStorage(name, data) {
+  var old = localStorage.getItem(name);
+  if (old === null) old = "";
+  localStorage.setItem(name, old + data);
+
+  alert('Added to FavSong ')
+  $('#favicon').find('i').removeClass('fas fa-heart').addClass('fa fa-heart red color').css('color', 'red');
+
+}
+function mySongOne() {
+
+  let userId = sessionStorage.getItem('id');
+  appendToStorage(userId, `<a href='${window.location.href}'><i class="fas fa-music"> ${songName}</i></a>`);
+}
+
+
+// get the song from db
 $(document).ready(function () {
 
-    
+
   $("body").on("load", function () {
-    //songId=sessionStorage.getItem("selectedSong");
-    const URLparams= new URLSearchParams(window.location.search);
-    songId=URLparams.get('id');
-    console.log(songId)
+    const URLparams = new URLSearchParams(window.location.search);
+    songId = URLparams.get('id');
     $.ajax({
       type: "GET",
       url: "http://localhost:3000/songs",
       dataType: "json",
-      data: {"id":songId},
+      data: { "id": songId },
       async: true,
       success: function (data) {
-          console.log(data)
-          $.each(data, function (i, song) {
-            console.log(song);
-            songName=song.name;
-            song_ID=song.id;
-            songPath=song.path;
-            albumId=song.album_id;
-            let image = "";
+        $.each(data, function (i, song) {
+          songName = song.name;
+          song_ID = song.id;
+          songPath = song.path;
+          albumId = song.album_id;
+          let image = "";
 
-            $.ajax({
-               type: "GET",
-                url: "http://localhost:3000/albums",
-                dataType: "json",
-                data: {"id":albumId},
-                async: true,
-                success: function (data) {
-                  console.log(albumId)
-                  $.each(data, function (i, album) {
-                    image += `<div><img src=${album.cover}  /></div> `
-                    $(".cover").append(image);
-                    $('audio').append(`<source src="${song.path}" type="audio/ogg" />`);
-                    $(".info h3").text(songName);
-                    $(".info").append("<h5>"+song.artist+"</h5>");
-                    songImage=album.cover;
-                    console.log(songName)
-                    // $(".audio1").append(s);
-                    // for download option
-                    $('#download').attr('href',`${song.path}`)
-                    console.log(song.path)
-                   
-                    $('#facebook').attr('href',`https://www.facebook.com/sharer.php?u=${window.location.href}`)
-                    $('#whatsapp').attr('href',`https://api.whatsapp.com/send?phone=&text=${window.location.href}`)
-                   
-                  })
+          $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/albums",
+            dataType: "json",
+            data: { "id": albumId },
+            async: true,
+            success: function (data) {
+              $.each(data, function (i, album) {
+                image += `<div><img src=${album.cover}  /></div> `
+                $(".cover").append(image);
+                $('audio').append(`<source src="${song.path}" type="audio/ogg" />`);
+                $(".info h3").text(songName);
+                $(".info").append("<h5>" + song.artist + "</h5>");
+                songImage = album.cover;
+                $('#download').attr('href', `${song.path}`)
 
-                },
+                $('#facebook').attr('href', `https://www.facebook.com/sharer.php?u=${window.location.href}`)
+                $('#whatsapp').attr('href', `https://api.whatsapp.com/send?phone=&text=${window.location.href}`)
 
-                error: function () {
-                  console.log("not able to process request");
-                },
-            });
-      })
-       
+              })
+
+            },
+
+            error: function () {
+              console.log("not able to process request");
+            },
+          });
+        })
+
       },
       error: function () {
         console.log("not able to process request");
@@ -116,111 +103,101 @@ $(document).ready(function () {
     });
   });
 
-  
+
   $("body").trigger("load");
-  
+
   // modal for share
   $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
   })
 
   // AJAX Request to post song for add to playlist
-   $('#playlist').on('click',function(){
-    let userEmail=sessionStorage.getItem("id");
+  $('#playlist').on('click', function () {
+    let userEmail = sessionStorage.getItem("id");
     $.ajax({
       type: 'POST',
       url: 'http://localhost:3000/playlists',
-      data: JSON.stringify({ "id": songId, "name": songName, "path": songPath, "image":songImage,"userEmail": userEmail }),
+      data: JSON.stringify({ "id": songId, "name": songName, "path": songPath, "image": songImage, "userEmail": userEmail }),
       success: alert('Added to playlist'),
       contentType: "application/json",
       dataType: 'json'
     });
   });
-   });
+});
 
-  
+
 // changing the volume
-   $("#volume-control").on("change",function(e){
-    console.log(e.currentTarget.value)
-    $("audio").prop("volume",e.currentTarget.value/100)
-  })
+$("#volume-control").on("change", function (e) {
+  $("audio").prop("volume", e.currentTarget.value / 100)
+})
 
 // add to favourite
-
-$('#favsong').on('click',function(){
-  let userId=sessionStorage.getItem('id');
-  console.log(userId)
+$('#favsong').on('click', function () {
+  let userId = sessionStorage.getItem('id');
   document.getElementById('favmenu').innerHTML = "";
-  let favSongList=localStorage.getItem(userId);
-  console.log(favSongList);
+  let favSongList = localStorage.getItem(userId);
   $('#favmenu').append(favSongList);
 })
- 
+
 
 
 // shuffle the songs
 
-$('.shuffle').on('click',function(){
-//  let shuffleValue= sessionStorage.getItem('shuffleBtn');
-  sessionStorage.setItem('shuffleBtn',1);
+$('.shuffle').on('click', function () {
+  sessionStorage.setItem('shuffleBtn', 1);
   $.ajax({
     type: "GET",
     url: "http://localhost:3000/songs",
     dataType: "json",
     async: true,
     success: function (data) {
-      
+
       if (data.length === 0)
         console.log("Not found")
       else {
-        let albumlist=""
-        var currentIndex = data.length, temporaryValue, randomIndex ;
+        let albumlist = ""
+        var currentIndex = data.length, temporaryValue, randomIndex;
         $.each(data, function (i, a) {
-         
-           // Pick a remaining element...
-           randomIndex = Math.floor(Math.random() * currentIndex);
-           currentIndex -= 1;
-       
-           // And swap it with the current element.
-           temporaryValue = data[currentIndex];
-           data[currentIndex] = data[randomIndex];
-           data[randomIndex] = temporaryValue;
-            //  window.location.replace('?id='+``)
 
-            $('audio').on('ended',function(){
-   
-              window.location.replace('?id='+a.id);
-            })
-         
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+
+          // And swap it with the current element.
+          temporaryValue = data[currentIndex];
+          data[currentIndex] = data[randomIndex];
+          data[randomIndex] = temporaryValue;
+          $('audio').on('ended', function () {
+
+            window.location.replace('?id=' + a.id);
+          })
+
         })
-       
+
       }
-      
+
     },
     error: function () {
       console.log("not able to process request");
     },
   });
-}) 
+})
 
-$('.pre').on('click',function(){
-  let songNum=song_ID.substr(1);
-  console.log(songNum)
-    songNum=songNum-1;
-    console.log(songNum)
-     window.location.replace('?id=s'+songNum)
+$('.pre').on('click', function () {
+  let songNum = song_ID.substr(1);
+  songNum = songNum - 1;
+  window.location.replace('?id=s' + songNum)
 
 })
 
-$('.next').on('click',function(){
-  let songNext=song_ID.substr(1);
-    songNext=(+songNext)+(+1)
-    console.log(songNext)
-     window.location.replace('?id=s'+songNext)
+$('.next').on('click', function () {
+  let songNext = song_ID.substr(1);
+  songNext = (+songNext) + (+1)
+  window.location.replace('?id=s' + songNext)
 
 })
 
-  var player = $('.player'),
+var player = $('.player'),
   audio = player.find('audio'),
   duration = $('.duration'),
   currentTime = $('.current-time'),
@@ -229,99 +206,99 @@ $('.next').on('click',function(){
   rewind, showCurrentTime;
 
 function secsToMins(time) {
-var int = Math.floor(time),
+  var int = Math.floor(time),
     mins = Math.floor(int / 60),
     secs = int % 60,
     newTime = mins + ':' + ('0' + secs).slice(-2);
 
-return newTime;
+  return newTime;
 }
 
 function getCurrentTime() {
-var currentTimeFormatted = secsToMins(audio[0].currentTime),
+  var currentTimeFormatted = secsToMins(audio[0].currentTime),
     currentTimePercentage = audio[0].currentTime / audio[0].duration * 100;
 
-currentTime.text(currentTimeFormatted);
-progressBar.css('width', currentTimePercentage + '%');
+  currentTime.text(currentTimeFormatted);
+  progressBar.css('width', currentTimePercentage + '%');
 
-if (player.hasClass('playing')) {
-  showCurrentTime = requestAnimationFrame(getCurrentTime);
-} else {
-  cancelAnimationFrame(showCurrentTime);
-}
+  if (player.hasClass('playing')) {
+    showCurrentTime = requestAnimationFrame(getCurrentTime);
+  } else {
+    cancelAnimationFrame(showCurrentTime);
+  }
 }
 
-audio.on('loadedmetadata', function() {
-var durationFormatted = secsToMins(audio[0].duration);
-duration.text(durationFormatted);
-}).on('ended', function() {
-if ($('.repeat').hasClass('active')) {
-  audio[0].currentTime = 0;
-  audio[0].play();
-} else {
-  player.removeClass('playing').addClass('paused');
-  audio[0].currentTime = 0;
-}
+audio.on('loadedmetadata', function () {
+  var durationFormatted = secsToMins(audio[0].duration);
+  duration.text(durationFormatted);
+}).on('ended', function () {
+  if ($('.repeat').hasClass('active')) {
+    audio[0].currentTime = 0;
+    audio[0].play();
+  } else {
+    player.removeClass('playing').addClass('paused');
+    audio[0].currentTime = 0;
+  }
 });
 
-$('button').on('click', function() {
-var self = $(this);
+$('button').on('click', function () {
+  var self = $(this);
 
-if (self.hasClass('play-pause') && player.hasClass('paused')) {
-  player.removeClass('paused').addClass('playing');
-  audio[0].play();
-  
-  getCurrentTime();
-} else if (self.hasClass('play-pause') && player.hasClass('playing')) {
-  player.removeClass('playing').addClass('paused');
-  audio[0].pause();
-}
+  if (self.hasClass('play-pause') && player.hasClass('paused')) {
+    player.removeClass('paused').addClass('playing');
+    audio[0].play();
 
-if (self.hasClass('shuffle') || self.hasClass('repeat')) {
-  self.toggleClass('active');
-}
-}).on('mousedown', function() {
-var self = $(this);
+    getCurrentTime();
+  } else if (self.hasClass('play-pause') && player.hasClass('playing')) {
+    player.removeClass('playing').addClass('paused');
+    audio[0].pause();
+  }
 
-if (self.hasClass('ff')) {
-  player.addClass('ffing');
-  audio[0].playbackRate = 2;
-}
+  if (self.hasClass('shuffle') || self.hasClass('repeat')) {
+    self.toggleClass('active');
+  }
+}).on('mousedown', function () {
+  var self = $(this);
 
-if (self.hasClass('rw')) {
-  player.addClass('rwing');
-  rewind = setInterval(function() { audio[0].currentTime -= .3; }, 100);
-}
-}).on('mouseup', function() {
-var self = $(this);
+  if (self.hasClass('ff')) {
+    player.addClass('ffing');
+    audio[0].playbackRate = 2;
+  }
 
-if (self.hasClass('ff')) {
-  player.removeClass('ffing');
-  audio[0].playbackRate = 1;
-}
+  if (self.hasClass('rw')) {
+    player.addClass('rwing');
+    rewind = setInterval(function () { audio[0].currentTime -= .3; }, 100);
+  }
+}).on('mouseup', function () {
+  var self = $(this);
 
-if (self.hasClass('rw')) {
-  player.removeClass('rwing');
-  clearInterval(rewind);
-}
+  if (self.hasClass('ff')) {
+    player.removeClass('ffing');
+    audio[0].playbackRate = 1;
+  }
+
+  if (self.hasClass('rw')) {
+    player.removeClass('rwing');
+    clearInterval(rewind);
+  }
 });
 
-player.on('mousedown mouseup', function() {
-mouseDown = !mouseDown;
+player.on('mousedown mouseup', function () {
+  mouseDown = !mouseDown;
 });
 
-progressBar.parent().on('click mousemove', function(e) {
-var self = $(this),
+progressBar.parent().on('click mousemove', function (e) {
+  var self = $(this),
     totalWidth = self.width(),
     offsetX = e.offsetX,
     offsetPercentage = offsetX / totalWidth;
 
-if (mouseDown || e.type === 'click') {
-  audio[0].currentTime = audio[0].duration * offsetPercentage;
-  if (player.hasClass('paused')) {
-    progressBar.css('width', offsetPercentage * 100 + '%');
+  if (mouseDown || e.type === 'click') {
+    audio[0].currentTime = audio[0].duration * offsetPercentage;
+    if (player.hasClass('paused')) {
+      progressBar.css('width', offsetPercentage * 100 + '%');
+    }
   }
-}
 });
 
 
@@ -350,7 +327,7 @@ function handleSeekbar(e, i) {
   var vidDur = audio[i].duration;
   var seekCoords = Math.round(
     (e.clientX - seekBar[i].offsetLeft) *
-      (vidDur / seekBar[i].clientWidth)
+    (vidDur / seekBar[i].clientWidth)
   );
   handleAudioPlayback(i, seekCoords);
   var p = getP(e, i);

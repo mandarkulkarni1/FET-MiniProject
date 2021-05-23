@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PlanetM</title>
+  <link rel="icon" href="../assets/images/title.png">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -25,7 +26,6 @@
   <!-- add script page -->
   <script defer src="../js/profile-update.js"></script>
   <script defer src="../js/navigation.js"></script>
-  <!-- <script defer src="../js/proxfiles.js"></script> -->
 
 </head>
 
@@ -69,12 +69,12 @@
   </header>
 
   <div class="d-flex flex-column m-3 mb-5">
-    <div class="container col-6 justify-content-center  " >
+    <div class="container col-6 justify-content-center  ">
       <div class=" flex-lg-nowrap shadow-lg" style="border-radius: 5px; border: 2px solid #5cb85c;">
         <div class="card">
           <div class="card-body shadow-lg">
             <div class="row">
-              <div class="col-12 m-2" >
+              <div class="col-12 m-2">
                 <div class="mx-auto">
                   <div class="d-flex justify-content-center align-items-center">
                     <span class="my-pic"></span>
@@ -82,23 +82,19 @@
                 </div>
               </div>
               <div class="col d-flex flex-column flex-sm-row justify-content-center mb-3">
-                <!-- <div class="" style="border: 3px solid red;"> -->
-                  <h4 id="userName" class="pt-sm-2  text-nowrap "></h4>
-                  <div class="mt-2">
-                    
-                  </div>
-                <!-- </div> -->
+                <h4 id="userName" class="pt-sm-2  text-nowrap "></h4>
+                <div class="mt-2">
+
+                </div>
 
               </div>
             </div>
-<hr>
-<!-- <br> -->
+            <hr>
             <ul class="nav nav-tabs">
               <li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
             </ul>
             <div class="tab-content pt-3">
               <div class="tab-pane active">
-                <!-- form strat here -->
                 <form class="form" novalidate="">
                   <div class="row">
                     <div class="col">
@@ -107,21 +103,27 @@
                           <div class="form-group">
                             <label><b><span class="fa fa-user"></span> Full Name </b></label>
                             <input id="ename" class="form-control" type="text" name="name" placeholder="Name" value="">
+                            <div class="error" style="display: none; color: red;" id="dialogName" title="Dialog Title">
+                              Invalid Name
+                            </div>
                           </div>
                         </div>
                         <div class="col">
                           <div class="form-group">
                             <label><span class="fa fa-phone"></span><b> Contact Number </b></label>
-                            <input id="ephone" class="form-control" type="tel" name="phone" placeholder="XXXXXXXXXX"
+                            <input id="ephone" class="form-control" type="number" name="phone" placeholder="XXXXXXXXXX"
                               value="">
+                            <div class="error" style="display: none; color: red;" id="dialogPhone" title="Dialog Title">
+                              Invalid Phone
+                            </div>
                           </div>
                         </div>
                       </div>
                       <hr>
                       <p><b><i class="fa fa-camera"></i> Upload/Change Profile Pic</b></p>
                       <div class="col">
-                     <input class="file-upload" type="file" accept="image/*" />
-                    </div>
+                        <input class="file-upload" type="file" accept="image/*" />
+                      </div>
                       <hr>
                       <div class="row">
                         <div class="col">
@@ -150,6 +152,9 @@
                           <div class="form-group">
                             <label><span class=" fa fa-lock-open"></span> New Password</label>
                             <input id="enewPassword" class="form-control" type="password" placeholder="••••••">
+                            <div style="display: none; color: red;" id="dialogPass"
+                                                                    title="Dialog Title">Pasword Must be greater than 8
+                                                                    character</div>
                           </div>
                         </div>
                       </div>
@@ -170,7 +175,6 @@
                       <button class="btn btn-outline-secondary">Reset</button>
                     </div>
                     <div class="col d-flex ">
-                      <!-- <button id="submitData" class="btn btn-success" type="submit">Save Changes</button> -->
                       <input id="submitData" class="btn btn-success form-control" type="submit" value="Save Changes">
                     </div>
                   </div>

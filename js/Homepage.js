@@ -59,15 +59,36 @@ $(document).ready(function () {
   $("#createuser").click(function () {
 
     //Getting All the values
-    var id = $('#emailid').val();
     var username = $('#name').val();
+    if (username.length < 3) {
+      $('#form2')[0].reset();
+      $("#dialogName").show().fadeOut(2000);
+      return;
+    }
     var phone = $('#phone').val();
+    if (phone.length < 10) {
+      $('#form2')[0].reset();
+      $("#dialogPhone").show().fadeOut(2000);
+      return;
+    }
+    var id = $('#emailid').val();
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (!regex.test(id)) {
+      $('#form2')[0].reset();
+      $("#dialogUser1").show().fadeOut(2000);
+      return;
+    }
+
     var password = $('#passwordnew').val();
     var cnfpass = $('#confirm-password').val();
-
-    //Password Confirmation
-    if (password != cnfpass) {
-      alert("Passwords Don't Match");
+    if (password.length < 8 && cnfpass.length < 8) {
+      $('#form2')[0].reset();
+      $("#dialogPass").show().fadeOut(2000);
+      return;
+    }
+    else if (password !== cnfpass) {
+      $('#form2')[0].reset();
+      $("#dialogPass1").show().fadeOut(2000);
       return;
     }
 
@@ -75,7 +96,7 @@ $(document).ready(function () {
     $.ajax({
       type: 'POST',
       url: 'http://localhost:3000/users/',
-      data: JSON.stringify({ "id": id, "username": username, "phone": phone, "password": password ,"recentlyPlayed":["none","none"]}),
+      data: JSON.stringify({ "id": id, "username": username, "phone": phone, "password": password, "recentlyPlayed": ["none", "none"] }),
       success: alert('Account Created Successfully'),
       contentType: "application/json",
       dataType: 'json'
@@ -84,6 +105,7 @@ $(document).ready(function () {
 
   //Function to Login user
   $('#loginuser').click(function () {
+
     //AJAX call to get data
     $.ajax({
       url: "http://localhost:3000/users/",
@@ -93,7 +115,6 @@ $(document).ready(function () {
       success: function (res) {
 
         //Getting Essential Data
-        // console.log($('#email').val);
         var uid = $('#email').val();
         var pass = $('#passwd').val();
 
@@ -105,9 +126,9 @@ $(document).ready(function () {
             validuser = true;
           }
           //check for UserID, If Match is found, There must be problem in password
-          else if (uid == res[i].id) {
+          else if (uid === res[i].id) {
             $('#language').modal('toggle');
-            $("#dialogPasswd").show();
+            $("#dialogPasswd").show().fadeOut(2000);
             return;
           }
 
@@ -115,7 +136,7 @@ $(document).ready(function () {
         //if UserID Not found 
         if (validuser === false) {
           $('#language').modal('toggle');
-          $("#dialogUser").show();
+          $("#dialogUser").show().fadeOut(2000);
           $('#form1')[0].reset();
           return;
         }

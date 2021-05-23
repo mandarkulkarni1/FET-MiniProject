@@ -12,11 +12,6 @@
   }
 }
 
-/* The navigation menu links */
-/* When you mouse over the navigation links, change their color */
-/* Position and style the close button (top right corner) */
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

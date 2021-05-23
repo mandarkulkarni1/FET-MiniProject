@@ -2,17 +2,15 @@
   "users": [
     {
       "id": "mk@123",
-      "username": "Mandar kulkarni",
+      "username": "Mandar Joshi",
       "phone": "9881122770",
       "password": "mk123",
-      "profilePic": "../assets/images/profile/profile1.jpeg",
+      "profilePic": "../assets/images/profile/profile-pic.jpeg",
       "recentlyPlayed[]": [
-        "s96",
-        "s58",
-        "s29",
+        "s103",
         "s67",
-        "s39",
-        "s99"
+        "s99",
+        "s96"
       ]
     },
     {
@@ -83,6 +81,46 @@
       "username": "Mansi",
       "phone": "2535435233",
       "password": "mk123",
+      "recentlyPlayed": [
+        "none",
+        "none"
+      ]
+    },
+    {
+      "id": "qwe@123",
+      "username": "Mahesh",
+      "phone": "3244343424",
+      "password": "321",
+      "recentlyPlayed": [
+        "none",
+        "none"
+      ]
+    },
+    {
+      "id": "mk@gmail.com",
+      "username": "",
+      "phone": "",
+      "password": "",
+      "recentlyPlayed": [
+        "none",
+        "none"
+      ]
+    },
+    {
+      "id": "qwe@gmail.com",
+      "username": "",
+      "phone": "",
+      "password": "asd",
+      "recentlyPlayed": [
+        "none",
+        "none"
+      ]
+    },
+    {
+      "id": "mandar123@gmail.com",
+      "username": "qwe",
+      "phone": "9881122770",
+      "password": "12345678",
       "recentlyPlayed": [
         "none",
         "none"

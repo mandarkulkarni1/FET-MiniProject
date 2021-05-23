@@ -1,5 +1,6 @@
 $(document).ready(function () {
-  var id = sessionStorage.getItem("id"); //take it from session
+  //take it from session
+  var id = sessionStorage.getItem("id"); 
 
   //Function to display Playlist in User Profile
   $.ajax({
@@ -9,7 +10,7 @@ $(document).ready(function () {
     async: true,
     success: function (data) {
       for (var i = 0; i < data.length; i++) {
-        if (data[i].userEmail == id) {
+        if (data[i].userEmail === id) {
           $('.mysongs').append(`<div style="text-align:center" class="text"><img style="margin:3px;" height=50% width=50% src=${data[i].image}></image><p>${data[i].name}</p></div>`)
         }
       }
@@ -58,10 +59,7 @@ $(document).ready(function () {
 
 
 
-  //---------------------------------------------------------------------------------------------------------//
   /*loading profile image from json server */
-  //---------------------------------------------------------------------------------------------------------//
-
   $("body").on("load", function () {
     $.ajax({
       type: "GET",
@@ -104,9 +102,7 @@ $(document).ready(function () {
   });
   $("body").trigger("load");
 
-  //---------------------------------------------------------------------------------------------------------//
   /* change profile pic */
-  //---------------------------------------------------------------------------------------------------------//
   var filePath = function (i) {
     var pic = i.files[0].name;
 
@@ -152,21 +148,7 @@ $(document).ready(function () {
     $(".file-upload").click();
   });
 
-  //-------------------------------------------------------------------------------------------------------//
   // edit profilr data
-  //---------------------------------------------------------------------------------------------------------//
-
-  // $('#enewPassword , #cnfPassword').on('keyup', function(){
-  //   var newP=$('#enewPassword').val();
-  //   var cnfP=$('#cnfPassword').val();
-  //   if(newP==cnfP){
-  //     $('#msg').html('Matching').css('color','green');
-  //   }else{
-  //     $('#msg').html('Not Matching').css('color','red');
-  //   }
-
-  //  });
-
   $("#submitData").on("click", function (e) {
     //Getting All the values
     e.preventDefault();
@@ -177,8 +159,6 @@ $(document).ready(function () {
     var newPassword = $("#enewPassword").val();
     var cnfPassword = $("#ecnfPassword").val();
 
-    // console.log(name);
-
     //for getting profile pic
     $.ajax({
       type: "GET",
@@ -186,7 +166,7 @@ $(document).ready(function () {
       dataType: "json",
       async: true,
       success: function (data) {
-        if (curPassword == "" && cnfPassword == "") {
+        if (curPassword === "" && cnfPassword === "") {
           data = JSON.parse(
             JSON.stringify(data).replace("recentlyPlayed[]", "recentlyPlayed")
           );
@@ -210,12 +190,12 @@ $(document).ready(function () {
           });
         } else {
           //Password Confirmation
-          if (curPassword != data.password) {
+          if (curPassword !== data.password) {
             alert("Current Passwords Don't Match");
             return;
           }
           //Password Confirmation
-          if (newPassword != cnfPassword) {
+          if (newPassword !== cnfPassword) {
             alert("Passwords Don't Match");
             return;
           }
@@ -244,6 +224,4 @@ $(document).ready(function () {
     });
   });
 
-  //---------------------------------------------------------------------------------------------------------//
-  //---------------------------------------------------------------------------------------------------------//
 });
