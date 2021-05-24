@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    //Get selected album id from session storage
     selectedAlbum = sessionStorage.getItem("selectedAlbum")
     $.ajax({
         type: "GET",
@@ -13,18 +14,18 @@ $(document).ready(function () {
 
             else {
 
-                $.each(albums, function (i, a) {
+                $.each(albums, function (i, a) {   //Get and display album info
 
                     var albumHead = `
                             <img src=${a.cover}>
                             <h8>Album</h8>
-                            <h3>${a.name}</h3>
+                            <h3><b>${a.name}</b></h3>
                             <h5>${a.artist}</h5>
                         `
                     $(".album-header").append(albumHead);
 
                     var albumId = a.id;
-                    $.ajax({
+                    $.ajax({                                              //Get and display all the songs of the album and their info
                         type: "GET",
                         url: "http://localhost:3000/songs",
                         dataType: "json",
@@ -39,10 +40,10 @@ $(document).ready(function () {
                                 $.each(songs, function (i, s) {
                                     songlist += `
                                                     <div id=${s.id} class="song">
-                                                    <img src="../assets/images/play.png" >
+                                                    <img class="play" src="../assets/images/play.png" >
                                                     <h5>${(i + 1) + ". " + s.name}</h5>
-                                                    <h5 style="position:absolute ; left: 635px">${s.artist}</h5>
-                                                    <h5 style="position:absolute ; right:30px">${s.duration}</h5>
+                                                    <h5 class="artists">${s.artist}</h5>
+                                                    <h5 class="duration">${s.duration}</h5>
                                                     
                                                     </div>
                                                     <hr>
@@ -64,6 +65,7 @@ $(document).ready(function () {
         },
     });
 
+    //On selecting a song
     $(".album-song-container").on("click", ".song", function (e) {
 
         let selectedSong = e.currentTarget.id;
@@ -73,7 +75,7 @@ $(document).ready(function () {
             url: "http://localhost:3000/users/" + sessionStorage.getItem("id"),
             dataType: "json",
             async: true,
-            success: function (user) {
+            success: function (user) {       //Store the song in recently played
 
                 user = JSON.parse(JSON.stringify(user).replace("recentlyPlayed[]", "recentlyPlayed"));
 
@@ -101,7 +103,7 @@ $(document).ready(function () {
                     data: user,
                     async: true,
                     success: function () {
-                        window.location.href = "audio.html?id=" + selectedSong
+                        window.location.href = "audio.html?id=" + selectedSong //Navigate to audio player
 
                     }
                 })

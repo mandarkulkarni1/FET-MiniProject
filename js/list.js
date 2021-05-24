@@ -1,17 +1,18 @@
 $(document).ready(function () {
 
     let selectedLang = {}
-    selectedLang = sessionStorage.getItem("lang");
+    selectedLang = sessionStorage.getItem("lang");  //Get selected language from session variable
 
     if (selectedLang === "all")
         selectedLang = {}
 
-    var selectedCategory;
+    //If album category selected in library page
     if (sessionStorage.getItem("section") === "category") {
+        var selectedCategory;
         $("#song-heading").hide();
-        selectedCategory = sessionStorage.getItem("value")
+        selectedCategory = sessionStorage.getItem("value")         //Get selected category name
 
-        $.ajax({
+        $.ajax({                                              //Get albums as per selected category and language  
             type: "GET",
             url: "http://localhost:3000/albums",
             dataType: "json",
@@ -22,20 +23,18 @@ $(document).ready(function () {
             async: true,
             success: function (albums) {
                 if (albums.length === 0)
-                    console.log("Not found")
+                    $(".album-container").append(`<h5>No albums present in the selected language in this category</h5>`);
 
                 else {
                     let albumlist = ""
-                    $.each(albums, function (i, a) {
+                    $.each(albums, function (i, a) {            //Display each album as card
                         var albumId = a.id;
-
                         albumlist += `
                                         <div id=${albumId} class="card">
                                         <img class="card-img-top" src=${a.cover} alt="Card image cap">
                                         <h5 class="card-title">${a.name}</h5>
                                         <p class="card-text" style="font-size: 12px;">${a.artist}</p>
-                                        </div>
-      
+                                        </div>      
                                     `
                     })
                     $(".album-container").append(albumlist);
@@ -48,21 +47,23 @@ $(document).ready(function () {
 
     }
 
-
+    //If artist selected in library page
     if (sessionStorage.getItem("section") === "artists") {
-        selectedArtist = sessionStorage.getItem("value")
-        $.ajax({
+        selectedArtist = sessionStorage.getItem("value")     //Get artist name from session variable
+        $.ajax({                                               //Get albums as per selected language
             type: "GET",
             url: "http://localhost:3000/albums",
+            data: { "language": selectedLang },
             dataType: "json",
             async: true,
             success: function (albums) {
-                if (albums.length === 0)
+                if (albums.length === 0) {
                     console.log("Not found")
-
+                }
                 else {
                     let albumlist = "";
-                    $.each(albums, function (i, a) {
+                    $.each(albums, function (i, a) {  //Get all the songs
+
 
                         $.ajax({
                             type: "GET",
@@ -75,7 +76,7 @@ $(document).ready(function () {
 
                                 else {
                                     let songlist = ""
-                                    $.each(songs, function (i, s) {
+                                    $.each(songs, function (i, s) {   //Check if the selected artist is associated with the song and the song is assoiciated with album fetched
                                         if (s.artist.includes(selectedArtist) && a.id === s.album_id) {
                                             songlist += `
                                                     <div class="song">
@@ -100,7 +101,7 @@ $(document).ready(function () {
                                 console.log("not able to process request");
                             },
                         });
-                        if (a.artist.includes(selectedArtist)) {
+                        if (a.artist.includes(selectedArtist)) {    //Check if the selected artist is associated with the album. If yes,print
                             var albumId = a.id;
 
                             albumlist += `  
@@ -112,8 +113,11 @@ $(document).ready(function () {
                                             
                                             `
                         }
+
                     })
                     $(".album-container").append(albumlist);
+                    if (albumlist === ``)
+                        $(".album-container").append(`<h5>No albums present for the artist in the selected language</h5>`);
                 }
             },
             error: function () {
@@ -123,7 +127,7 @@ $(document).ready(function () {
     }
 
 
-
+    //On selecting the album,store id of album in session storage and navigate to songlist page
     $(".album-container").on("click", ".card", function (e) {
 
         let selectedAlbum = e.currentTarget.id;
@@ -131,9 +135,12 @@ $(document).ready(function () {
         window.location.href = "songlist.html"
     })
 
+    //On selecting the song,append id of song in url and navigate to audio player page
     $(".song-container").on("click", ".card", function (e) {
 
         let selectedSong = e.currentTarget.id;
+
+        //Add song id to recently played
         $.ajax({
             type: "GET",
             url: "http://localhost:3000/users/" + sessionStorage.getItem("id"),
@@ -160,6 +167,8 @@ $(document).ready(function () {
                     user.recentlyPlayed.pop()
                 }
 
+                console.log(user)
+
                 $.ajax({
 
                     type: "PUT",
@@ -168,7 +177,7 @@ $(document).ready(function () {
                     data: user,
                     async: true,
                     success: function () {
-                        window.location.href = "audio.html?id=" + selectedSong
+                        window.location.href = "audio.html?id=" + selectedSong  //navigate to audio player page
                     }
                 })
 
@@ -178,7 +187,7 @@ $(document).ready(function () {
 
     })
 
-
+    //If a song is searched
     if (sessionStorage.getItem("section") === "search") {
         $("#album-heading").hide()
         $.ajax({
@@ -188,8 +197,10 @@ $(document).ready(function () {
             async: true,
             success: function (data) {
                 const URLparams = new URLSearchParams(window.location.search);
-                searchedSong = URLparams.get('searchSong')
+                searchedSong = URLparams.get('searchSong')            //Get song id from url params
+
                 $.each(data, function (i, song) {
+
                     if (song.name.toLowerCase() === searchedSong)
                         $.ajax({
                             type: "GET",
@@ -198,8 +209,10 @@ $(document).ready(function () {
                             data: { "id": song.album_id },
                             async: true,
                             success: function (data) {
+
                                 let songlist = "";
-                                $.each(data, function (i, album) {
+                                $.each(data, function (i, album) {    //Display song info
+
                                     songlist += `
                                     <div class="song">
                                     <div id=${song.id} class="card">
@@ -210,12 +223,14 @@ $(document).ready(function () {
                                     <p class="card-text" style="font-size: 12px;margin:2px;">Artist(s) : ${song.artist}</p>
                                     <p class="card-text" style="font-size: 12px;margin:2px;">Duration : ${song.duration}</p>
                                     </div>
-                                    <img class="play-img" src="../library-assets/images/play.png" >
+                                    <img class="play-img" src="../assets/images/play.png" >
                                     </div>
                                     </div>
                                 `;
                                 })
                                 $(".song-container").append(songlist);
+
+
 
                             },
 

@@ -1,9 +1,7 @@
 $(document).ready(function () {
   var id = sessionStorage.getItem("id"); //take it from session
 
-  //---------------------------------------------------------------------------------------------------------//
   /*loading profile image from json server */
-  //---------------------------------------------------------------------------------------------------------//
 
   $("body").on("load", function () {
     $.ajax({
@@ -49,9 +47,7 @@ $(document).ready(function () {
   });
   $("body").trigger("load");
 
-  //---------------------------------------------------------------------------------------------------------//
   /* change profile pic */
-  //---------------------------------------------------------------------------------------------------------//
 
   //warnig about img size
   $(".upload-button").hover(
@@ -110,20 +106,28 @@ $(document).ready(function () {
     $(".file-upload").click();
   });
 
-  //-------------------------------------------------------------------------------------------------------//
   // edit profilr data
-  //---------------------------------------------------------------------------------------------------------//
 
   $("#submitData").on("click", function (e) {
     //Getting All the values
     e.preventDefault();
     var name = $("#ename").val();
+    if (name.length < 3) {
+      $("#dialogName").show().fadeOut(2000);
+      return;
+    }
     var phone = $("#ephone").val();
+    if (phone.length < 10) {
+      $("#dialogPhone").show().fadeOut(2000);
+      return;
+    }
     var curPassword = $("#ecurPassword").val();
     var newPassword = $("#enewPassword").val();
     var cnfPassword = $("#ecnfPassword").val();
-
-    // console.log(name);
+    if (newPassword.length < 8 && cnfPassword.length < 8) {
+      $("#dialogPass").show().fadeOut(2000);
+      return;
+    }
 
     //for getting profile pic
     $.ajax({
@@ -158,18 +162,18 @@ $(document).ready(function () {
           });
         } else {
           //Password Confirmation
-          if (curPassword != data.password) {
+          if (curPassword !== data.password) {
             alert("Current Passwords Don't Match");
             return;
           }
           //Password Confirmation
-          if (newPassword != cnfPassword) {
+          if (newPassword !== cnfPassword) {
             alert("Passwords Don't Match");
             return;
           }
 
-          body = JSON.parse(
-            JSON.stringify(body).replace("recentlyPlayed[]", "recentlyPlayed")
+          data = JSON.parse(
+            JSON.stringify(data).replace("recentlyPlayed[]", "recentlyPlayed")
           );
 
           var body = {
@@ -195,6 +199,4 @@ $(document).ready(function () {
     });
   });
 
-  //---------------------------------------------------------------------------------------------------------//
-  //---------------------------------------------------------------------------------------------------------//
 });

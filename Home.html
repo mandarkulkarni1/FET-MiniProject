@@ -44,7 +44,8 @@
 
                         <li class="nav-item">
                             <button id="musicLibAnchor" class="btn btn-outline-secondary" disabled="disabled"
-                                onclick="window.location='ui/music_library.html'" data-toggle="tooltip" title="Login First">Music Library</button>
+                                onclick="window.location='ui/music_library.html'" data-toggle="tooltip"
+                                title="Login First">Music Library</button>
                         </li>
                         <li class="nav-item">
                             <button id="nowPlayingAnchor" class="btn btn-outline-secondary " disabled="disabled"
@@ -54,13 +55,15 @@
 
                         <li class="nav-item">
                             <button id="nowPlayingAnchor" class="btn btn-outline-success "
-                                onclick="window.location='ui/contactus.html'" data-toggle="tooltip" title="Contacts">Contact Us</button>
+                                onclick="window.location='ui/contactus.html'" data-toggle="tooltip"
+                                title="Contacts">Contact Us</button>
                         </li>
 
                     </ul>
                     <div class="d-flex">
                         <button type="button" id="loginbutton" class="btn btn-outline-success my-2 my-sm-0 "
-                            data-bs-toggle="modal" data-bs-target="#login" data-toggle="tooltip" title="Login To Portal">Login</button>
+                            data-bs-toggle="modal" data-bs-target="#login" data-toggle="tooltip"
+                            title="Login To Portal">Login</button>
                         <button type="button" id="userbutton" hidden class="btn btn-outline-success my-2 my-sm-0 "
                             data-toggle="tooltip" title="User Settings"><i class="fa fa-user-edit"></i></button>
                         <button type="button" id="logoutbutton" hidden class="btn btn-outline-danger my-2 my-sm-0 "
@@ -79,14 +82,16 @@
                                                 <span class="fa fa-user"></span>
                                                 <label class="form-label ">Email</label>
                                                 <input id="email" type="email" class="form-control required" required />
-                                                <div style="display: none; color: red;" id="dialogUser" title="Dialog Title">User Does Not Exist</div>
+                                                <div style="display: none; color: red;" id="dialogUser"
+                                                    title="Dialog Title">User Does Not Exist</div>
                                             </div>
                                             <div class="mb-2">
                                                 <span class="fa fa-lock"></span>
                                                 <label class="form-label ">Password</label>
                                                 <input id="passwd" type="password" minlength="8"
                                                     class="form-control required" required />
-                                                    <div style="display: none; color: red;" id="dialogPasswd" title="Dialog Title">Wrong Password</div>
+                                                <div style="display: none; color: red;" id="dialogPasswd"
+                                                    title="Dialog Title">Wrong Password</div>
                                             </div>
                                         </form>
                                     </div>
@@ -99,9 +104,8 @@
                                                 class="btn btn-outline-success my-2 my-sm-0 float-start"
                                                 data-bs-toggle="modal" data-bs-target="#register">Register</button>
                                         </fieldset>
-        
 
-                                        <!--======================================================== -->
+
                                         <div class="modal fade" id="language" tabindex="-1"
                                             aria-labelledby="exampleModalCenterTitle">
                                             <div class="modal modal-dialog modal-dialog-centered container show">
@@ -126,7 +130,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- ======================================================= -->
 
                                         <div class="modal fade" id="register" aria-labelledby="exampleModalCenterTitle"
                                             aria-hidden="true" tabindex="-1">
@@ -144,33 +147,46 @@
                                                             <div class="mb-2">
                                                                 <span class="fa fa-person-booth"></span>
                                                                 <label class="form-label ">Name</label>
-                                                                <input minlength="3" id="name" type="text" class="form-control"
-                                                                    required />
+                                                                <input minlength="3" id="name" type="text"
+                                                                    class="form-control" required />
+                                                                <div class="error" style="display: none; color: red;"
+                                                                    id="dialogName" title="Dialog Title">Invalid Name
+                                                                </div>
                                                             </div>
                                                             <div class="mb-2">
                                                                 <span class="fa fa-phone"></span>
                                                                 <label class="form-label ">Mobile</label>
-                                                                <input minlength="10" id="phone" type="tel" class="form-control"
-                                                                    required />
+                                                                <input minlength="10" id="phone" type="number"
+                                                                    class="form-control" required />
+                                                                <div style="display: none; color: red;" id="dialogPhone"
+                                                                    title="Dialog Title">Phone Number Must have 10
+                                                                    digits</div>
                                                             </div>
                                                             <div class="mb-2">
                                                                 <span class="fa fa-mail-bulk"></span>
                                                                 <label class="form-label ">Email</label>
                                                                 <input id="emailid" type="email" class="form-control"
                                                                     required>
+                                                                <div style="display: none; color: red;" id="dialogUser1"
+                                                                    title="Dialog Title">Invalid Email</div>
                                                             </div>
                                                             <div class="mb-2">
                                                                 <span class="fa fa-lock-open"></span>
                                                                 <label class="form-label required">Password</label>
                                                                 <input minlength="8" id="passwordnew" type="password"
                                                                     class="form-control" required />
+                                                                <div style="display: none; color: red;" id="dialogPass"
+                                                                    title="Dialog Title">Pasword Must be greater than 8
+                                                                    character</div>
                                                             </div>
                                                             <div class="mb-2">
                                                                 <span class="fa fa-lock"></span>
                                                                 <label class="form-label required">Confirm
                                                                     Password</label>
-                                                                <input minlength="8" id="confirm-password" type="password"
-                                                                    class="form-control" required />
+                                                                <input minlength="8" id="confirm-password"
+                                                                    type="password" class="form-control" required />
+                                                                <div style="display: none; color: red;" id="dialogPass1"
+                                                                    title="Dialog Title">Password doesn't Match</div>
                                                             </div>
                                                         </form>
                                                     </div>
