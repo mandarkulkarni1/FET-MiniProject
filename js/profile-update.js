@@ -133,8 +133,8 @@ $(document).ready(function () {
       async: true,
       success: function (data) {
 
-        body = JSON.parse(
-          JSON.stringify(body).replace("recentlyPlayed[]", "recentlyPlayed")
+        data = JSON.parse(
+          JSON.stringify(data).replace("recentlyPlayed[]", "recentlyPlayed")
         );
 
         if (curPassword === "" && cnfPassword === "") {

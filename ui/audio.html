@@ -16,17 +16,18 @@
             integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
             crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="../styles/style1.css" />
+        <link rel="stylesheet" href="../styles/audioStyle.css" />
         <link rel="stylesheet" href="../styles/main.css" />
         <title>Planet M</title>
         <link rel="icon" href="../assets/images/title.png" />
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script defer src="../js/script1.js"></script>
+        <script defer src="../js/navigation.js"></script>
         <!-- <script defer src="../js/library.js"></script>   -->
     </head>
 
     <body>
-        <header>
+        <header class="sticky-top shadow-lg">
             <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
                 <div class="container">
                     <a class="navbar-brand" href="#"> <i class="fab fa-napster"></i> <span>Planet M</span> </a>
@@ -36,10 +37,10 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <button id="musicLibAnchor" class="btn btn-outline-success" onclick="window.location='../library-ui/music_library.html'">Music Library</button>
+                                <button id="musicLibAnchor" class="btn btn-outline-success" onclick="window.location='./music_library.html'">Music Library</button>
                             </li>
                             <li class="nav-item">
-                                <button id="nowPlayingAnchor" class="btn btn-outline-success" onclick="window.location.reload">Now Playing</button>
+                                <button id="nowPlayingAnchor" class="btn btn-outline-success" disabled>Now Playing</button>
                             </li>
                         </ul>
                         <div class="d-flex">
@@ -151,7 +152,9 @@
                 </div>
             </div>
         </div>
-        <footer class="bg-dark text-center text-white fixed-bottom">&copyPlanetM, 2021</footer>
+        <footer style="background-color: #5cb85c;" class=" text-center text-white fixed-bottom">
+            &copyPlanetM, 2021
+          </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>

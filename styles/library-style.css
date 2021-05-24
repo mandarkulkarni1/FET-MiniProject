@@ -1,190 +1,175 @@
-
-
-input{
-    margin: 5px;
-}
- 
-.card-img-top{
-    height: 75%;
+input {
+  margin: 5px;
 }
 
-.card-title{
-    margin: 10px;
-    
+.card-img-top {
+  height: 75%;
 }
 
-.card{
-    width: 250px;
-    height: 180px;
-    margin: 20px;
-    text-align: center;
+.card-title {
+  margin: 10px;
 }
 
-.card:hover{
-    cursor: pointer;
-    box-shadow: 3px 3px 5px black;    
-    transform: scale(1.03);
+.card {
+  width: 250px;
+  height: 180px;
+  margin: 20px;
+  text-align: center;
 }
 
-.card-body{
-    text-align: center;
+.card:hover {
+  cursor: pointer;
+  box-shadow: 3px 3px 5px black;
+  transform: scale(1.03);
 }
 
-.section{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
+.card-body {
+  text-align: center;
 }
 
-.section-title{
-    margin-top: 20px;
-    margin-left:20px ;
+.section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-#albums  .card{
-    width: 225px;
-    height: 260px;
+.section-title {
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
-#albums .card-title{
-   padding-top: 8px;
-   margin: 0px;
+#albums .card {
+  width: 225px;
+  height: 260px;
 }
 
-.album-container .card{
-    width: 225px;
-    height: 260px;
-}
-.album-container .card-title{
-   padding-top: 8px;
-   margin: 0px;
+#albums .card-title {
+  padding-top: 8px;
+  margin: 0px;
 }
 
-#artists .card{
-    width: 130px;
-    border: white;
-    
+.album-container .card {
+  width: 225px;
+  height: 260px;
+}
+.album-container .card-title {
+  padding-top: 8px;
+  margin: 0px;
 }
 
-#artists .card:hover{  
-    transform: scale(1.1);
-    box-shadow: 0px 0px 0px white;
+#artists .card {
+  width: 130px;
+  border: white;
 }
 
-#artists  img{
-    border-radius: 50%;
-
+#artists .card:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 0px white;
 }
 
-#recent .card{
-    width: 150px;
+#artists img {
+  border-radius: 50%;
 }
 
-#recent .card-title{
-   margin: 0px;;
+#recent .card {
+  width: 150px;
 }
 
-.song .card{
-    
-    flex-direction: row;
-    height: 120px;
-    width: 450px;
+#recent .card-title {
+  margin: 0px;
 }
 
-
-#recent .song .card{
-    
-    flex-direction: row;
-    height: 120px;
-    width: 450px;
+.song .card {
+  flex-direction: row;
+  height: 120px;
+  width: 450px;
 }
 
-.song  .play-img{
-    display: none;
-    margin: 10px;
-    height:30px;
-    width:30px;
-    border-radius:50%;
+#recent .song .card {
+  flex-direction: row;
+  height: 120px;
+  width: 450px;
 }
 
-.song:hover  .play-img{
-    display: inline;
+.song .play-img {
+  display: none;
+  margin: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
 }
 
-.song .card-img-top{
-    width: 120px;
-    height: 100%;
+.song:hover .play-img {
+  display: inline;
 }
 
-.song-container{
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
+.song .card-img-top {
+  width: 120px;
+  height: 100%;
 }
 
-.song-container:hover .card-img-top{
-    src: "../library-assets/images/play.png";
-
+.song-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.album-container{
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
+.song-container:hover .card-img-top {
+  src: "../library-assets/images/play.png";
 }
 
-
-
-hr{
-    color:#5fcf32;
+.album-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-footer{
-    background-color: #5fcf32;
+hr {
+  color: #5fcf32;
 }
 
-.album-header{
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    margin-bottom: 20px;
-    
+footer {
+  background-color: #5fcf32;
 }
 
-.album-header img{
-    height: 250px;
-    width: 250px;
-   
+.album-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.album-song-container .song{
-    padding: 10px;
-    display: flex;
-    flex-direction:row;
-    align-items: center;    
-
+.album-header img {
+  height: 250px;
+  width: 250px;
 }
 
-.album-song-container .song:hover{
-    background-color: chartreuse;
-    cursor: pointer;
-    
+.album-song-container .song {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.album-song-container .song > img{
-    display: none;
-    margin: 1px;
-    margin-right:15px  ;
-    height:30px;
-    width:30px;
-    border-radius:50%;
+.album-song-container .song:hover {
+  background-color: chartreuse;
+  cursor: pointer;
 }
 
-.album-song-container .song:hover > img{
-    display: inline;
+.album-song-container .song > img {
+  display: none;
+  margin: 1px;
+  margin-right: 15px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.album-song-container .song:hover > img {
+  display: inline;
+}
+
+.mycard{
+    border:2px solid #5cb85c;
+    border-radius: 5px;
 }

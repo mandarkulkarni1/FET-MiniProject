@@ -106,14 +106,16 @@ $(document).ready(function () {
           }
           //check for UserID, If Match is found, There must be problem in password
           else if (uid == res[i].id) {
-            alert("Wrong Password");
+            $('#language').modal('toggle');
+            $("#dialogPasswd").show();
             return;
           }
 
         }
         //if UserID Not found 
         if (validuser === false) {
-          alert('User Not Exist');
+          $('#language').modal('toggle');
+          $("#dialogUser").show();
           $('#form1')[0].reset();
           return;
         }

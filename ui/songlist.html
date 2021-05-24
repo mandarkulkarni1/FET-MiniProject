@@ -14,7 +14,8 @@
     integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="../styles/main.css">
-  <title>Planet M </title>
+  <link rel="stylesheet" href="../styles/library-style.css">
+  <title>PlanetM</title>
   <link rel="icon" href="../assets/images/title.png">
 
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -31,7 +32,7 @@
 </head>
 
 <body>
-  <header>
+  <header class="sticky-top shadow-lg">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" href="#">
@@ -43,16 +44,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <!-- <li class="nav-item">
-                        <a class="btn" aria-current="page" href="#">Home</a>
-                    </li> -->
             <li class="nav-item">
               <button id="musicLibAnchor" class="btn btn-outline-success"
                 onclick="window.location='music_library.html'">Music Library</button>
             </li>
             <li class="nav-item">
-              <button id="nowPlayingAnchor" class="btn btn-outline-success "
-                onclick="window.location='../ui_audio/audio.html'">Now
+              <button disabled id="nowPlayingAnchor" class="btn btn-outline-success "
+                onclick="window.location='audio.html'">Now
                 Playing</button>
             </li>
 
@@ -76,15 +74,18 @@
   </header>
 
 
-  <div style="height: auto; border: 3px solid #5fcf32; margin: 3px; padding: 10px;">
+  <div style="height: auto; ">
 
-    <div class="album-header"></div>
+  <div class="col-11 mx-auto m-2 mb-4 p-1" >
+
+    <div class="album-header m-3 p-3 mycard shadow-lg"></div>
     <hr>
-
-    <div class="album-song-container"></div>
+ 
+    <div class="album-song-container m-2 p-3 mycard shadow-lg" ></div>
 
   </div>
-  <footer class="bg-dark text-center text-white fixed-bottom">
+</div>
+  <footer style="background-color: #5cb85c;" class=" text-center text-white fixed-bottom">
     &copyPlanetM, 2021
   </footer>
 </body>
