@@ -1,0 +1,5 @@
+projectKey=Test_3
+serverUrl=http://172.27.12.78
+dashboardUrl=http://172.27.12.78/dashboard/index/Test_3
+ceTaskId=AXmasJMwa_m12xx6Rv2W
+ceTaskUrl=http://172.27.12.78/api/ce/task?id=AXmasJMwa_m12xx6Rv2W

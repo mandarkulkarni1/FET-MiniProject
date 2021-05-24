@@ -13,23 +13,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
         integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
         crossorigin="anonymous" />
-    <link rel="stylesheet" href="../sass/main.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/contactus.css">
     <title>Planet M Contact Us</title>
-    <link rel="icon" href="../image/title.png">
+    <link rel="icon" href="../assets/images/title.png">
 
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script defer src="../js/mandarjs.js"></script>
+    <script defer src="../js/Homepage.js"></script>
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="../Home.html">
                     <i class="fab fa-napster"></i> <span>Planet M</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -40,7 +41,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="btn btn-outline-success" aria-current="page" onclick="window.location='../home.html'">Home</a>
+                            <a class="btn btn-outline-secondary" disabled="disabled" aria-current="page" disabled="disabled">Home</a>
                         </li>
                         <li class="nav-item">
                             <button id="musicLibAnchor" class="btn btn-outline-secondary" disabled="disabled"
@@ -57,7 +58,7 @@
                         </li>
                     </ul>
                     <button id="nowPlayingAnchor" class="btn btn-outline-secondary float-end " disabled="disabled"
-                        onclick="window.location='./ui_audio/audio.html'">Login</button>
+                        onclick="window.location='./audio.html'">Login</button>
                 </div>
             </div>
         </nav>
@@ -70,7 +71,7 @@
                 <h1 class="jumbotron-heading"> <span style="color: rgb(32, 167, 32);">Contact Us</span> </h1>
                 <h1>For Querries</h1>
                 <br>
-                <img src="../image/image.gif" class="" alt="">
+                <img src="../assets/images/image.gif" class="" alt="">
             </div>
         </section>
     </main>
@@ -82,20 +83,17 @@
             <br>
             
             <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <div class="wrapper">
-                        <div class="row mb-5">
-                            <div class="col-md-3">
+                            <div class="col-md-2 btn btn-outline-success m-3 p-3 shadow-lg">
                                 <div class="dbox w-100 text-center">
                                     <div class="icon d-flex align-items-center justify-content-center">
                                         <span class="fa fa-map-marker"></span>
                                     </div>
                                     <div class="text">
-                                        <span>Address:</span><br> EON-Kharadi IT park, Pune(M.S.)
+                                        <span>Address:</span><br>Kharadi IT park, Pune.
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2 btn btn-outline-success m-3 p-3 shadow-lg">
                                 <div class="dbox w-100 text-center">
                                     <div class="icon d-flex align-items-center justify-content-center">
                                         <span class="fa fa-phone"></span>
@@ -105,7 +103,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2 btn btn-outline-success m-3  p-3 shadow-lg">
                                 <div class="dbox w-100 text-center">
                                     <div class="icon d-flex align-items-center justify-content-center">
                                         <span class="fa fa-paper-plane"></span>
@@ -116,7 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2 btn btn-outline-success m-3  p-3 shadow-lg">
                                 <div class="dbox w-100 text-center">
                                     <div class="icon d-flex align-items-center justify-content-center">
                                         <span class="fa fa-globe"></span>
@@ -127,9 +125,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
