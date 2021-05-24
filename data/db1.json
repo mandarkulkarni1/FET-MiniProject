@@ -2,17 +2,17 @@
   "users": [
     {
       "id": "mk@123",
-      "username": "Mandar Joshi",
-      "phone": "9881122770",
-      "password": "mk123",
+      "username": "Mandar J",
+      "phone": "9881122213",
+      "password": "12345678",
       "profilePic": "../assets/images/profile/profile-pic.jpeg",
       "recentlyPlayed[]": [
+        "s80",
+        "s39",
         "s75",
         "s36",
         "s66",
-        "s59",
-        "s65",
-        "s50"
+        "s59"
       ]
     },
     {
